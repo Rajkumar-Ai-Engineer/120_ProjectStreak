@@ -1,0 +1,7 @@
+superagi-client
+python-dotenv 
+langchain
+langchain-community 
+langchain-groq 
+openai 
+google-genai

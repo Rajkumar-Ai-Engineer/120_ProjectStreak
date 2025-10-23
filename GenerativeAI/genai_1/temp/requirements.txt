@@ -1,0 +1,5 @@
+fastapi
+uvicorn
+langflow==0.0.53
+pyngrok
+langchain==0.0.131

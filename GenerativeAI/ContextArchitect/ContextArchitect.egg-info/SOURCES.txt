@@ -1,0 +1,8 @@
+README.md
+helper.py
+setup.py
+ContextArchitect.egg-info/PKG-INFO
+ContextArchitect.egg-info/SOURCES.txt
+ContextArchitect.egg-info/dependency_links.txt
+ContextArchitect.egg-info/requires.txt
+ContextArchitect.egg-info/top_level.txt

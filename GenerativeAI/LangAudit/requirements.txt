@@ -1,0 +1,4 @@
+langchain>=0.1.17
+langsmith==0.4.5
+langchain_groq
+python-dotenv

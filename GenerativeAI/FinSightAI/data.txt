@@ -1,0 +1,67 @@
+FINANCIAL REPORT - AUGUST 2025
+
+ACCOUNT SUMMARY:
+Account Holder: John Doe
+Account Number: ****1234
+Opening Balance: 38000.25 INR
+Closing Balance: 45750.25 INR
+Net Change: +7750.00 INR
+
+MONTHLY TRANSACTIONS:
+
+Date,Transaction_ID,Type,Amount,Currency,Merchant,Category,Balance
+2025-08-01,TXN001,Debit,1200.50,INR,Amazon,Shopping,36799.75
+2025-08-02,TXN002,Credit,15000.00,INR,TechCorp Salary,Income,51799.75
+2025-08-03,TXN003,Debit,250.00,INR,Zomato,Food,51549.75
+2025-08-04,TXN004,Debit,1800.00,INR,BigBazaar,Grocery,49749.75
+2025-08-05,TXN005,Debit,500.00,INR,Uber,Transport,49249.75
+2025-08-06,TXN006,Credit,2000.00,INR,Freelance Project,Income,51249.75
+2025-08-07,TXN007,Debit,3500.00,INR,HDFC Bank,Loan EMI,47749.75
+2025-08-08,TXN008,Debit,1200.00,INR,Reliance Digital,Electronics,46549.75
+2025-08-09,TXN009,Debit,800.00,INR,PVR Cinemas,Entertainment,45749.75
+2025-08-10,TXN010,Credit,5000.00,INR,Investment Returns,Income,50749.75
+2025-08-11,TXN011,Debit,2200.00,INR,Apollo Pharmacy,Healthcare,48549.75
+2025-08-12,TXN012,Debit,450.00,INR,Swiggy,Food,48099.75
+2025-08-13,TXN013,Debit,1500.00,INR,Lifestyle Store,Shopping,46599.75
+2025-08-14,TXN014,Debit,300.00,INR,BookMyShow,Entertainment,46299.75
+2025-08-15,TXN015,Credit,1200.00,INR,Cashback Reward,Income,47499.75
+2025-08-16,TXN016,Debit,2800.00,INR,Electricity Bill,Utilities,44699.75
+2025-08-17,TXN017,Debit,950.00,INR,Ola Cab,Transport,43749.75
+2025-08-18,TXN018,Debit,4200.00,INR,SBI Credit Card,Credit Card Payment,39549.75
+2025-08-19,TXN019,Credit,3500.00,INR,Bonus Payment,Income,43049.75
+2025-08-20,TXN020,Debit,1800.00,INR,DMart,Grocery,41249.75
+2025-08-21,TXN021,Debit,650.00,INR,Dominos,Food,40599.75
+2025-08-22,TXN022,Credit,8000.00,INR,Mutual Fund Redemption,Investment,48599.75
+2025-08-23,TXN023,Debit,2200.00,INR,Max Hospital,Healthcare,46399.75
+2025-08-24,TXN024,Debit,750.00,INR,Netflix Subscription,Entertainment,45649.75
+2025-08-25,TXN025,Debit,1100.00,INR,Myntra,Shopping,44549.75
+2025-08-26,TXN026,Credit,1200.00,INR,Dividend Income,Investment,45749.75
+2025-08-27,TXN027,Debit,3200.00,INR,Rent Payment,Housing,42549.75
+2025-08-28,TXN028,Debit,890.00,INR,Petrol Pump,Transport,41659.75
+2025-08-29,TXN029,Credit,4500.00,INR,Consulting Fee,Income,46159.75
+2025-08-30,TXN030,Debit,409.50,INR,Mobile Recharge,Utilities,45750.25
+
+CATEGORY WISE SPENDING:
+Food: 1550.00 INR (6.2%)
+Shopping: 3500.50 INR (14.0%)
+Transport: 2240.00 INR (9.0%)
+Utilities: 3209.50 INR (12.8%)
+Healthcare: 4400.00 INR (17.6%)
+Entertainment: 1850.00 INR (7.4%)
+Grocery: 3600.00 INR (14.4%)
+Housing: 3200.00 INR (12.8%)
+Loan EMI: 3500.00 INR (14.0%)
+Credit Card: 4200.00 INR (16.8%)
+
+TOTAL INCOME: 40400.00 INR
+TOTAL EXPENSES: 32650.00 INR
+NET SAVINGS: 7750.00 INR
+SAVINGS RATE: 19.2%
+
+FINANCIAL INSIGHTS:
+- Highest expense category: Healthcare (17.6%)
+- Monthly savings rate is healthy at 19.2%
+- Regular income from salary and side projects
+- Investment returns contributing positively
+- EMI payments are manageable at 14% of expenses
+- Food delivery expenses could be optimized

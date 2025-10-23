@@ -1,0 +1,10 @@
+langchain
+llama-index
+faiss-cpu
+python-dotenv
+llama-index-vector-stores-faiss
+llama-index-embeddings-huggingface 
+llama-index-llms-groq
+groq
+openai
+streamlit

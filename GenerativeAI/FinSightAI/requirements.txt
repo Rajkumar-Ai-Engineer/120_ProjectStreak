@@ -1,0 +1,12 @@
+llama-index
+python-dotenv
+llama-index-vector-stores-cassandra
+langchain
+autogen
+pyautogen 
+gradio 
+groq
+openai
+llama-index-llms-google-genai
+llama-index-embeddings-huggingface 
+llama-index-vector-stores-chroma

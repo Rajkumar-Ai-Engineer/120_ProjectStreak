@@ -1,0 +1,7 @@
+# requirements.txt (recommended, works with Pydantic v2)
+fastapi>=0.110
+pydantic==2.9
+langserve>=0.3.0
+langchain>=0.1.15
+uvicorn
+langchain-openai>=0.0.8

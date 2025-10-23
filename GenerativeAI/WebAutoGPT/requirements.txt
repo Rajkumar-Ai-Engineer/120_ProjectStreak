@@ -1,0 +1,9 @@
+python-dotenv
+flask
+flask-cors
+llama-index 
+openai
+groq
+superagi-client
+superagi
+playwright

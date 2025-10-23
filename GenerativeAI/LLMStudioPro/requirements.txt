@@ -1,0 +1,16 @@
+python-dotenv  
+langchain
+langchain-community
+langchain-groq
+langchain-openai
+streamlit 
+openai
+groq
+faiss-cpu
+flask
+llama-index
+langchain-tavily
+duckduckgo-search 
+langgraph
+langchain-deepseek
+sentence-transformers
