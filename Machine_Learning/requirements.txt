@@ -1,0 +1,12 @@
+face_recognition
+pandas
+numpy
+tensorflow
+keras
+json
+pickle
+sklearn
+opencv
+PIL 
+matplotlib
+seaborn
