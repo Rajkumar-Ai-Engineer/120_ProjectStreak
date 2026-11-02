@@ -1,0 +1,4227 @@
+[
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/AI_cyber",
+    "name": "Ai Cyber",
+    "files": [
+      "test.py",
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "joblib",
+      "keras",
+      "keras.callbacks",
+      "keras.layers",
+      "keras.models",
+      "matplotlib.pyplot",
+      "numpy",
+      "os",
+      "pandas",
+      "pickle",
+      "sklearn.feature_selection",
+      "sklearn.model_selection",
+      "sklearn.preprocessing",
+      "tensorflow"
+    ],
+    "signals": [
+      "evaluate",
+      "fit",
+      "keras",
+      "pandas",
+      "predict",
+      "sklearn",
+      "tensorflow",
+      "train"
+    ],
+    "entrypoints": [
+      "test.py",
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "test.py",
+        "imports": [
+          "joblib",
+          "keras",
+          "numpy",
+          "pandas"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 24,
+        "signals": [
+          "Predict",
+          "keras",
+          "pandas",
+          "predict"
+        ]
+      },
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "joblib",
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "matplotlib.pyplot",
+          "numpy",
+          "os",
+          "pandas",
+          "pickle",
+          "sklearn.feature_selection",
+          "sklearn.model_selection",
+          "sklearn.preprocessing",
+          "tensorflow"
+        ],
+        "code_lines": 85,
+        "signals": [
+          "Train",
+          "evaluate",
+          "fit",
+          "keras",
+          "pandas",
+          "sklearn",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "data.csv",
+        1
+      ]
+    ],
+    "readme_exists": true,
+    "number": 1
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/Brain_tumour",
+    "name": "Brain Tumour",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "keras.applications.vgg19",
+      "keras.callbacks",
+      "keras.layers",
+      "keras.models",
+      "keras.preprocessing.image",
+      "matplotlib.pyplot",
+      "numpy",
+      "pathlib",
+      "tensorflow"
+    ],
+    "signals": [
+      "evaluate",
+      "fit",
+      "keras",
+      "tensorflow",
+      "train"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "keras.applications.vgg19",
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "keras.preprocessing.image",
+          "matplotlib.pyplot",
+          "numpy",
+          "pathlib",
+          "tensorflow"
+        ],
+        "code_lines": 65,
+        "signals": [
+          "Train",
+          "evaluate",
+          "fit",
+          "keras",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "dataset",
+        7023
+      ]
+    ],
+    "readme_exists": true,
+    "number": 2
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/Human_pose",
+    "name": "Human Pose",
+    "files": [
+      "1.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "matplotlib.pyplot",
+      "numpy"
+    ],
+    "signals": [
+      "cv2"
+    ],
+    "entrypoints": [
+      "1.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "1.ipynb",
+        "markdown": [
+          "**Body parts and its pairs**",
+          "**Weights for openpose model**"
+        ],
+        "imports": [
+          "cv2",
+          "matplotlib.pyplot",
+          "numpy"
+        ],
+        "code_lines": 86,
+        "signals": [
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 3
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/SEQ_SEQ",
+    "name": "Seq Seq",
+    "files": [
+      "transformer.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "datasets",
+      "transformers"
+    ],
+    "signals": [
+      "face",
+      "fit",
+      "tensorflow",
+      "transformers"
+    ],
+    "entrypoints": [
+      "transformer.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "transformer.ipynb",
+        "markdown": [],
+        "imports": [
+          "datasets",
+          "transformers"
+        ],
+        "code_lines": 62,
+        "signals": [
+          "Face",
+          "fit",
+          "tensorflow",
+          "transformers"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 4
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/Yolo",
+    "name": "Yolo",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "imutils",
+      "numpy",
+      "os"
+    ],
+    "signals": [
+      "cv2"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [
+          "**yolo config ,weights, names**",
+          "**Start frame**"
+        ],
+        "imports": [
+          "cv2",
+          "imutils",
+          "numpy",
+          "os"
+        ],
+        "code_lines": 106,
+        "signals": [
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "YOLO_V4",
+        3
+      ]
+    ],
+    "readme_exists": true,
+    "number": 5
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/maskdetector/25- Face Mask detector",
+    "name": "25 Face Mask Detector",
+    "files": [
+      "test.py",
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "imutils",
+      "keras",
+      "keras.applications.mobilenet",
+      "keras.callbacks",
+      "keras.layers",
+      "keras.models",
+      "keras.preprocessing.image",
+      "matplotlib.pyplot",
+      "numpy",
+      "os",
+      "pathlib",
+      "tensorflow",
+      "time"
+    ],
+    "signals": [
+      "cv2",
+      "evaluate",
+      "face",
+      "fit",
+      "keras",
+      "predict",
+      "tensorflow",
+      "train"
+    ],
+    "entrypoints": [
+      "test.py",
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "test.py",
+        "imports": [
+          "cv2",
+          "imutils",
+          "keras",
+          "numpy",
+          "time"
+        ],
+        "functions": [
+          "detect_model"
+        ],
+        "classes": [],
+        "lines": 97,
+        "signals": [
+          "cv2",
+          "face",
+          "keras",
+          "predict"
+        ]
+      },
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "keras",
+          "keras.applications.mobilenet",
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "keras.preprocessing.image",
+          "matplotlib.pyplot",
+          "numpy",
+          "os",
+          "pathlib",
+          "tensorflow"
+        ],
+        "code_lines": 82,
+        "signals": [
+          "Train",
+          "evaluate",
+          "fit",
+          "keras",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "25- Face Mask detector",
+        1380
+      ],
+      [
+        "dataset",
+        1376
+      ]
+    ],
+    "readme_exists": true,
+    "number": 6
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/preditive",
+    "name": "Preditive",
+    "files": [
+      "gru1.ipynb",
+      "lstm1.ipynb",
+      "rnn1.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "keras.callbacks",
+      "keras.layers",
+      "keras.models",
+      "keras.preprocessing.sequence",
+      "matplotlib.pyplot",
+      "tensorflow",
+      "tensorflow.keras.optimizers",
+      "tensorflow.keras.utils",
+      "tensorflow_datasets"
+    ],
+    "signals": [
+      "evaluate",
+      "fit",
+      "keras",
+      "tensorflow"
+    ],
+    "entrypoints": [
+      "gru1.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "gru1.ipynb",
+        "markdown": [],
+        "imports": [
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "keras.preprocessing.sequence",
+          "matplotlib.pyplot",
+          "tensorflow",
+          "tensorflow.keras.utils",
+          "tensorflow_datasets"
+        ],
+        "code_lines": 54,
+        "signals": [
+          "evaluate",
+          "fit",
+          "keras",
+          "tensorflow"
+        ]
+      },
+      {
+        "file": "lstm1.ipynb",
+        "markdown": [],
+        "imports": [
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "keras.preprocessing.sequence",
+          "matplotlib.pyplot",
+          "tensorflow",
+          "tensorflow.keras.utils",
+          "tensorflow_datasets"
+        ],
+        "code_lines": 55,
+        "signals": [
+          "evaluate",
+          "fit",
+          "keras",
+          "tensorflow"
+        ]
+      },
+      {
+        "file": "rnn1.ipynb",
+        "markdown": [],
+        "imports": [
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "keras.preprocessing.sequence",
+          "matplotlib.pyplot",
+          "tensorflow",
+          "tensorflow.keras.optimizers",
+          "tensorflow_datasets"
+        ],
+        "code_lines": 55,
+        "signals": [
+          "evaluate",
+          "fit",
+          "keras",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 7
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/speech",
+    "name": "Speech",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "IPython.display",
+      "keras",
+      "keras.callbacks",
+      "keras.layers",
+      "keras.models",
+      "keras.utils",
+      "librosa",
+      "matplotlib.pyplot",
+      "numpy",
+      "os",
+      "random",
+      "scipy.io",
+      "sklearn.model_selection",
+      "sklearn.preprocessing"
+    ],
+    "signals": [
+      "fit",
+      "keras",
+      "predict",
+      "sklearn",
+      "train"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "IPython.display",
+          "keras",
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "keras.utils",
+          "librosa",
+          "matplotlib.pyplot",
+          "numpy",
+          "os",
+          "random",
+          "scipy.io",
+          "sklearn.model_selection",
+          "sklearn.preprocessing"
+        ],
+        "code_lines": 119,
+        "signals": [
+          "fit",
+          "keras",
+          "predict",
+          "sklearn",
+          "train"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "audio",
+        33468
+      ],
+      [
+        "train",
+        14623
+      ]
+    ],
+    "readme_exists": true,
+    "number": 8
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/style_transfer",
+    "name": "Style Transfer",
+    "files": [
+      "cycle_gan.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "IPython.display",
+      "matplotlib.pyplot",
+      "os",
+      "tensorflow",
+      "tensorflow_datasets",
+      "tensorflow_examples.models.pix2pix",
+      "time"
+    ],
+    "signals": [
+      "keras",
+      "tensorflow",
+      "train"
+    ],
+    "entrypoints": [
+      "cycle_gan.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "cycle_gan.ipynb",
+        "markdown": [
+          "**Libs**",
+          "**Data Loading**",
+          "**Split**",
+          "**Augmentation Techniques for Cycle Gan**",
+          "**1.Random Jittering**",
+          "**2.Random Mirroring**",
+          "**3.Normalization**",
+          "**Data Conversion**",
+          "**Generator an Discriminator**",
+          "**Losses**",
+          "**Discriminator**",
+          "**Check Point**"
+        ],
+        "imports": [
+          "IPython.display",
+          "matplotlib.pyplot",
+          "os",
+          "tensorflow",
+          "tensorflow_datasets",
+          "tensorflow_examples.models.pix2pix",
+          "time"
+        ],
+        "code_lines": 233,
+        "signals": [
+          "keras",
+          "tensorflow",
+          "train"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 9
+  },
+  {
+    "domain": "DeepLearning",
+    "path": "DeepLearning/unet_image_segmentation",
+    "name": "Unet Image Segmentation",
+    "files": [
+      "unet_is.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "keras",
+      "keras.layers",
+      "tensorflow"
+    ],
+    "signals": [
+      "fit",
+      "keras",
+      "tensorflow"
+    ],
+    "entrypoints": [
+      "unet_is.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "unet_is.ipynb",
+        "markdown": [],
+        "imports": [
+          "keras",
+          "keras.layers",
+          "tensorflow"
+        ],
+        "code_lines": 62,
+        "signals": [
+          "fit",
+          "keras",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 10
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/AgentAuditAI/AgentAudit",
+    "name": "Agentaudit",
+    "files": [
+      "__init__.py",
+      "logs.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "autogen",
+      "dotenv",
+      "langsmith",
+      "logging",
+      "logs",
+      "os",
+      "threading",
+      "traceback"
+    ],
+    "signals": [
+      "autogen",
+      "evaluate",
+      "openai"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "__init__.py",
+        "imports": [],
+        "functions": [],
+        "classes": [],
+        "lines": 1,
+        "signals": []
+      },
+      {
+        "file": "logs.py",
+        "imports": [
+          "logging"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 24,
+        "signals": []
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "autogen",
+          "dotenv",
+          "langsmith",
+          "logs",
+          "os",
+          "threading",
+          "traceback"
+        ],
+        "functions": [
+          "evaluate_task",
+          "__init__",
+          "worker_agent",
+          "meta_agent_auditor"
+        ],
+        "classes": [
+          "AgentAudit"
+        ],
+        "lines": 105,
+        "signals": [
+          "Evaluate",
+          "autogen",
+          "evaluate",
+          "openai"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 11
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/Autofixer",
+    "name": "Autofixer",
+    "files": [
+      "helper.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "google",
+      "langchain",
+      "langchain_groq",
+      "os",
+      "re",
+      "streamlit",
+      "superagi_client"
+    ],
+    "signals": [
+      "langchain",
+      "streamlit"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "helper.py",
+        "imports": [
+          "superagi_client"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 3,
+        "signals": []
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "google",
+          "langchain",
+          "langchain_groq",
+          "os",
+          "re",
+          "streamlit"
+        ],
+        "functions": [
+          "fix_code"
+        ],
+        "classes": [],
+        "lines": 48,
+        "signals": [
+          "langchain",
+          "streamlit"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 12
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/ContextArchitect/ContextArtitext",
+    "name": "Contextartitext",
+    "files": [
+      "__init__.py",
+      "app.py",
+      "helper.py",
+      "logs.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "dotenv",
+      "helper",
+      "llama_index",
+      "logging",
+      "logs",
+      "os",
+      "streamlit",
+      "traceback"
+    ],
+    "signals": [
+      "streamlit"
+    ],
+    "entrypoints": [
+      "app.py",
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "__init__.py",
+        "imports": [],
+        "functions": [],
+        "classes": [],
+        "lines": 1,
+        "signals": []
+      },
+      {
+        "file": "app.py",
+        "imports": [
+          "helper",
+          "streamlit"
+        ],
+        "functions": [
+          "load_model"
+        ],
+        "classes": [],
+        "lines": 19,
+        "signals": [
+          "streamlit"
+        ]
+      },
+      {
+        "file": "helper.py",
+        "imports": [
+          "dotenv",
+          "llama_index",
+          "logs",
+          "os",
+          "traceback"
+        ],
+        "functions": [
+          "__init__",
+          "read_data",
+          "create_index",
+          "load_index",
+          "QueryEngine",
+          "run"
+        ],
+        "classes": [
+          "ContextArchitect"
+        ],
+        "lines": 76,
+        "signals": []
+      },
+      {
+        "file": "logs.py",
+        "imports": [
+          "logging"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 20,
+        "signals": []
+      },
+      {
+        "file": "main.py",
+        "imports": [],
+        "functions": [],
+        "classes": [],
+        "lines": 1,
+        "signals": []
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 13
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/DecisionSim",
+    "name": "Decisionsim",
+    "files": [
+      "app.py",
+      "helper.py",
+      "test.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "IPython",
+      "autogen",
+      "crewai",
+      "dotenv",
+      "helper",
+      "io",
+      "langchain",
+      "langchain_core",
+      "langchain_groq",
+      "langgraph",
+      "os",
+      "pydantic",
+      "streamlit",
+      "sys",
+      "test",
+      "time",
+      "typing"
+    ],
+    "signals": [
+      "autogen",
+      "crewai",
+      "evaluate",
+      "langchain",
+      "openai",
+      "streamlit"
+    ],
+    "entrypoints": [
+      "app.py",
+      "test.py"
+    ],
+    "summaries": [
+      {
+        "file": "app.py",
+        "imports": [
+          "helper",
+          "io",
+          "streamlit",
+          "sys",
+          "test",
+          "time"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 88,
+        "signals": [
+          "AutoGen",
+          "CrewAI",
+          "streamlit"
+        ]
+      },
+      {
+        "file": "helper.py",
+        "imports": [
+          "IPython",
+          "autogen",
+          "crewai",
+          "dotenv",
+          "langchain",
+          "langchain_groq",
+          "langgraph",
+          "os",
+          "pydantic",
+          "streamlit",
+          "typing"
+        ],
+        "functions": [
+          "get_decision_sim",
+          "__init__",
+          "agents_config",
+          "create_agents",
+          "create_task",
+          "langgraph_graph",
+          "create_autogen_agents",
+          "autogen_process",
+          "crew_process",
+          "run",
+          "market_analysis_node",
+          "financial_analysis_node",
+          "decision_node"
+        ],
+        "classes": [
+          "DecisionSim",
+          "GraphState"
+        ],
+        "lines": 290,
+        "signals": [
+          "CrewAI",
+          "Evaluate",
+          "autogen",
+          "crewai",
+          "evaluate",
+          "langchain",
+          "openai",
+          "streamlit"
+        ]
+      },
+      {
+        "file": "test.py",
+        "imports": [
+          "dotenv",
+          "langchain_core",
+          "langchain_groq",
+          "langgraph",
+          "os",
+          "streamlit",
+          "typing"
+        ],
+        "functions": [
+          "market_analysis_node",
+          "financial_analysis_node",
+          "decision_making_node",
+          "graph"
+        ],
+        "classes": [
+          "GraphState"
+        ],
+        "lines": 90,
+        "signals": [
+          "streamlit"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 14
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/FinSightAI",
+    "name": "Finsightai",
+    "files": [
+      "app.py",
+      "helper.py",
+      "logger_mode.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "autogen",
+      "chromadb",
+      "dotenv",
+      "gradio",
+      "helper",
+      "langchain",
+      "langchain_community",
+      "llama_index",
+      "logger_mode",
+      "logging",
+      "os",
+      "requests",
+      "threading",
+      "traceback"
+    ],
+    "signals": [
+      "autogen",
+      "gradio",
+      "langchain",
+      "openai"
+    ],
+    "entrypoints": [
+      "app.py",
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "app.py",
+        "imports": [
+          "dotenv",
+          "gradio",
+          "helper",
+          "os",
+          "requests"
+        ],
+        "functions": [
+          "analyze_with_llm",
+          "process_query",
+          "chat_interface"
+        ],
+        "classes": [],
+        "lines": 79,
+        "signals": [
+          "gradio",
+          "openai"
+        ]
+      },
+      {
+        "file": "helper.py",
+        "imports": [
+          "chromadb",
+          "dotenv",
+          "langchain",
+          "langchain_community",
+          "llama_index",
+          "logger_mode",
+          "os",
+          "threading",
+          "traceback"
+        ],
+        "functions": [
+          "__init__",
+          "load_data",
+          "split_documents",
+          "_convert_to_llama_index_documents",
+          "create_index",
+          "load_index",
+          "query_engine",
+          "process_query"
+        ],
+        "classes": [
+          "FinSightAI"
+        ],
+        "lines": 143,
+        "signals": [
+          "LangChain",
+          "langchain"
+        ]
+      },
+      {
+        "file": "logger_mode.py",
+        "imports": [
+          "logging"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 20,
+        "signals": []
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "autogen",
+          "dotenv",
+          "helper",
+          "os"
+        ],
+        "functions": [
+          "process_query"
+        ],
+        "classes": [],
+        "lines": 65,
+        "signals": [
+          "autogen",
+          "openai"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 15
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/InsightServe",
+    "name": "Insightserve",
+    "files": [
+      "client.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "requests",
+      "streamlit"
+    ],
+    "signals": [
+      "streamlit"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "client.py",
+        "imports": [
+          "requests"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 6,
+        "signals": []
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "requests",
+          "streamlit"
+        ],
+        "functions": [
+          "pokemon_assistant",
+          "pokemon_details",
+          "pokemon_dex"
+        ],
+        "classes": [],
+        "lines": 122,
+        "signals": [
+          "streamlit"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [
+      [
+        "temp",
+        2
+      ]
+    ],
+    "readme_exists": true,
+    "number": 16
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/LLMStudioPro",
+    "name": "Llmstudiopro",
+    "files": [
+      "app.py",
+      "helper.py",
+      "llm_output_cleaner.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "dotenv",
+      "helper",
+      "json",
+      "langchain",
+      "langchain_community",
+      "langchain_groq",
+      "langchain_tavily",
+      "langgraph",
+      "os",
+      "pinecone",
+      "re",
+      "streamlit"
+    ],
+    "signals": [
+      "langchain",
+      "openai",
+      "rag",
+      "streamlit"
+    ],
+    "entrypoints": [
+      "app.py"
+    ],
+    "summaries": [
+      {
+        "file": "app.py",
+        "imports": [
+          "helper",
+          "os",
+          "streamlit"
+        ],
+        "functions": [
+          "slideBar"
+        ],
+        "classes": [],
+        "lines": 96,
+        "signals": [
+          "Openai",
+          "RAG",
+          "streamlit"
+        ]
+      },
+      {
+        "file": "helper.py",
+        "imports": [
+          "dotenv",
+          "json",
+          "langchain",
+          "langchain_community",
+          "langchain_groq",
+          "langchain_tavily",
+          "langgraph",
+          "os",
+          "pinecone",
+          "re"
+        ],
+        "functions": [
+          "__init__",
+          "agent",
+          "models_list",
+          "llm_cleaned_output",
+          "run",
+          "__init__",
+          "dataloaders",
+          "spliters",
+          "embeddings",
+          "llm_selection",
+          "template",
+          "vector_store",
+          "retriever",
+          "run"
+        ],
+        "classes": [
+          "LLMStudio",
+          "LLMStudioRAG"
+        ],
+        "lines": 148,
+        "signals": [
+          "Openai",
+          "langchain",
+          "openai"
+        ]
+      },
+      {
+        "file": "llm_output_cleaner.py",
+        "imports": [
+          "re"
+        ],
+        "functions": [
+          "clean_llm_output"
+        ],
+        "classes": [],
+        "lines": 31,
+        "signals": []
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 17
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/LangAudit",
+    "name": "Langaudit",
+    "files": [
+      "helper.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "csv",
+      "datetime",
+      "dotenv",
+      "hashlib",
+      "json",
+      "langchain",
+      "langchain_groq",
+      "langsmith",
+      "os"
+    ],
+    "signals": [
+      "evaluate",
+      "langchain"
+    ],
+    "entrypoints": [
+      "helper.py"
+    ],
+    "summaries": [
+      {
+        "file": "helper.py",
+        "imports": [
+          "csv",
+          "datetime",
+          "dotenv",
+          "hashlib",
+          "json",
+          "langchain",
+          "langchain_groq",
+          "langsmith",
+          "os"
+        ],
+        "functions": [
+          "load_prompts",
+          "compute_prompt_hash",
+          "get_user_question",
+          "grading_function",
+          "main"
+        ],
+        "classes": [],
+        "lines": 127,
+        "signals": [
+          "Evaluate",
+          "langchain"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 18
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/MCQ_GENERATOR",
+    "name": "Mcq Generator",
+    "files": [
+      "MCQ.py",
+      "app.py",
+      "helper.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "MCQ",
+      "dotenv",
+      "flask",
+      "json",
+      "langchain",
+      "langchain_groq",
+      "os",
+      "re",
+      "threading",
+      "uuid"
+    ],
+    "signals": [
+      "flask",
+      "langchain",
+      "openai"
+    ],
+    "entrypoints": [
+      "app.py",
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "app.py",
+        "imports": [
+          "MCQ",
+          "flask",
+          "json",
+          "re",
+          "uuid"
+        ],
+        "functions": [
+          "index",
+          "generate_quiz",
+          "get_question",
+          "submit_answer",
+          "get_results",
+          "generate_single_question",
+          "parse_single_question"
+        ],
+        "classes": [],
+        "lines": 210,
+        "signals": [
+          "Flask",
+          "flask"
+        ]
+      },
+      {
+        "file": "helper.py",
+        "imports": [
+          "dotenv",
+          "json",
+          "langchain",
+          "langchain_groq",
+          "os"
+        ],
+        "functions": [
+          "run_quiz",
+          "answer_quiz"
+        ],
+        "classes": [],
+        "lines": 89,
+        "signals": [
+          "langchain",
+          "openai"
+        ]
+      },
+      {
+        "file": "main.py",
+        "imports": [],
+        "functions": [],
+        "classes": [],
+        "lines": 1,
+        "signals": []
+      },
+      {
+        "file": "MCQ.py",
+        "imports": [
+          "dotenv",
+          "json",
+          "langchain",
+          "langchain_groq",
+          "os",
+          "threading"
+        ],
+        "functions": [
+          "main",
+          "__init__",
+          "run_quiz",
+          "answer_quiz",
+          "initial_process",
+          "quiz_mode"
+        ],
+        "classes": [
+          "MCQGenerator"
+        ],
+        "lines": 126,
+        "signals": [
+          "langchain",
+          "openai"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 19
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/MedicalSage",
+    "name": "Medicalsage",
+    "files": [
+      "app.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "dotenv",
+      "llama_index",
+      "main",
+      "os",
+      "pinecone",
+      "streamlit"
+    ],
+    "signals": [
+      "openai",
+      "streamlit"
+    ],
+    "entrypoints": [
+      "app.py",
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "app.py",
+        "imports": [
+          "main",
+          "os",
+          "streamlit"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 85,
+        "signals": [
+          "streamlit"
+        ]
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "dotenv",
+          "llama_index",
+          "os",
+          "pinecone"
+        ],
+        "functions": [
+          "__init__",
+          "load_data",
+          "vector_store",
+          "create_index",
+          "Query_engine"
+        ],
+        "classes": [
+          "MedicoSage"
+        ],
+        "lines": 63,
+        "signals": [
+          "openai"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 20
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/ProjectPilot/ProjectPilot",
+    "name": "Projectpilot",
+    "files": [
+      "__init__.py",
+      "logging_File.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "crewai",
+      "crewai_tools",
+      "dotenv",
+      "langgraph",
+      "logging",
+      "logging_File",
+      "os",
+      "traceback",
+      "typing"
+    ],
+    "signals": [
+      "crewai",
+      "openai"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "__init__.py",
+        "imports": [],
+        "functions": [],
+        "classes": [],
+        "lines": 1,
+        "signals": []
+      },
+      {
+        "file": "logging_File.py",
+        "imports": [
+          "logging"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 24,
+        "signals": []
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "crewai",
+          "crewai_tools",
+          "dotenv",
+          "langgraph",
+          "logging_File",
+          "os",
+          "traceback",
+          "typing"
+        ],
+        "functions": [
+          "intake_agent_node",
+          "retriever_agent_node",
+          "planner_agent_node",
+          "writer_agent_node",
+          "reviewer_agent_node",
+          "IntakeAgent",
+          "RetrieverAgent",
+          "PlannerAgent",
+          "WriterAgent",
+          "Reviewer"
+        ],
+        "classes": [
+          "MultiAI_Agent_System",
+          "State"
+        ],
+        "lines": 300,
+        "signals": [
+          "crewai",
+          "openai"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 21
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/ReportGenx",
+    "name": "Reportgenx",
+    "files": [
+      "helper.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "dotenv",
+      "langchain",
+      "langchain_groq",
+      "matplotlib",
+      "numpy",
+      "os",
+      "pandas",
+      "streamlit"
+    ],
+    "signals": [
+      "langchain",
+      "pandas",
+      "streamlit"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "helper.py",
+        "imports": [
+          "pandas"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 2,
+        "signals": [
+          "pandas"
+        ]
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "dotenv",
+          "langchain",
+          "langchain_groq",
+          "matplotlib",
+          "numpy",
+          "os",
+          "pandas",
+          "streamlit"
+        ],
+        "functions": [
+          "summary",
+          "chart"
+        ],
+        "classes": [],
+        "lines": 85,
+        "signals": [
+          "langchain",
+          "pandas",
+          "streamlit"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 22
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/ScheduleBOT/ScheduleBot",
+    "name": "Schedulebot",
+    "files": [
+      "GoogleClient.py",
+      "__init__.py",
+      "app.py",
+      "main.py",
+      "tools.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "GoogleClient",
+      "datetime",
+      "dotenv",
+      "flask",
+      "google",
+      "google_auth_oauthlib",
+      "googleapiclient",
+      "main",
+      "os",
+      "phi",
+      "pickle",
+      "rich",
+      "tools",
+      "zoneinfo"
+    ],
+    "signals": [
+      "flask",
+      "openai"
+    ],
+    "entrypoints": [
+      "app.py",
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "__init__.py",
+        "imports": [
+          "GoogleClient"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 3,
+        "signals": []
+      },
+      {
+        "file": "app.py",
+        "imports": [
+          "flask",
+          "main"
+        ],
+        "functions": [
+          "Home",
+          "Schedulebot"
+        ],
+        "classes": [],
+        "lines": 24,
+        "signals": [
+          "Flask",
+          "flask"
+        ]
+      },
+      {
+        "file": "GoogleClient.py",
+        "imports": [
+          "datetime",
+          "google",
+          "google_auth_oauthlib",
+          "googleapiclient",
+          "os",
+          "pickle",
+          "zoneinfo"
+        ],
+        "functions": [
+          "__init__",
+          "authenticate",
+          "create_calendar_service",
+          "list_upcoming_events",
+          "delete_calendar_event",
+          "create_spreadsheet",
+          "write_to_spreadsheet",
+          "read_from_spreadsheet",
+          "append_to_spreadsheet"
+        ],
+        "classes": [
+          "GoogleAPIClient"
+        ],
+        "lines": 157,
+        "signals": []
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "dotenv",
+          "os",
+          "phi",
+          "rich",
+          "tools"
+        ],
+        "functions": [
+          "ScheduleBotAgent",
+          "run"
+        ],
+        "classes": [],
+        "lines": 48,
+        "signals": [
+          "openai"
+        ]
+      },
+      {
+        "file": "tools.py",
+        "imports": [
+          "GoogleClient",
+          "datetime"
+        ],
+        "functions": [
+          "__init__",
+          "create_callendar_service",
+          "list_upcoming_events",
+          "delete_calendar_event"
+        ],
+        "classes": [
+          "GoogleCallendarClient"
+        ],
+        "lines": 53,
+        "signals": []
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 23
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/StateChatAI",
+    "name": "Statechatai",
+    "files": [
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "IPython",
+      "autogen",
+      "dotenv",
+      "langgraph",
+      "os",
+      "typing"
+    ],
+    "signals": [
+      "autogen",
+      "openai"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "main.py",
+        "imports": [
+          "IPython",
+          "autogen",
+          "dotenv",
+          "langgraph",
+          "os",
+          "typing"
+        ],
+        "functions": [
+          "chatbot"
+        ],
+        "classes": [
+          "State"
+        ],
+        "lines": 46,
+        "signals": [
+          "autogen",
+          "openai"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 24
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/TaskManager",
+    "name": "Taskmanager",
+    "files": [
+      "agents_config.py",
+      "autogenagents.py",
+      "crewaiagents.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "agents_config",
+      "autogen",
+      "autogenagents",
+      "crewai",
+      "crewaiagents",
+      "dotenv",
+      "os"
+    ],
+    "signals": [
+      "autogen",
+      "crewai",
+      "openai"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "agents_config.py",
+        "imports": [
+          "dotenv",
+          "os"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 43,
+        "signals": [
+          "openai"
+        ]
+      },
+      {
+        "file": "autogenagents.py",
+        "imports": [
+          "agents_config",
+          "autogen"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 13,
+        "signals": [
+          "autogen"
+        ]
+      },
+      {
+        "file": "crewaiagents.py",
+        "imports": [
+          "agents_config",
+          "crewai",
+          "dotenv",
+          "os"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 22,
+        "signals": [
+          "crewai"
+        ]
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "autogen",
+          "autogenagents",
+          "crewai",
+          "crewaiagents",
+          "os"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 49,
+        "signals": [
+          "Autogen",
+          "CrewAI",
+          "autogen",
+          "crewai",
+          "openai"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 25
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/WebAutoGPT/src",
+    "name": "Src",
+    "files": [
+      "__init__.py",
+      "app.py",
+      "helper.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "bs4",
+      "dotenv",
+      "flask",
+      "helper",
+      "llama_index",
+      "os",
+      "requests",
+      "urllib"
+    ],
+    "signals": [
+      "flask",
+      "openai"
+    ],
+    "entrypoints": [
+      "app.py",
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "__init__.py",
+        "imports": [],
+        "functions": [],
+        "classes": [],
+        "lines": 1,
+        "signals": []
+      },
+      {
+        "file": "app.py",
+        "imports": [
+          "flask",
+          "helper"
+        ],
+        "functions": [
+          "index",
+          "webgpt"
+        ],
+        "classes": [],
+        "lines": 27,
+        "signals": [
+          "Flask",
+          "flask"
+        ]
+      },
+      {
+        "file": "helper.py",
+        "imports": [
+          "bs4",
+          "dotenv",
+          "llama_index",
+          "os",
+          "requests",
+          "urllib"
+        ],
+        "functions": [
+          "RealTimeSearch",
+          "Reader",
+          "DirectScrape",
+          "WebReader",
+          "QueryEngine",
+          "run"
+        ],
+        "classes": [],
+        "lines": 153,
+        "signals": [
+          "OpenAI",
+          "openai"
+        ]
+      },
+      {
+        "file": "main.py",
+        "imports": [],
+        "functions": [],
+        "classes": [],
+        "lines": 1,
+        "signals": []
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 26
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/docquery",
+    "name": "Docquery",
+    "files": [],
+    "language": "Not specified",
+    "imports": [],
+    "signals": [],
+    "entrypoints": [],
+    "summaries": [],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [
+      [
+        "backend",
+        2
+      ],
+      [
+        "frontend",
+        1
+      ]
+    ],
+    "readme_exists": true,
+    "number": 27
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/genai_1/backend",
+    "name": "Backend",
+    "files": [
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "fastapi",
+      "json",
+      "langchain"
+    ],
+    "signals": [
+      "fastapi",
+      "langchain",
+      "openai"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "main.py",
+        "imports": [
+          "fastapi",
+          "json",
+          "langchain"
+        ],
+        "functions": [
+          "run_flow"
+        ],
+        "classes": [],
+        "lines": 121,
+        "signals": [
+          "FastAPI",
+          "OpenAI",
+          "fastapi",
+          "langchain"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 28
+  },
+  {
+    "domain": "GenerativeAI",
+    "path": "GenerativeAI/genai_1/temp",
+    "name": "Temp",
+    "files": [
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "fastapi",
+      "langflow"
+    ],
+    "signals": [
+      "fastapi"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "main.py",
+        "imports": [
+          "fastapi",
+          "langflow"
+        ],
+        "functions": [
+          "run_flow"
+        ],
+        "classes": [],
+        "lines": 26,
+        "signals": [
+          "FastAPI",
+          "fastapi"
+        ]
+      }
+    ],
+    "manifests": [
+      "requirements.txt"
+    ],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 29
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/Disease",
+    "name": "Disease",
+    "files": [
+      "CNN_Test.py",
+      "CNN_Train.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "keras",
+      "numpy",
+      "tkinter"
+    ],
+    "signals": [
+      "cv2",
+      "keras",
+      "predict",
+      "train"
+    ],
+    "entrypoints": [
+      "CNN_Test.py"
+    ],
+    "summaries": [
+      {
+        "file": "CNN_Test.py",
+        "imports": [
+          "cv2",
+          "keras",
+          "numpy",
+          "tkinter"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 47,
+        "signals": [
+          "cv2",
+          "keras",
+          "predict"
+        ]
+      },
+      {
+        "file": "CNN_Train.py",
+        "imports": [
+          "keras",
+          "numpy"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 78,
+        "signals": [
+          "keras",
+          "train"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "dataset",
+        533
+      ]
+    ],
+    "readme_exists": true,
+    "number": 30
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/Email_spam",
+    "name": "Email Spam",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "matplotlib.pyplot",
+      "nltk.corpus",
+      "numpy",
+      "pandas",
+      "pickle",
+      "regex",
+      "sklearn.feature_extraction.text",
+      "sklearn.metrics",
+      "sklearn.model_selection",
+      "sklearn.naive_bayes"
+    ],
+    "signals": [
+      "fit",
+      "pandas",
+      "predict",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "matplotlib.pyplot",
+          "nltk.corpus",
+          "numpy",
+          "pandas",
+          "pickle",
+          "regex",
+          "sklearn.feature_extraction.text",
+          "sklearn.metrics",
+          "sklearn.model_selection",
+          "sklearn.naive_bayes"
+        ],
+        "code_lines": 58,
+        "signals": [
+          "fit",
+          "pandas",
+          "predict",
+          "sklearn"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 31
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/HandGesture",
+    "name": "Handgesture",
+    "files": [
+      "mp.ipynb",
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "collections",
+      "cv2",
+      "keras.applications.resnet_v2",
+      "keras.layers",
+      "keras.models",
+      "matplotlib.pyplot",
+      "mediapipe",
+      "numpy",
+      "os",
+      "sklearn.model_selection",
+      "tensorflow",
+      "tensorflow.keras.models",
+      "tensorflow.keras.utils"
+    ],
+    "signals": [
+      "cv2",
+      "fit",
+      "keras",
+      "predict",
+      "sklearn",
+      "tensorflow"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "mp.ipynb",
+        "markdown": [],
+        "imports": [
+          "cv2",
+          "mediapipe",
+          "numpy"
+        ],
+        "code_lines": 32,
+        "signals": [
+          "cv2"
+        ]
+      },
+      {
+        "file": "train.ipynb",
+        "markdown": [
+          "**LIbs**",
+          "**Collecting Data**",
+          "**Split_data_And_perform_one_hot_encoding_to_ensure_labels_for_integer_encoded**",
+          "**model**",
+          "**Compiling_model**",
+          "**Train**",
+          "**Save_model**",
+          "**test**"
+        ],
+        "imports": [
+          "collections",
+          "cv2",
+          "keras.applications.resnet_v2",
+          "keras.layers",
+          "keras.models",
+          "matplotlib.pyplot",
+          "numpy",
+          "os",
+          "sklearn.model_selection",
+          "tensorflow",
+          "tensorflow.keras.models",
+          "tensorflow.keras.utils"
+        ],
+        "code_lines": 198,
+        "signals": [
+          "Predict",
+          "cv2",
+          "fit",
+          "keras",
+          "predict",
+          "sklearn",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "gesture_dataset",
+        2
+      ]
+    ],
+    "readme_exists": true,
+    "number": 32
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/Handwritten_digit_classification",
+    "name": "Handwritten Digit Classification",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "keras",
+      "keras.datasets",
+      "keras.models",
+      "matplotlib.pyplot",
+      "numpy",
+      "tensorflow"
+    ],
+    "signals": [
+      "evaluate",
+      "fit",
+      "keras",
+      "predict",
+      "tensorflow"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "keras",
+          "keras.datasets",
+          "keras.models",
+          "matplotlib.pyplot",
+          "numpy",
+          "tensorflow"
+        ],
+        "code_lines": 60,
+        "signals": [
+          "evaluate",
+          "fit",
+          "keras",
+          "predict",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 33
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/Recommentation_system",
+    "name": "Recommentation System",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "numpy",
+      "pandas"
+    ],
+    "signals": [
+      "pandas"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "numpy",
+          "pandas"
+        ],
+        "code_lines": 48,
+        "signals": [
+          "pandas"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 34
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/Sales_forecasting",
+    "name": "Sales Forecasting",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "matplotlib.pyplot",
+      "numpy",
+      "pandas",
+      "plotly.graph_objects",
+      "seaborn",
+      "sklearn.metrics",
+      "sklearn.model_selection",
+      "sklearn.preprocessing",
+      "statsmodels.tsa.seasonal",
+      "xgboost"
+    ],
+    "signals": [
+      "fit",
+      "pandas",
+      "predict",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "matplotlib.pyplot",
+          "numpy",
+          "pandas",
+          "plotly.graph_objects",
+          "seaborn",
+          "sklearn.metrics",
+          "sklearn.model_selection",
+          "sklearn.preprocessing",
+          "statsmodels.tsa.seasonal",
+          "xgboost"
+        ],
+        "code_lines": 78,
+        "signals": [
+          "fit",
+          "pandas",
+          "predict",
+          "sklearn"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 35
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/bert_text",
+    "name": "Bert Text",
+    "files": [
+      "text_classify_bert.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "datasets",
+      "torch",
+      "torch.utils.data",
+      "transformers"
+    ],
+    "signals": [
+      "evaluate",
+      "torch",
+      "train",
+      "transformers"
+    ],
+    "entrypoints": [
+      "text_classify_bert.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "text_classify_bert.ipynb",
+        "markdown": [],
+        "imports": [
+          "datasets",
+          "torch",
+          "torch.utils.data",
+          "transformers"
+        ],
+        "code_lines": 58,
+        "signals": [
+          "evaluate",
+          "torch",
+          "train",
+          "transformers"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 36
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/customersegmentation",
+    "name": "Customersegmentation",
+    "files": [
+      "k_means.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "matplotlib.pyplot",
+      "pandas",
+      "sklearn.cluster",
+      "sklearn.metrics",
+      "sklearn.preprocessing"
+    ],
+    "signals": [
+      "fit",
+      "pandas",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "k_means.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "k_means.ipynb",
+        "markdown": [
+          "**Load Dataset**",
+          "**Exploratory Data Analysis**",
+          "**Segregating the data**",
+          "**scaling the data**",
+          "**Selecting Best K for clusters**",
+          "**silhoutte scoring**",
+          "**Train the K-Means**",
+          "**Plotting Clusters**"
+        ],
+        "imports": [
+          "matplotlib.pyplot",
+          "pandas",
+          "sklearn.cluster",
+          "sklearn.metrics",
+          "sklearn.preprocessing"
+        ],
+        "code_lines": 80,
+        "signals": [
+          "fit",
+          "pandas",
+          "sklearn"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 37
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/facial_recognition",
+    "name": "Facial Recognition",
+    "files": [
+      "en.py",
+      "face_pro.py",
+      "real_time.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "face_recognition",
+      "numpy",
+      "os",
+      "pickle"
+    ],
+    "signals": [
+      "cv2",
+      "face"
+    ],
+    "entrypoints": [
+      "en.py"
+    ],
+    "summaries": [
+      {
+        "file": "en.py",
+        "imports": [
+          "cv2",
+          "face_recognition",
+          "os",
+          "pickle"
+        ],
+        "functions": [
+          "find_encodings"
+        ],
+        "classes": [],
+        "lines": 38,
+        "signals": [
+          "cv2"
+        ]
+      },
+      {
+        "file": "face_pro.py",
+        "imports": [
+          "cv2",
+          "face_recognition",
+          "numpy",
+          "os",
+          "pickle"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 44,
+        "signals": [
+          "cv2"
+        ]
+      },
+      {
+        "file": "real_time.py",
+        "imports": [
+          "cv2",
+          "face_recognition",
+          "numpy",
+          "pickle"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 55,
+        "signals": [
+          "Face",
+          "cv2",
+          "face"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "images",
+        6
+      ]
+    ],
+    "readme_exists": true,
+    "number": 38
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/frauddetection",
+    "name": "Frauddetection",
+    "files": [
+      "demo.py",
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "fastapi",
+      "imblearn",
+      "joblib",
+      "matplotlib",
+      "numpy",
+      "pandas",
+      "pickle",
+      "pydantic",
+      "sklearn",
+      "uvicorn"
+    ],
+    "signals": [
+      "fastapi",
+      "fit",
+      "pandas",
+      "predict",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "demo.py",
+        "imports": [
+          "imblearn",
+          "joblib",
+          "matplotlib",
+          "numpy",
+          "pandas",
+          "pickle",
+          "sklearn"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 51,
+        "signals": [
+          "fit",
+          "pandas",
+          "predict",
+          "sklearn"
+        ]
+      },
+      {
+        "file": "main.py",
+        "imports": [
+          "fastapi",
+          "numpy",
+          "pickle",
+          "pydantic",
+          "uvicorn"
+        ],
+        "functions": [
+          "read_root",
+          "predict"
+        ],
+        "classes": [
+          "TransactionData"
+        ],
+        "lines": 64,
+        "signals": [
+          "FastAPI",
+          "Predict",
+          "fastapi",
+          "predict"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 39
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/image_classification_with_multilabel",
+    "name": "Image Classification With Multilabel",
+    "files": [
+      "test.py",
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "PIL",
+      "json",
+      "keras",
+      "keras.layers",
+      "keras.models",
+      "keras.preprocessing.image",
+      "matplotlib.pyplot",
+      "numpy",
+      "os",
+      "tensorflow"
+    ],
+    "signals": [
+      "fit",
+      "keras",
+      "predict",
+      "tensorflow",
+      "train"
+    ],
+    "entrypoints": [
+      "test.py",
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "test.py",
+        "imports": [
+          "PIL",
+          "json",
+          "keras",
+          "numpy"
+        ],
+        "functions": [
+          "classify"
+        ],
+        "classes": [],
+        "lines": 43,
+        "signals": [
+          "Predict",
+          "Train",
+          "fit",
+          "keras",
+          "predict"
+        ]
+      },
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "json",
+          "keras.layers",
+          "keras.models",
+          "keras.preprocessing.image",
+          "matplotlib.pyplot",
+          "os",
+          "tensorflow"
+        ],
+        "code_lines": 39,
+        "signals": [
+          "Train",
+          "fit",
+          "keras",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "dataset",
+        163
+      ]
+    ],
+    "readme_exists": true,
+    "number": 40
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/image_classify",
+    "name": "Image Classify",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "keras.callbacks",
+      "keras.layers",
+      "keras.models",
+      "keras.preprocessing.image",
+      "matplotlib.pyplot",
+      "numpy",
+      "tensorflow.keras.utils"
+    ],
+    "signals": [
+      "fit",
+      "keras",
+      "tensorflow",
+      "train"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [
+          "**Create Neural Network**",
+          "**Model Compilation**",
+          "**Image Preprocessing**",
+          "**Split the train and test**",
+          "**Call backs and steps_per_epochs**",
+          "**Train**"
+        ],
+        "imports": [
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "keras.preprocessing.image",
+          "matplotlib.pyplot",
+          "numpy",
+          "tensorflow.keras.utils"
+        ],
+        "code_lines": 53,
+        "signals": [
+          "fit",
+          "keras",
+          "tensorflow",
+          "train"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 41
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/loan_prediction",
+    "name": "Loan Prediction",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "matplotlib.pyplot",
+      "numpy",
+      "os",
+      "pandas",
+      "plotly.express",
+      "plotly.graph_objects",
+      "seaborn",
+      "sklearn.discriminant_analysis",
+      "sklearn.ensemble",
+      "sklearn.linear_model",
+      "sklearn.metrics",
+      "sklearn.model_selection",
+      "sklearn.naive_bayes",
+      "sklearn.neighbors",
+      "sklearn.preprocessing",
+      "sklearn.svm",
+      "sklearn.tree",
+      "xgboost"
+    ],
+    "signals": [
+      "fit",
+      "pandas",
+      "predict",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "matplotlib.pyplot",
+          "numpy",
+          "os",
+          "pandas",
+          "plotly.express",
+          "plotly.graph_objects",
+          "seaborn",
+          "sklearn.discriminant_analysis",
+          "sklearn.ensemble",
+          "sklearn.linear_model",
+          "sklearn.metrics",
+          "sklearn.model_selection",
+          "sklearn.naive_bayes",
+          "sklearn.neighbors",
+          "sklearn.preprocessing",
+          "sklearn.svm",
+          "sklearn.tree",
+          "xgboost"
+        ],
+        "code_lines": 202,
+        "signals": [
+          "fit",
+          "pandas",
+          "predict",
+          "sklearn"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 42
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/predictive_analysis_health_care",
+    "name": "Predictive Analysis Health Care",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "category_encoders",
+      "imblearn.over_sampling",
+      "kagglehub",
+      "matplotlib.pyplot",
+      "numpy",
+      "pandas",
+      "seaborn",
+      "sklearn.ensemble",
+      "sklearn.metrics",
+      "sklearn.model_selection",
+      "sklearn.preprocessing"
+    ],
+    "signals": [
+      "fit",
+      "pandas",
+      "predict",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "category_encoders",
+          "imblearn.over_sampling",
+          "kagglehub",
+          "matplotlib.pyplot",
+          "numpy",
+          "pandas",
+          "seaborn",
+          "sklearn.ensemble",
+          "sklearn.metrics",
+          "sklearn.model_selection",
+          "sklearn.preprocessing"
+        ],
+        "code_lines": 113,
+        "signals": [
+          "fit",
+          "pandas",
+          "predict",
+          "sklearn"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "archive (23)",
+        1
+      ]
+    ],
+    "readme_exists": true,
+    "number": 43
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/predictive_maintenance_system",
+    "name": "Predictive Maintenance System",
+    "files": [
+      "mlp_structure.html",
+      "train.ipynb"
+    ],
+    "language": "html",
+    "imports": [
+      "imblearn.over_sampling",
+      "matplotlib.pyplot",
+      "numpy",
+      "pandas",
+      "sklearn.metrics",
+      "sklearn.model_selection",
+      "sklearn.neural_network",
+      "sklearn.preprocessing",
+      "sklearn.utils"
+    ],
+    "signals": [
+      "fit",
+      "pandas",
+      "predict",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [
+          "**Frequency Encoding**",
+          "**TargetEncoding**",
+          "**Label Encoder**"
+        ],
+        "imports": [
+          "imblearn.over_sampling",
+          "matplotlib.pyplot",
+          "numpy",
+          "pandas",
+          "sklearn.metrics",
+          "sklearn.model_selection",
+          "sklearn.neural_network",
+          "sklearn.preprocessing",
+          "sklearn.utils"
+        ],
+        "code_lines": 126,
+        "signals": [
+          "fit",
+          "pandas",
+          "predict",
+          "sklearn"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 44
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/sentiment_Analysis",
+    "name": "Sentiment Analysis",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "keras.callbacks",
+      "keras.datasets",
+      "keras.layers",
+      "keras.models",
+      "keras.preprocessing.sequence",
+      "keras.preprocessing.text",
+      "matplotlib.pyplot",
+      "tensorflow"
+    ],
+    "signals": [
+      "evaluate",
+      "fit",
+      "keras",
+      "predict",
+      "sentiment",
+      "tensorflow"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [
+          "**important params**",
+          "**train and test data**",
+          "**preprocessing**",
+          "**LSTM with embedding layer**",
+          "**optimiser,loss,metrics**",
+          "**Call Backs**",
+          "**Train**",
+          "**Evaluate**",
+          "**Visualize**",
+          "**predict**"
+        ],
+        "imports": [
+          "keras.callbacks",
+          "keras.datasets",
+          "keras.layers",
+          "keras.models",
+          "keras.preprocessing.sequence",
+          "keras.preprocessing.text",
+          "matplotlib.pyplot",
+          "tensorflow"
+        ],
+        "code_lines": 80,
+        "signals": [
+          "Sentiment",
+          "evaluate",
+          "fit",
+          "keras",
+          "predict",
+          "sentiment",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 45
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/stock_price",
+    "name": "Stock Price",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "matplotlib.pyplot",
+      "numpy",
+      "pandas",
+      "sklearn.linear_model",
+      "sklearn.metrics",
+      "sklearn.model_selection",
+      "sklearn.preprocessing"
+    ],
+    "signals": [
+      "fit",
+      "pandas",
+      "predict",
+      "regression",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [
+          "**libs**",
+          "**Load dataset**"
+        ],
+        "imports": [
+          "matplotlib.pyplot",
+          "numpy",
+          "pandas",
+          "sklearn.linear_model",
+          "sklearn.metrics",
+          "sklearn.model_selection",
+          "sklearn.preprocessing"
+        ],
+        "code_lines": 43,
+        "signals": [
+          "Regression",
+          "fit",
+          "pandas",
+          "predict",
+          "sklearn"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 46
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/timeseries",
+    "name": "Timeseries",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "matplotlib.pyplot",
+      "numpy",
+      "pandas",
+      "plotly.express",
+      "seaborn",
+      "statsmodels.tsa.arima.model",
+      "statsmodels.tsa.seasonal"
+    ],
+    "signals": [
+      "fit",
+      "pandas"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [
+          "Line plot",
+          "**TSACOMPONENTS**"
+        ],
+        "imports": [
+          "matplotlib.pyplot",
+          "numpy",
+          "pandas",
+          "plotly.express",
+          "seaborn",
+          "statsmodels.tsa.arima.model",
+          "statsmodels.tsa.seasonal"
+        ],
+        "code_lines": 56,
+        "signals": [
+          "fit",
+          "pandas"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 47
+  },
+  {
+    "domain": "Machine_Learning",
+    "path": "Machine_Learning/traffic_prediction",
+    "name": "Traffic Prediction",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "keras.callbacks",
+      "keras.layers",
+      "keras.models",
+      "matplotlib.pyplot",
+      "numpy",
+      "pandas",
+      "seaborn",
+      "sklearn.model_selection",
+      "sklearn.preprocessing"
+    ],
+    "signals": [
+      "fit",
+      "keras",
+      "pandas",
+      "predict",
+      "sklearn"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "keras.callbacks",
+          "keras.layers",
+          "keras.models",
+          "matplotlib.pyplot",
+          "numpy",
+          "pandas",
+          "seaborn",
+          "sklearn.model_selection",
+          "sklearn.preprocessing"
+        ],
+        "code_lines": 48,
+        "signals": [
+          "fit",
+          "keras",
+          "pandas",
+          "predict",
+          "sklearn"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "archive (23)",
+        1
+      ],
+      [
+        "logs",
+        26
+      ]
+    ],
+    "readme_exists": true,
+    "number": 48
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/AR_based_virtual_makeup",
+    "name": "Ar Based Virtual Makeup",
+    "files": [
+      "fm.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "mediapipe",
+      "numpy"
+    ],
+    "signals": [
+      "cv2",
+      "face"
+    ],
+    "entrypoints": [
+      "fm.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "fm.ipynb",
+        "markdown": [],
+        "imports": [
+          "cv2",
+          "mediapipe",
+          "numpy"
+        ],
+        "code_lines": 196,
+        "signals": [
+          "Face",
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 49
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/Document_Classifcation",
+    "name": "Document Classifcation",
+    "files": [
+      "train.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "datasets",
+      "keras.layers",
+      "keras.preprocessing.sequence",
+      "keras.preprocessing.text",
+      "nltk",
+      "numpy",
+      "tensorflow"
+    ],
+    "signals": [
+      "evaluate",
+      "fit",
+      "keras",
+      "predict",
+      "tensorflow",
+      "train"
+    ],
+    "entrypoints": [
+      "train.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "train.ipynb",
+        "markdown": [],
+        "imports": [
+          "datasets",
+          "keras.layers",
+          "keras.preprocessing.sequence",
+          "keras.preprocessing.text",
+          "nltk",
+          "numpy",
+          "tensorflow"
+        ],
+        "code_lines": 61,
+        "signals": [
+          "evaluate",
+          "fit",
+          "keras",
+          "predict",
+          "tensorflow",
+          "train"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 50
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/Image_Colorization",
+    "name": "Image Colorization",
+    "files": [
+      "app (1).py",
+      "train.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "PIL",
+      "cv2",
+      "matplotlib",
+      "numpy",
+      "streamlit"
+    ],
+    "signals": [
+      "colorization",
+      "cv2",
+      "predict",
+      "streamlit"
+    ],
+    "entrypoints": [
+      "train.py"
+    ],
+    "summaries": [
+      {
+        "file": "app (1).py",
+        "imports": [
+          "PIL",
+          "cv2",
+          "numpy",
+          "streamlit"
+        ],
+        "functions": [
+          "colorizer"
+        ],
+        "classes": [],
+        "lines": 89,
+        "signals": [
+          "colorization",
+          "cv2",
+          "predict",
+          "streamlit"
+        ]
+      },
+      {
+        "file": "train.py",
+        "imports": [
+          "PIL",
+          "cv2",
+          "matplotlib",
+          "numpy"
+        ],
+        "functions": [
+          "colorizer"
+        ],
+        "classes": [],
+        "lines": 67,
+        "signals": [
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "models",
+        2
+      ]
+    ],
+    "readme_exists": true,
+    "number": 51
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/MovingObjectDetection",
+    "name": "Movingobjectdetection",
+    "files": [
+      "mod1.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "imutils",
+      "numpy"
+    ],
+    "signals": [
+      "cv2"
+    ],
+    "entrypoints": [
+      "mod1.py"
+    ],
+    "summaries": [
+      {
+        "file": "mod1.py",
+        "imports": [
+          "cv2",
+          "imutils",
+          "numpy"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 38,
+        "signals": [
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 52
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/OCR",
+    "name": "Ocr",
+    "files": [
+      "test.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "pytesseract"
+    ],
+    "signals": [
+      "cv2",
+      "ocr"
+    ],
+    "entrypoints": [
+      "test.py"
+    ],
+    "summaries": [
+      {
+        "file": "test.py",
+        "imports": [
+          "cv2",
+          "pytesseract"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 20,
+        "signals": [
+          "OCR",
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 53
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/PencilSketchConversion",
+    "name": "Pencilsketchconversion",
+    "files": [
+      "pencil.py",
+      "trail.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "PIL",
+      "cv2",
+      "numpy",
+      "tkinter"
+    ],
+    "signals": [
+      "cv2",
+      "yolo"
+    ],
+    "entrypoints": [
+      "pencil.py"
+    ],
+    "summaries": [
+      {
+        "file": "pencil.py",
+        "imports": [
+          "PIL",
+          "cv2",
+          "numpy",
+          "tkinter"
+        ],
+        "functions": [
+          "open_file",
+          "convert_to_sketch",
+          "display_image",
+          "save_sketch"
+        ],
+        "classes": [],
+        "lines": 73,
+        "signals": [
+          "cv2"
+        ]
+      },
+      {
+        "file": "trail.py",
+        "imports": [
+          "cv2"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 16,
+        "signals": [
+          "cv2",
+          "yolo"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 54
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/aerial_img",
+    "name": "Aerial Img",
+    "files": [
+      "test.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "keras",
+      "numpy",
+      "tensorflow"
+    ],
+    "signals": [
+      "keras",
+      "predict",
+      "tensorflow"
+    ],
+    "entrypoints": [
+      "test.py"
+    ],
+    "summaries": [
+      {
+        "file": "test.py",
+        "imports": [
+          "keras",
+          "numpy",
+          "tensorflow"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 24,
+        "signals": [
+          "keras",
+          "predict",
+          "tensorflow"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 55
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/ai_graffiti_removal",
+    "name": "Ai Graffiti Removal",
+    "files": [
+      "test.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "matplotlib",
+      "numpy",
+      "os",
+      "random"
+    ],
+    "signals": [
+      "cv2"
+    ],
+    "entrypoints": [
+      "test.py"
+    ],
+    "summaries": [
+      {
+        "file": "test.py",
+        "imports": [
+          "cv2",
+          "matplotlib",
+          "numpy",
+          "os",
+          "random"
+        ],
+        "functions": [
+          "create_synthetic_graffiti",
+          "create_mask_interactive",
+          "remove_graffiti",
+          "compare_methods",
+          "main",
+          "mouse_callback"
+        ],
+        "classes": [],
+        "lines": 180,
+        "signals": [
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 56
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/bar_reader",
+    "name": "Bar Reader",
+    "files": [
+      "bartest.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "pyzbar"
+    ],
+    "signals": [],
+    "entrypoints": [
+      "bartest.py"
+    ],
+    "summaries": [
+      {
+        "file": "bartest.py",
+        "imports": [
+          "pyzbar"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 2,
+        "signals": []
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 57
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/birds_species",
+    "name": "Birds Species",
+    "files": [
+      "test.ipynb"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "torch",
+      "ultralytics"
+    ],
+    "signals": [
+      "cv2",
+      "torch",
+      "train",
+      "yolo"
+    ],
+    "entrypoints": [
+      "test.ipynb"
+    ],
+    "summaries": [
+      {
+        "file": "test.ipynb",
+        "markdown": [],
+        "imports": [
+          "cv2",
+          "torch",
+          "ultralytics"
+        ],
+        "code_lines": 9,
+        "signals": [
+          "YOLO",
+          "cv2",
+          "torch",
+          "train"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "runs",
+        26
+      ]
+    ],
+    "readme_exists": true,
+    "number": 58
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/face_recognition",
+    "name": "Face Recognition",
+    "files": [
+      "collect_data.py",
+      "face_reco.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "matplotlib",
+      "numpy",
+      "os"
+    ],
+    "signals": [
+      "cv2",
+      "face",
+      "predict",
+      "train"
+    ],
+    "entrypoints": [
+      "collect_data.py"
+    ],
+    "summaries": [
+      {
+        "file": "collect_data.py",
+        "imports": [
+          "cv2",
+          "matplotlib",
+          "os"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 54,
+        "signals": [
+          "cv2",
+          "face"
+        ]
+      },
+      {
+        "file": "face_reco.py",
+        "imports": [
+          "cv2",
+          "numpy",
+          "os"
+        ],
+        "functions": [],
+        "classes": [],
+        "lines": 76,
+        "signals": [
+          "cv2",
+          "face",
+          "predict",
+          "train"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [
+      [
+        "dataset",
+        90
+      ]
+    ],
+    "readme_exists": true,
+    "number": 59
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/object_tracker",
+    "name": "Object Tracker",
+    "files": [
+      "opencvtrackers_test.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "cv2",
+      "sys"
+    ],
+    "signals": [
+      "cv2"
+    ],
+    "entrypoints": [
+      "opencvtrackers_test.py"
+    ],
+    "summaries": [
+      {
+        "file": "opencvtrackers_test.py",
+        "imports": [
+          "cv2",
+          "sys"
+        ],
+        "functions": [
+          "select_tracker",
+          "main"
+        ],
+        "classes": [],
+        "lines": 62,
+        "signals": [
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 60
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/simclr",
+    "name": "Simclr",
+    "files": [
+      "main.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "numpy",
+      "tensorflow",
+      "tensorflow_datasets"
+    ],
+    "signals": [
+      "keras",
+      "tensorflow",
+      "train"
+    ],
+    "entrypoints": [
+      "main.py"
+    ],
+    "summaries": [
+      {
+        "file": "main.py",
+        "imports": [
+          "numpy",
+          "tensorflow",
+          "tensorflow_datasets"
+        ],
+        "functions": [
+          "preprocess",
+          "build_projection_head",
+          "contrastive_loss",
+          "train_step"
+        ],
+        "classes": [],
+        "lines": 101,
+        "signals": [
+          "keras",
+          "tensorflow",
+          "train"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 61
+  },
+  {
+    "domain": "computer vision",
+    "path": "computer vision/speedEstimation",
+    "name": "Speedestimation",
+    "files": [
+      "traffic.py"
+    ],
+    "language": "Python",
+    "imports": [
+      "Roboflow",
+      "collections",
+      "cv2",
+      "numpy",
+      "os",
+      "supervision",
+      "tqdm",
+      "ultralytics"
+    ],
+    "signals": [
+      "cv2",
+      "yolo"
+    ],
+    "entrypoints": [
+      "traffic.py"
+    ],
+    "summaries": [
+      {
+        "file": "traffic.py",
+        "imports": [
+          "Roboflow",
+          "collections",
+          "cv2",
+          "numpy",
+          "os",
+          "supervision",
+          "tqdm",
+          "ultralytics"
+        ],
+        "functions": [
+          "__init__",
+          "transform_points_views",
+          "video_save"
+        ],
+        "classes": [
+          "SpeedEstimator"
+        ],
+        "lines": 138,
+        "signals": [
+          "YOLO",
+          "cv2"
+        ]
+      }
+    ],
+    "manifests": [],
+    "child_dirs": [],
+    "readme_exists": true,
+    "number": 62
+  }
+]
