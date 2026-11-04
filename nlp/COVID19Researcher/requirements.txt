@@ -1,0 +1,10 @@
+langchain 
+langchain-community
+langchain-groq
+langchain-openai
+python-dotenv
+phidata
+streamlit
+duckduckgo-search
+googlesearch-python
+pycountry
