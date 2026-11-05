@@ -1,120 +1,42 @@
-# Image Classification With Multilabel
+# Food Image Classification (Four Classes)
 
-**Project 040** · **Domain:** Machine_Learning
+**Project 040 · Machine Learning / Image Classification · `Machine_Learning/image_classification_with_multilabel`**
 
-## 1. Project Overview
+## Purpose
+Despite the folder name, the inspected notebook builds a four-class single-label image classifier for burgers, cookies, donuts and french fries. The output layer is a four-unit softmax and training uses categorical cross-entropy, not a multi-label sigmoid formulation.
 
-This project addresses **an experimental machine_learning workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Workflow
+- Load images from `dataset/Train` using Keras `ImageDataGenerator`, target size 224×224 and rescaling by 1/255.
+- Train a Sequential CNN with Conv2D(64), pooling, batch normalization, Conv2D(128), pooling, batch normalization, flattening, Dense(128) and four-class softmax.
+- Compile with Adam and categorical cross-entropy; train for 10 epochs.
+- Save architecture to `model.json` and weights to `models.h5`.
+- `test.py` loads architecture/weights, resizes a supplied image and prints the predicted class.
 
-## 2. Problem Statement
-
-The implementation explores a technical workflow related to an experimental machine_learning workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[test.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[Food image folders] --> B[Resize 224x224 and normalize]
+ B --> C[CNN feature extractor]
+ C --> D[4-class Softmax]
+ D --> E[model.json + models.h5]
+ F[Input image] --> G[Resize]
+ E --> H[Inference]
+ G --> H
+ H --> I[Food class label]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Files and stack
+`train.ipynb`, `test.py`, `dataset/`, `model.json`, `models.h5`; Python, TensorFlow/Keras, NumPy, Pillow, Matplotlib.
 
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `PIL`, `json`, `keras`, `keras.layers`, `keras.models`, `keras.preprocessing.image`, `matplotlib.pyplot`, `numpy`, `os`, `tensorflow` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`test.py`](<test.py>)
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: `dataset/` (163 files)
-
-Extracted implementation symbols and notebook headings:
-- `test.py` functions: `classify`
-
-## 7. Implementation Workflow
-
-1. Start from `test.py`, `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `fit`, `keras`, `predict`, `tensorflow`, `train`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
+## Run
+Install compatible tensorflow/keras, numpy, pillow and jupyter; run notebook from this directory. For inference:
 ```bash
-cd "Machine_Learning/image_classification_with_multilabel"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `test.py`, `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/image_classification_with_multilabel"
 python test.py
-```
+``
+The example image path is hard-coded in `test.py`.
 
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
+## Captured evidence and limitations
+The notebook output reports 163 images across four classes and a 10-epoch training run. The test script does not normalize pixel values although training does, causing a preprocessing mismatch. It also assumes RGB image mode and hard-codes class order, which must match `flow_from_directory`'s class-index order. The project is multiclass classification, not multi-label classification.
 
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental machine_learning workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Persist class-index mapping and preprocessing configuration, normalize inference images identically, handle RGB conversion and missing files, add validation split, per-class metrics and confusion matrix, and rename the project or explicitly explain the single-label task.
