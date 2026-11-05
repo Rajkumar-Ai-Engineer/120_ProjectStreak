@@ -1,120 +1,50 @@
-# Disease
+# Plant Disease Classification with CNN
 
-**Project 030** · **Domain:** Machine_Learning
+**Project 030 · Domain:** Machine Learning · **Path:** `Machine_Learning/Disease`
 
-## 1. Project Overview
+## Overview
+A convolutional neural network (CNN) experiment for classifying plant-leaf images into disease/healthy categories. The repository includes a training script, an image-inference script, a serialized model architecture, weights, and a PlantVillage-style image dataset.
 
-This project addresses **disease classification**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Problem
+Identify the plant/crop condition represented by a leaf image, covering Apple, Corn, Grape, Potato and Tomato label families.
 
-## 2. Problem Statement
+## Implementation
+- `CNN_Train.py` builds a Keras Sequential CNN with convolution, max-pooling, batch-normalization and dropout blocks, followed by a 128-unit dense layer and a 25-class softmax output.
+- Training uses directory-based image loading at 128×128, batches of 32, augmentation (shear, zoom and horizontal flip), Adam and categorical cross-entropy for 10 epochs.
+- The model architecture is exported to `model2.json`; weights are written to `model2.h5`.
+- `CNN_Test.py` loads the architecture and weights, reads an image with OpenCV, predicts a class and displays the selected label in the console.
 
-The implementation explores a technical workflow related to disease classification. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[CNN_Test.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[Leaf image folders] --> B[ImageDataGenerator]
+ B --> C[128x128 RGB batches]
+ C --> D[CNN: Conv / Pool / BatchNorm / Dropout]
+ D --> E[25-class Softmax]
+ E --> F[model2.json + model2.h5]
+ F --> G[OpenCV image inference]
+ G --> H[Predicted crop condition]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Repository contents
+- `CNN_Train.py` — model definition and training.
+- `CNN_Test.py` — single-image inference / Tkinter imports (the current script uses OpenCV display).
+- `dataset/` — train and test image folders.
+- `model2.json`, `model2.h5` — architecture and weights.
 
-## 5. Technologies Used
+## Stack
+Python, TensorFlow/Keras, NumPy, OpenCV, Tkinter, ImageDataGenerator.
 
-| Language | Python |
-| Libraries detected from imports | `cv2`, `keras`, `numpy`, `tkinter` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`CNN_Test.py`](<CNN_Test.py>)
-- [`CNN_Train.py`](<CNN_Train.py>)
-
-Nested assets/directories observed: `dataset/` (533 files)
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from `CNN_Test.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `cv2`, `keras`, `predict`, `train`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
+## Run
+From this directory, inspect the dataset folder names and ensure the training script's expected `dataset/train` and `dataset/val` paths exist. Then run:
 ```bash
-cd "Machine_Learning/Disease"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `CNN_Test.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/Disease"
+python CNN_Train.py
 python CNN_Test.py
 ```
+The test script expects `model2.json`, `model2.h5` and a hard-coded sample image path relative to the working directory.
 
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
+## Verification and limitations
+Static source inspection completed; training was not rerun. The training script expects 25 output classes and hard-codes a 25-label list in inference, so directory class count/order must match exactly. The training generator uses `rescale=None` while the test generator rescales to [0,1], and inference does not apply the same normalization; this train/inference preprocessing mismatch should be corrected. The validation directory path and dataset contents should be checked before execution. No independently verified accuracy is claimed.
 
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for disease classification. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Recommended improvements
+Use one shared preprocessing function for train and inference; derive class labels from the saved class-index mapping; add a deterministic train/validation split, classification report and confusion matrix; save the full model and dependency versions; remove hard-coded local sample paths.
