@@ -1,119 +1,44 @@
-# Handwritten Digit Classification
+# Handwritten Digit Classification with CNN
 
-**Project 033** · **Domain:** Machine_Learning
+**Project 033 · Domain:** Machine Learning · **Path:** `Machine_Learning/Handwritten_digit_classification`
 
-## 1. Project Overview
+## Overview
+A convolutional neural network trained on the MNIST handwritten-digit dataset to classify grayscale images into digits 0–9.
 
-This project addresses **handwritten digit classification**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Pipeline
+1. Load MNIST train and test partitions through `keras.datasets.mnist`.
+2. Reshape images to 28×28×1 and normalize pixel values to [0,1].
+3. One-hot encode the ten target classes.
+4. Train a Keras Sequential CNN: Conv2D(32) → MaxPool → Conv2D(64) → MaxPool → Conv2D(64) → Flatten → Dense(64) → Dense(10, softmax).
+5. Compile with Adam, categorical cross-entropy and accuracy.
+6. Train for five epochs with batch size 64, evaluate on the test set, plot training/validation accuracy and inspect a sample prediction.
 
-## 2. Problem Statement
-
-The implementation explores a technical workflow related to handwritten digit classification. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[train.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[MNIST dataset] --> B[Reshape 28x28x1]
+ B --> C[Normalize / one-hot labels]
+ C --> D[CNN feature extraction]
+ D --> E[10-class Softmax]
+ E --> F[Test evaluation and sample prediction]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Files and technologies
+- `train.ipynb` — complete experiment.
+- Python, TensorFlow/Keras, NumPy, Matplotlib, MNIST.
+- Dataset is loaded by Keras; no separate dataset file is required.
 
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `keras`, `keras.datasets`, `keras.models`, `matplotlib.pyplot`, `numpy`, `tensorflow` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `evaluate`, `fit`, `keras`, `predict`, `tensorflow`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
+## Run
 ```bash
-cd "Machine_Learning/Handwritten_digit_classification"
+cd Machine_Learning/Handwritten_digit_classification
 python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
+# Activate and install tensorflow, keras, numpy, matplotlib, jupyter
+jupyter lab
+``
+Run `train.ipynb` from top to bottom.
 
-## 11. Configuration
+## Observed result
+The saved notebook output reports test accuracy of approximately **99.04%** (test loss approximately 0.0301). This is a historical notebook result and has not been independently rerun during this documentation review.
 
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/Handwritten_digit_classification"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for handwritten digit classification. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Limitations and improvements
+The notebook does not persist a trained model or provide a standalone inference script. Add model saving, a reusable preprocessing/inference function, fixed random seeds, a confusion matrix and per-class accuracy. Document the TensorFlow/Keras version used to reproduce the result.
