@@ -1,121 +1,44 @@
-# Preditive
+# Recurrent Neural Network Comparison for IMDB Sentiment Classification
 
-**Project 007** · **Domain:** DeepLearning
+**Project 007 · Deep Learning / NLP**  
+**Path:** `DeepLearning/preditive` (repository spelling retained)
 
-## 1. Project Overview
+## Objective
+Compare SimpleRNN, LSTM and GRU sequence models on the binary IMDB movie-review sentiment dataset.
 
-This project addresses **an experimental deeplearning workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Shared data pipeline
+Each notebook loads the Keras IMDB train/test splits, pads token sequences to length 100, and uses an embedding layer with dimension 128. The declared vocabulary size is 500,000. Each model ends with a single sigmoid output and is trained with binary cross-entropy and accuracy.
 
-## 2. Problem Statement
+## Model variants
+| Notebook | Recurrent layer | Optimizer | Early stopping |
+|---|---|---|---|
+| `rnn1.ipynb` | SimpleRNN(64) | SGD, learning rate 0.001 | patience 5 |
+| `lstm1.ipynb` | LSTM(64, tanh) | SGD default settings | patience 5 |
+| `gru1.ipynb` | GRU(64, tanh) | SGD default settings | patience 3 |
 
-The implementation explores a technical workflow related to an experimental deeplearning workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+Each run uses up to 10 epochs and plots training/validation accuracy and loss.
 
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[gru1.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[IMDB reviews] --> B[Integer token sequences]
+ B --> C[Pad or truncate to 100 tokens]
+ C --> D[Embedding: 128 dimensions]
+ D --> E{Recurrent model}
+ E --> F[SimpleRNN 64]
+ E --> G[LSTM 64]
+ E --> H[GRU 64]
+ F --> I[Dense sigmoid]
+ G --> I
+ H --> I
+ I --> J[Positive / negative sentiment]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Run
+Install TensorFlow/Keras, NumPy, Matplotlib and Jupyter. Run each notebook independently from this folder. Dataset download is handled by Keras on first run.
 
-## 5. Technologies Used
+## Captured outputs and caveats
+Saved outputs for the three notebooks show test accuracy in the high-60% range in the displayed runs (approximately 67.9% SimpleRNN, 68.5% LSTM and 68.7% GRU). The GRU notebook prints the values with the labels reversed: `test_loss` receives accuracy and `test_acc` receives loss. These are historical notebook outputs, not a controlled comparison. The same test set is used as validation data during training, and model vocabulary size is unnecessarily large relative to the Keras IMDB word index.
 
-| Language | Python |
-| Libraries detected from imports | `keras.callbacks`, `keras.layers`, `keras.models`, `keras.preprocessing.sequence`, `matplotlib.pyplot`, `tensorflow`, `tensorflow.keras.optimizers`, `tensorflow.keras.utils`, `tensorflow_datasets` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`gru1.ipynb`](<gru1.ipynb>)
-- [`lstm1.ipynb`](<lstm1.ipynb>)
-- [`rnn1.ipynb`](<rnn1.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from `gru1.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `evaluate`, `fit`, `keras`, `tensorflow`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "DeepLearning/preditive"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `gru1.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "DeepLearning/preditive"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental deeplearning workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Use a validation split from training data and retain test for final evaluation; use identical seeds, optimizer, training budget and preprocessing for fair comparison; correct metric labels; compare accuracy, precision/recall, F1 and confusion matrix; save tokenizer/word-index and model artifacts for inference; document per-epoch results.
