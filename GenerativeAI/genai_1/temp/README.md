@@ -1,119 +1,28 @@
-# Temp
+# Langflow JSON Loader API — Experimental Backend
 
-**Project 029** · **Domain:** GenerativeAI
+**Project ID:** 029 · **Domain:** Generative AI  
+**Entry point:** `main.py`
 
-## 1. Project Overview
+## Purpose
+A minimal FastAPI experiment intended to load a serialized Langflow graph and invoke it with user input using Langflow's `load_flow_from_json`.
 
-This project addresses **an experimental generativeai workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Intended workflow
+- Receive a JSON request containing `flow` and `input`.
+- Load the flow using `load_flow_from_json(flow_json)`.
+- Invoke the resulting chain with the input.
+- Return the output or an error message.
 
-## 2. Problem Statement
+## Critical implementation defect
+The route decorator is written as `app.post("/run-flow")` without the leading `@`. As written, this expression does not decorate `run_flow`; the function is not registered as the intended POST route. The endpoint therefore cannot be assumed to work.
 
-The implementation explores a technical workflow related to an experimental generativeai workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Security and configuration
+CORS is configured with wildcard origins, methods and headers, and credentials are allowed. There is no authentication, request validation, model/provider allowlist, resource limit or execution timeout. Langflow flow files may describe external integrations and must be treated as untrusted input.
 
-## 3. Objectives
+## Dependencies
+The requirements file pins Langflow 0.0.53 and LangChain 0.0.131 and lists FastAPI, Uvicorn and Pyngrok. This is an older dependency stack; verify compatibility and security before installation.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Verification
+Static inspection only. No route registration, flow loading or invocation was executed.
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[main.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `fastapi`, `langflow` |
-| Dependency manifests | `requirements.txt` |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`main.py`](<main.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `main.py` functions: `run_flow`
-
-## 7. Implementation Workflow
-
-1. Start from `main.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `fastapi`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-Install the dependencies listed in `requirements.txt`. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/genai_1/temp"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `main.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/genai_1/temp"
-python main.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental generativeai workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Correct the decorator, validate the flow schema, restrict allowed components and tools, isolate execution, add authentication and request limits, and pin a supported dependency set.
