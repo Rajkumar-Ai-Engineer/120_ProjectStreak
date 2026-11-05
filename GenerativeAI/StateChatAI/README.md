@@ -19,6 +19,7 @@ A minimal experiment that wraps one AutoGen assistant conversation inside a sing
 The requirements file lists LangGraph, LangChain, python-dotenv, PyAutoGen, AutoGen, Groq and OpenAI packages. Configure `GROQ_API_KEY` before running `python main.py`.
 
 ## Findings
+- A hard-coded graph invocation is executed at module import time, not only under a main guard. Importing this module therefore triggers a model call and network dependency.
 - The example invocation uses a fixed greeting; no interactive CLI, web UI or external input interface is implemented.
 - The LangGraph graph has one node only; it demonstrates state orchestration rather than a multi-step agent workflow.
 - The node calls AutoGen's `initiate_chat` and returns the incoming state; the AutoGen conversation transcript is not written back as structured graph state.
