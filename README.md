@@ -17,6 +17,9 @@ This repository contains experiments, notebooks, models, and application prototy
 
 ## Domain Audit Reports
 
+- [NLP project index](nlp/README.md)
+- [NLP implementation audit](NLP_AUDIT.md)
+
 - [Generative AI project index](GenerativeAI/README.md)
 - [Generative AI implementation audit](GENERATIVE_AI_AUDIT.md)
 
