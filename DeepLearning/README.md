@@ -1,5 +1,7 @@
 # Deep Learning — Project Index
 
+**Master catalogue:** [MASTER_PROJECT_CATALOGUE.md](../MASTER_PROJECT_CATALOGUE.md) · [Repository home](../README.md)
+
 **Canonical inventory:** Projects 001–010 · **Canonical total:** 10  
 **Additional source-bearing folders:** 9 candidates · **Image-only reference:** 1  
 **Master catalogue:** [Repository README](../README.md) · [Documentation coverage](../DOCUMENTATION_COVERAGE.md)
