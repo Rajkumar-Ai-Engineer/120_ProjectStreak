@@ -1,119 +1,36 @@
-# Stock Price
+# Tesla Stock Price Regression Experiment
 
-**Project 046** · **Domain:** Machine_Learning
+**Project 046 · Machine Learning · `Machine_Learning/stock_price`**
 
-## 1. Project Overview
+## Purpose and data
+A notebook experiment using historical Tesla stock data from `TSLA.csv` (2,416 rows in captured output, dated 2010-06-29 through 2020-02-03) to explore price relationships and fit a Linear Regression model.
 
-This project addresses **stock price analysis**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Method
+- Parse `Date` and set it as the index.
+- Inspect descriptive statistics and plot historical High prices.
+- Use the second and third columns as predictors/target (the notebook plots and labels them High and Low).
+- Random 80/20 train/test split with random state 42.
+- Fit `LinearRegression`; compute MSE and R²; plot actual versus predicted values.
 
-## 2. Problem Statement
-
-The implementation explores a technical workflow related to stock price analysis. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[train.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[TSLA.csv] --> B[Date parsing and EDA]
+ B --> C[Select High and Low price columns]
+ C --> D[Random train/test split]
+ D --> E[Linear Regression]
+ E --> F[Predicted price]
+ E --> G[MSE and R²]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Files and stack
+`train.ipynb`, `TSLA.csv`; Python, Pandas, NumPy, Matplotlib, scikit-learn.
 
-## 5. Technologies Used
+## Run
+Install pandas, numpy, matplotlib, scikit-learn and jupyter; execute `train.ipynb` from this directory.
 
-| Language | Python |
-| Libraries detected from imports | `matplotlib.pyplot`, `numpy`, `pandas`, `sklearn.linear_model`, `sklearn.metrics`, `sklearn.model_selection`, `sklearn.preprocessing` |
-| Dependency manifests | Not specified in the repository |
+## Interpretation and limitations
+This is a simple contemporaneous price regression experiment, not a validated future stock forecasting system. A random split ignores time ordering and may overstate generalization for time-dependent data. The notebook imports StandardScaler, Lasso and Ridge but the inspected model fit uses ordinary LinearRegression. No investment return or trading strategy is evaluated. Financial markets are noisy; model output is not investment advice.
 
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `train.ipynb` notebook headings: **libs**; **Load dataset**
-
-## 7. Implementation Workflow
-
-1. Start from `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `fit`, `pandas`, `predict`, `regression`, `sklearn`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "Machine_Learning/stock_price"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/stock_price"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for stock price analysis. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Define a future prediction horizon, construct lagged/rolling features using past data only, use chronological train/validation/test partitions or walk-forward validation, compare naive baselines and regularized models, report MAE/RMSE/R², and prevent look-ahead leakage. Document adjusted-close/dividend/split handling and data source.
