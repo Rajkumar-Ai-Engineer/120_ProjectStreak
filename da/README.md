@@ -1,5 +1,7 @@
 # Data Analytics — Project and Source Reference Index
 
+**Master catalogue:** [MASTER_PROJECT_CATALOGUE.md](../MASTER_PROJECT_CATALOGUE.md) · [Repository home](../README.md)
+
 **Evidence present:** 16 PNG screenshots + 5 PDF files · **Executable source in this folder:** none identified  
 **Audit:** [DATA_ANALYTICS_AUDIT.md](../DATA_ANALYTICS_AUDIT.md) · **Master catalogue:** [Repository README](../README.md)
 
