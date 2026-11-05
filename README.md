@@ -15,6 +15,11 @@ This repository contains experiments, notebooks, models, and application prototy
 | Machine_Learning | 19 |
 | computer vision | 14 |
 
+## Domain Audit Reports
+
+- [Generative AI project index](GenerativeAI/README.md)
+- [Generative AI implementation audit](GENERATIVE_AI_AUDIT.md)
+
 ## Project Directory
 
 | No. | Project | Domain | Primary language | Detected technologies | Documentation |
