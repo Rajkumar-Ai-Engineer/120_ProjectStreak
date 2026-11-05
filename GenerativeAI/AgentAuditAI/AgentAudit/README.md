@@ -1,122 +1,34 @@
-# Agentaudit
+# AgentAuditAI — Multi-Agent Code Assistant Audit
 
-**Project 011** · **Domain:** GenerativeAI
+**Project ID:** 011 · **Domain:** Generative AI  
+**Entry point:** `main.py`
 
-## 1. Project Overview
+## Purpose
+A small AutoGen experiment that sends a user-provided coding task to an assistant agent and coordinates a second evaluator-style user-proxy agent. LangSmith tracing is attached to the evaluation function.
 
-This project addresses **an experimental generativeai workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Implemented flow
+1. Load environment variables with python-dotenv.
+2. Configure AutoGen to use `gpt-3.5-turbo` with `OPENAI_API_KEY` and temperature 0.5. A Groq configuration remains commented out.
+3. Create an `AssistantAgent` with a code-creation system message.
+4. Create a `UserProxyAgent` with evaluator instructions, `human_input_mode="NEVER"` and Docker execution disabled.
+5. Start a two-turn chat for the task entered in the terminal.
+6. Use a LangSmith `traceable` decorator and a LangSmith client configured for the `agentaudit` project.
 
-## 2. Problem Statement
+## Important implementation distinction
+The code defines an evaluator agent, but the explicit LangSmith `evaluate(...)` call and evaluator metrics are commented out. The current active workflow is a short agent conversation, not a completed automated correctness benchmark.
 
-The implementation explores a technical workflow related to an experimental generativeai workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Configuration and dependencies
+Required environment variables: `OPENAI_API_KEY` and `LANGSMITH_API_KEY`. Imports indicate AutoGen, LangSmith and python-dotenv. No project-specific requirements file is present.
 
-## 3. Objectives
+## Review findings
+- `llm_config` is passed to the agent methods as a module-level global rather than consistently using the instance configuration.
+- `evaluate_task` does not return a measured evaluation result; the former evaluation block is commented.
+- Docker execution is disabled, but this should not be treated as a complete sandbox for arbitrary generated code.
+- No task dataset, expected answers, tests, score aggregation or reproducible evaluation report is included.
+- The logger removes all handlers from its logger instance before adding the file handler; the stream handler created earlier is therefore removed.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Run
+From this directory, configure the environment and run `python main.py`. Static review only; no model call or LangSmith trace was executed.
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[main.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `autogen`, `dotenv`, `langsmith`, `logging`, `logs`, `os`, `threading`, `traceback` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`__init__.py`](<__init__.py>)
-- [`logs.py`](<logs.py>)
-- [`main.py`](<main.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `main.py` functions: `evaluate_task`, `__init__`, `worker_agent`, `meta_agent_auditor`
-- `main.py` classes: `AgentAudit`
-
-## 7. Implementation Workflow
-
-1. Start from `main.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `autogen`, `evaluate`, `openai`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/AgentAuditAI/AgentAudit"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `main.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/AgentAuditAI/AgentAudit"
-python main.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental generativeai workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Restore a real evaluator pipeline with explicit criteria and test cases, persist run IDs/results, add dependency pins, and isolate any code execution in a properly restricted environment.
