@@ -1,125 +1,34 @@
-# Finsightai
+# FinSightAI — Financial Document RAG and Analysis Assistant
 
-**Project 015** · **Domain:** GenerativeAI
+**Project ID:** 015 · **Domain:** Generative AI  
+**Primary UI:** `app.py` · **Core RAG logic:** `helper.py`
 
-## 1. Project Overview
+## Purpose
+A Gradio chat prototype that reads a local TXT or PDF financial document, chunks its text, indexes it in Chroma, retrieves relevant context and asks an LLM to explain the result.
 
-This project addresses **an experimental generativeai workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Architecture and observed flow
+1. `FinSightAI` initializes Gemini 1.5 Flash through LlamaIndex, BGE-small embeddings and a persistent Chroma collection at `./db`.
+2. LangChain loaders read TXT or PDF files.
+3. `RecursiveCharacterTextSplitter` uses a chunk size of 1,000.
+4. LangChain documents are converted into LlamaIndex documents and inserted into the Chroma-backed vector index.
+5. LlamaIndex queries the index.
+6. The Gradio app sends the retrieved result to the Groq chat-completions endpoint using model `openai/gpt-oss-120b` for a second financial-analysis response.
 
-## 2. Problem Statement
+A separate `main.py` path uses AutoGen agents to analyse the RAG result. It is not the Gradio UI's active request path.
 
-The implementation explores a technical workflow related to an experimental generativeai workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Configuration and dependencies
+The helper reads `GOOGLE_GENAI_API_KEY`; the Gradio app reads `GROQ_API_KEY`. Install from `requirements.txt` and verify compatible versions of LlamaIndex, ChromaDB, LangChain, Gradio and AutoGen.
 
-## 3. Objectives
+## Findings
+- The Gradio handler calls `process_query` with the default `data.txt`; the UI does not provide a file-upload control.
+- `process_query` in the helper ends without returning the computed result, so the standalone helper path is incomplete.
+- The Gradio app performs a direct HTTP request without timeout/status validation and assumes the response contains the expected JSON shape.
+- The persistent collection is reused; document replacement, deduplication, source tracking and deletion are not implemented.
+- Financial insights are generated from retrieved text and are not independently validated. No benchmark or financial calculation validation is supplied.
+- The checked-in sample `data.txt` should be reviewed for licensing and sensitive content before publication.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Verification
+Static inspection only; no document ingestion, vector indexing or LLM request was run.
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[app.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `autogen`, `chromadb`, `dotenv`, `gradio`, `helper`, `langchain`, `langchain_community`, `llama_index`, `logger_mode`, `logging`, `os`, `requests`, `threading`, `traceback` |
-| Dependency manifests | `requirements.txt` |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`app.py`](<app.py>)
-- [`helper.py`](<helper.py>)
-- [`logger_mode.py`](<logger_mode.py>)
-- [`main.py`](<main.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `app.py` functions: `analyze_with_llm`, `process_query`, `chat_interface`
-- `helper.py` functions: `__init__`, `load_data`, `split_documents`, `_convert_to_llama_index_documents`, `create_index`, `load_index`, `query_engine`, `process_query`
-- `helper.py` classes: `FinSightAI`
-- `main.py` functions: `process_query`
-
-## 7. Implementation Workflow
-
-1. Start from `app.py`, `main.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `autogen`, `gradio`, `langchain`, `openai`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-Install the dependencies listed in `requirements.txt`. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/FinSightAI"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `app.py`, `main.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/FinSightAI"
-python app.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental generativeai workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Add document upload and source citations, return and validate helper outputs, handle API failures, isolate per-user collections, evaluate retrieval/faithfulness, and clearly distinguish extracted facts from generated interpretation.
