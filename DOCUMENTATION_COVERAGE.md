@@ -64,7 +64,7 @@ The repository's existing `PROJECT_INVENTORY.md` and `documentation_inventory.js
 - Additional image-only folders in `computervision/`: **3** (YOLOv8+ByteTrack reference image, Virtual Calculator reference image, Drowsiness Detection reference image).
 - Total code-bearing folders statically inspected: **17**; image-only placeholders are not counted as implementations.
 - Project-specific README files rewritten/created: **20** (14 numbered projects + 6 additional folders).
-- Domain indexes: [computer vision/README.md](<computer vision/README.md>) and [computervision/README.md](computervision/README.md).
+- Domain indexes: [computer vision/README.md](computer%20vision/README.md) and [computervision/README.md](computervision/README.md).
 - Detailed findings: [COMPUTER_VISION_AUDIT.md](COMPUTER_VISION_AUDIT.md).
 - High-priority findings: exposed Roboflow API credential in Detectron2 source (rotate immediately); broken speed-estimation video generator and uncalibrated km/h; blocking SimCLR shape/tape/loss defects; missing Image Colorization Caffe weights; AG News text classification incorrectly filed in Computer Vision; Barcode Reader is import-only.
 - Documentation date: 2026-11-05.
