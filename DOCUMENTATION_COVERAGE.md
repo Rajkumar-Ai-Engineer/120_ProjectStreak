@@ -98,3 +98,16 @@ This was a static GitHub source/notebook/artifact review. No Python scripts, not
 - Two large notebooks (TextClassifyusingnb and textClustering) could not be fully retrieved by the GitHub content endpoint; their algorithm details remain unverified.
 - Verification: static source review only; no scripts, notebooks, models, APIs, OCR, audio, training or inference executed.
 - Documentation update date: 2026-11-05.
+
+
+## Data Analytics (DA) folder — source inventory documented
+
+- Directory: `da/`.
+- Files inventoried: **21** (5 PDFs and 16 PNG screenshots).
+- PDF source labels preserved: **118 — World Wildlife** and **120 — Job**; three additional unnumbered topics are Churn Analysis, Geospatial Coffee Sales, and Retail Sales.
+- Domain index: [da/README.md](da/README.md).
+- Detailed folder audit: [DATA_ANALYTICS_AUDIT.md](DATA_ANALYTICS_AUDIT.md).
+- No source code, notebooks, SQL files, dashboard/application source, or dependency manifests were found in this directory listing.
+- PDF bodies and screenshot contents were not reviewed in this pass; no datasets, methods, results, technologies, or implementation status are inferred from filenames. These artifacts are not yet added to the canonical 62-project inventory.
+- Verification: recursive Git tree inspection of `da/`; no code execution or analytical result verification.
+- Documentation update date: 2026-11-05.
