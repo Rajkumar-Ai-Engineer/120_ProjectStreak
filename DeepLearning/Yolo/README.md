@@ -1,119 +1,45 @@
-# Yolo
+# Real-Time Object Detection with YOLOv4 and OpenCV
 
-**Project 005** · **Domain:** DeepLearning
+**Project 005 · Deep Learning / Computer Vision**  
+**Path:** `DeepLearning/Yolo`
 
-## 1. Project Overview
+## Objective
+Run pretrained YOLOv4 object detection on the included `schoolzone.mp4` video using OpenCV's Darknet DNN backend and draw labeled bounding boxes.
 
-This project addresses **object detection**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Model assets
+- `YOLO_V4/yolov4.cfg` — Darknet model configuration.
+- `YOLO_V4/yolov4.weights` — pretrained weights.
+- `YOLO_V4/coco.names` — COCO class labels.
+- `schoolzone.mp4` — input video.
+The notebook also contains download commands for upstream YOLOv4 assets.
 
-## 2. Problem Statement
+## Detection pipeline
+1. Load class labels, configuration and weights.
+2. Initialize OpenCV `readNetFromDarknet`.
+3. Read video frames and resize to width 500.
+4. Build a 416×416 RGB-swapped blob scaled by 1/255.
+5. Forward through YOLO output layers.
+6. Select the highest class score per detection; confidence threshold 0.5.
+7. Apply Non-Maximum Suppression with threshold 0.3.
+8. Draw bounding boxes and class labels.
 
-The implementation explores a technical workflow related to object detection. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[train.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[schoolzone.mp4] --> B[OpenCV frame resize]
+ B --> C[416x416 blob preprocessing]
+ C --> D[YOLOv4 Darknet network]
+ D --> E[Class scores and boxes]
+ E --> F[Confidence filter 0.5]
+ F --> G[NMS threshold 0.3]
+ G --> H[Annotated video frame]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Run
+Install OpenCV, NumPy, imutils and wget. Verify the three YOLO assets exist under `YOLO_V4/`, then run `train.ipynb` in Jupyter. The notebook is a video-inference demo; it does not train YOLOv4.
 
-## 5. Technologies Used
+## Limitations
+The notebook uses a Windows/Colab mixed set of commands (including `!PWD`) and assumes the video can be opened. It should check the return flag from `VideoCapture.read()` before resizing a frame, release the capture, and close windows at the end. The displayed label formats confidence with a percent sign although the score is a 0–1 probability-like confidence. No dataset-specific fine-tuning or school-zone vehicle/pedestrian evaluation is implemented.
 
-| Language | Python |
-| Libraries detected from imports | `cv2`, `imutils`, `numpy`, `os` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: `YOLO_V4/` (3 files)
-
-Extracted implementation symbols and notebook headings:
-- `train.ipynb` notebook headings: **yolo config ,weights, names**; **Start frame**
-
-## 7. Implementation Workflow
-
-1. Start from `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `cv2`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "DeepLearning/Yolo"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "DeepLearning/Yolo"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for object detection. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Add robust CLI/video path handling, frame-read checks, FPS measurement, output-video writing, class filtering for traffic participants, and evaluate detection precision/recall on labeled local road footage. Do not describe this as a custom-trained school-zone model.
