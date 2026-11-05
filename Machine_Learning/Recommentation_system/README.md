@@ -1,119 +1,51 @@
-# Recommentation System
+# Movie Recommendation System using Collaborative Filtering
 
-**Project 034** · **Domain:** Machine_Learning
+**Project 034 · Domain:** Machine Learning · **Path:** `Machine_Learning/Recommentation_system`
 
-## 1. Project Overview
+## Overview
+A notebook experiment that recommends movies using the MovieLens-style ratings and movie metadata files. It constructs a movie-by-user rating matrix, mean-centers rows, applies truncated Singular Value Decomposition (SVD), then ranks similar movie vectors using cosine similarity.
 
-This project addresses **an experimental machine_learning workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Data
+- `ratings.dat` — user ID, movie ID, rating and timestamp, parsed using `::` as delimiter.
+- `movies.dat` — movie ID, title and genre, parsed using `::` and ISO-8859-1 encoding.
+The ratings file is approximately 24.6 MB. The notebook uses a dense NumPy matrix sized by maximum movie and user IDs.
 
-## 2. Problem Statement
+## Algorithm
+1. Load ratings and movie metadata.
+2. Populate a movie × user ratings matrix (missing ratings are initialized to zero).
+3. Subtract each movie's mean rating.
+4. Transpose/scale the matrix and compute SVD.
+5. Retain the first 50 latent dimensions.
+6. Compute cosine similarity for a selected movie ID and return the top 10 similar movie IDs/titles.
 
-The implementation explores a technical workflow related to an experimental machine_learning workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[train.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[ratings.dat] --> C[Movie x user matrix]
+ B[movies.dat] --> H[Movie ID to title lookup]
+ C --> D[Mean centering]
+ D --> E[SVD latent factors]
+ E --> F[Cosine similarity]
+ F --> G[Top-N similar movies]
+ H --> G
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Files and stack
+- `train.ipynb` — recommendation workflow.
+- `ratings.dat`, `movies.dat` — input data.
+- Python, Pandas, NumPy, SVD (`numpy.linalg.svd`), cosine similarity.
 
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `numpy`, `pandas` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `pandas`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
+## Run
 ```bash
-cd "Machine_Learning/Recommentation_system"
+cd Machine_Learning/Recommentation_system
 python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
+# Activate and install numpy pandas jupyter
+jupyter lab
+``
+Run `train.ipynb` from top to bottom.
 
-## 11. Configuration
+## Observed output
+The notebook example queries movie ID 15 and prints ten nearest movie titles. The saved output includes a NumPy runtime warning for invalid division in cosine similarity.
 
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/Recommentation_system"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental machine_learning workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Limitations and improvements
+The dense matrix can be memory-intensive. Zero-filled missing ratings and row-centering can bias similarity; zero-norm vectors cause divide-by-zero/NaN (the warning is present in saved output). Exclude the query item from recommendations, guard zero norms, use sparse matrices/TruncatedSVD, and evaluate with held-out interactions (Precision@K, Recall@K, MAP/NDCG). The current code is item-item similarity in latent space, not a personalized user-profile recommender. No fresh evaluation metrics are claimed.
