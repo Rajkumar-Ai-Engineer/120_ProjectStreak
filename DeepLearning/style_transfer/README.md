@@ -1,119 +1,41 @@
-# Style Transfer
+# Unpaired Horse-to-Zebra Image Translation with CycleGAN
 
-**Project 009** · **Domain:** DeepLearning
+**Project 009 · Deep Learning / Generative Vision**  
+**Path:** `DeepLearning/style_transfer`
 
-## 1. Project Overview
+## Objective
+Demonstrate unpaired image-to-image translation from horses to zebras using the TensorFlow Datasets `cycle_gan/horse2zebra` dataset and TensorFlow's Pix2Pix example model components.
 
-This project addresses **an experimental deeplearning workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Model
+- Two U-Net generators: horse→zebra (G) and zebra→horse (F).
+- Two PatchGAN-style discriminators, one per domain.
+- 256×256 RGB images, batch size 1, 50 epochs.
+- Random jittering: resize to 286×286 then random crop to 256×256.
+- Random horizontal mirroring and normalization to [-1,1].
+- Adversarial binary cross-entropy, cycle-consistency loss (lambda 10) and identity loss (lambda 5).
+- Adam optimizers at 2e-4 with beta_1=0.5.
+- Checkpoint manager retains up to five checkpoints.
 
-## 2. Problem Statement
-
-The implementation explores a technical workflow related to an experimental deeplearning workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[cycle_gan.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[Horse images] --> B[Generator G]
+ B --> C[Generated zebra]
+ C --> D[Generator F]
+ D --> E[Reconstructed horse]
+ F[Zebra images] --> G[Generator F]
+ G --> H[Generated horse]
+ H --> I[Generator G]
+ I --> J[Reconstructed zebra]
+ C --> K[Discriminator Y]
+ H --> L[Discriminator X]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Run
+Install TensorFlow, TensorFlow Datasets, Matplotlib, Jupyter and the TensorFlow Examples Pix2Pix helper package compatible with the notebook. Run `cycle_gan.ipynb`; the dataset is downloaded by TFDS and checkpoints are written to `checkpoints/train`.
 
-## 5. Technologies Used
+## Critical notebook issue
+The inspected `preprocess_traindata(images, labels)` function refers to `image` rather than its `images` parameter, and its return value omits the label as expected by the dataset map signature. This is likely to stop the input pipeline. Fix the parameter name and return structure before expecting a complete training run. The notebook has no captured end-to-end training metrics.
 
-| Language | Python |
-| Libraries detected from imports | `IPython.display`, `matplotlib.pyplot`, `os`, `tensorflow`, `tensorflow_datasets`, `tensorflow_examples.models.pix2pix`, `time` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`cycle_gan.ipynb`](<cycle_gan.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `cycle_gan.ipynb` notebook headings: **Libs**; **Data Loading**; **Split**; **Augmentation Techniques for Cycle Gan**; **1.Random Jittering**; **2.Random Mirroring**; **3.Normalization**; **Data Conversion**; **Generator an Discriminator**; **Losses**; **Discriminator**; **Check Point**
-
-## 7. Implementation Workflow
-
-1. Start from `cycle_gan.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `keras`, `tensorflow`, `train`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "DeepLearning/style_transfer"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `cycle_gan.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "DeepLearning/style_transfer"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental deeplearning workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Add a smoke test for dataset preprocessing, record generated sample grids per epoch, evaluate FID/KID or a human review protocol, document the pretrained helper dependency/version, and keep domain-specific train/test data disjoint. This is an unpaired translation demonstration, not a general-purpose style-transfer service.
