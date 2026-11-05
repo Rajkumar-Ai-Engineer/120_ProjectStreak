@@ -109,7 +109,7 @@ In `computer vision/Image_Colorization/`:
 
 ## 4. Per-project documentation
 
-Each code-bearing project now has a project-specific README describing actual source behaviour, dependencies, known defects, verification boundaries and next steps.
+Each inspected project folder now has a project-specific README describing actual source behaviour, dependencies, known defects, verification boundaries and next steps.
 
 - [049 — AR-Based Virtual Makeup](computer%20vision/AR_based_virtual_makeup/README.md)
 - [050 — AG News Text Classification](computer%20vision/Document_Classifcation/README.md)
@@ -125,11 +125,11 @@ Each code-bearing project now has a project-specific README describing actual so
 - [060 — Object Tracker](computer%20vision/object_tracker/README.md)
 - [061 — SimCLR](computer%20vision/simclr/README.md)
 - [062 — Speed Estimation](computer%20vision/speedEstimation/README.md)
-- [Additional — YOLOv8 + ByteTrack image-only placeholder](computervision/44 — Object Detection and Tracking using YOLOv8 and ByteTrack Supervision/README.md)
-- [Additional — Drowsiness Detection image-only placeholder](computervision/- 54 — AI-Powered Drowsiness Detection System/README.md)
-- [Additional — Whisper Video Summarization](computervision/- 57 — Video Summarization using OpenAI Whisper/README.md)
+- [Additional — YOLOv8 + ByteTrack image-only placeholder](computervision/44%20%E2%80%94%20Object%20Detection%20and%20Tracking%20using%20YOLOv8%20and%20ByteTrack%20Supervision/README.md)
+- [Additional — Drowsiness Detection image-only placeholder](computervision/-%2054%20%E2%80%94%20AI-Powered%20Drowsiness%20Detection%20System/README.md)
+- [Additional — Whisper Video Summarization](computervision/-%2057%20%E2%80%94%20Video%20Summarization%20using%20OpenAI%20Whisper/README.md)
 - [Additional — Gemini Social Image Captioning](computervision/58_—_ai_image_captioning_for_social_media_content_using_gemini/README.md)
-- [Additional — Virtual Calculator image-only placeholder](computervision/- 52 — Virtual Calculator/README.md)
+- [Additional — Virtual Calculator image-only placeholder](computervision/-%2052%20%E2%80%94%20Virtual%20Calculator/README.md)
 - [Additional — Detectron2 Instance Segmentation](computervision/Instance-Segmentation/README.md)
 
 ## 5. Verification boundaries
