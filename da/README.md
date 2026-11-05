@@ -1,54 +1,81 @@
-# Data Analytics (DA) — Source Index
+# Data Analytics (DA)
 
-This directory contains **five PDF source artifacts** and **16 PNG screenshots** associated with the Data Analytics collection. It currently contains no visible Python scripts, notebooks, SQL files, dashboards, application source, dependency manifests, or project-specific README files.
+This folder contains five PDF source documents and 16 PNG screenshot assets. This index separates **visual evidence that could be inspected** from **PDF source content that still requires page-level extraction**. Do not treat a screenshot-derived observation as proof of the underlying dataset or code.
 
-## Project/source catalogue
+## Audit summary
 
-| Source label | Repository artifact | What can be established from the repository | Evidence status |
-|---|---|---|---|
-| 118 | [118-world wildlife.pdf](118-world%20wildlife.pdf) | The filename identifies a World Wildlife-themed project/source. Its objective, dataset, analytical methods, tools, and findings are not verified from the filename alone. | PDF present; content review pending |
-| 120 | [120-job.pdf](120-job.pdf) | The filename identifies a Job-themed project/source. Its exact use case, dataset, analysis, tools, and findings are not verified from the filename alone. | PDF present; content review pending |
-| Unassigned | [churn-analysis.pdf](churn-analysis.pdf) | Churn-analysis source artifact. The business context, target definition, dataset, models, metrics, and conclusions are not verified. | PDF present; content review pending |
-| Unassigned | [geospatial-coffee-sales.pdf](geospatial-coffee-sales.pdf) | Geospatial coffee-sales source artifact. The geography, sales measures, mapping approach, tools, and conclusions are not verified. | PDF present; content review pending |
-| Unassigned | [retail-sales.pdf](retail-sales.pdf) | Retail-sales source artifact. The dataset, business questions, transformations, analysis, visualizations, and conclusions are not verified. | PDF present; content review pending |
+| Evidence | Count | Review result |
+|---|---:|---|
+| PDF files | 5 | All inventoried; page content not extractable in the connected GitHub reader during this pass |
+| PNG screenshots | 16 | 15 visually inspected; `183235.png` could not be retrieved by the connector |
+| Screenshot-based project notes | 16 | 15 substantive notes plus one explicit retrieval-pending note |
+| PDF source audit notes | 5 | One note per PDF; content review remains pending |
+| Executable source files visible in `da/` | 0 | No Python, SQL, notebook, dashboard project or dependency files appeared in the directory tree |
 
-The labels **118** and **120** are preserved exactly as indicated by the filenames. No IDs are assigned to the other three artifacts.
+## Screenshot-based project documentation
 
-## Screenshot evidence
+Each page records what is visible, what remains unknown, technology evidence where present, and recommended validation. No screenshot-derived result has been independently reproduced.
 
-The directory also contains these 16 PNG files:
+1. [IPL Analysis 2025](projects/01-ipl-analysis-2025.md) — 74 matches, no-result count, title winner and team/toss comparisons.
+2. [House Price Analysis](projects/02-house-price-analysis.md) — sale price by locality/year and property feature comparisons.
+3. [Restaurant Food Sales](projects/03-restaurant-food-sales.md) — sales, profit, item type, month/year and time-of-day views.
+4. [India Crime Analysis](projects/04-india-crime-analysis.md) — victim demographics, case closure, year, weapon and police-deployment views.
+5. [COVID-19 Analysis](projects/05-covid-19-analysis.md) — country-level cases/deaths, yearly trends and maps.
+6. [Healthcare Patient and Billing](projects/06-healthcare-patient-billing.md) — admissions, insurance provider, gender and billing by condition.
+7. [Financial Portfolio Growth](projects/07-financial-portfolio-growth-python.md) — normalized growth chart for AAPL, AMZN, GOOGL and MSFT.
+8. [Project 112/120 — Financial Portfolio Analysis](projects/08-financial-portfolio-analysis-project-112.md) — source-post details including date range, weights and claimed returns.
+9. [Reddit Sentiment Distribution](projects/09-reddit-sentiment-distribution.md) — visible positive/negative/neutral counts and code context.
+10. [HR Attrition Dashboard](projects/10-hr-attrition-dashboard.md) — employee counts, attrition, gender, satisfaction and education.
+11. [Employee Performance Dashboard](projects/11-employee-performance-dashboard.md) — employee counts, hire year, job title, department and performance score.
+12. [Movie Ratings Analysis](projects/12-movie-ratings-analysis.md) — film count, average rating, votes and film ranking.
+13. [Product Sales 2010–2024](projects/13-product-sales-2010-2024.md) — product-sales and revenue KPIs with yearly comparisons.
+14. [Sales Dashboard — City/Country](projects/14-sales-dashboard-city-country.md) — sales/profit KPIs, top-profit city, product line, deal size and country.
+15. [Online Retail Customer Segmentation](projects/15-online-retail-customer-segmentation.md) — notebook screenshot showing duplicate removal and numeric-column selection.
+16. [Unidentified Screenshot 183235](projects/16-unidentified-screenshot-183235.md) — connector returned an empty payload; visual review pending.
 
-- `Screenshot 2026-11-03 183035.png`
-- `Screenshot 2026-11-03 183112.png`
-- `Screenshot 2026-11-03 183120.png`
-- `Screenshot 2026-11-03 183130.png`
-- `Screenshot 2026-11-03 183138.png`
-- `Screenshot 2026-11-03 183159.png`
-- `Screenshot 2026-11-03 183211.png`
-- `Screenshot 2026-11-03 183222.png`
-- `Screenshot 2026-11-03 183235.png`
-- `Screenshot 2026-11-03 183253.png`
-- `Screenshot 2026-11-03 183324.png`
-- `Screenshot 2026-11-03 183354.png`
-- `Screenshot 2026-11-03 183400.png`
-- `Screenshot 2026-11-03 183424.png`
-- `Screenshot 2026-11-03 183429.png`
-- `Screenshot 2026-11-03 183459.png`
+## PDF source documents
 
-These are recorded as supporting visual assets only. Their contents have not been interpreted here, so they are not used to infer project names, methods, results, or completion.
+These are source-artifact records, not invented project summaries. The PDF bytes exist in the repository, but page-level text/images were not accessible through the current GitHub file connector workflow. Upload the PDFs directly in chat or provide an accessible extracted copy to complete the technical write-ups.
 
-## Important scope and verification notes
+- [118 — World Wildlife](source-pdfs/118-world-wildlife.md) — [PDF](118-world%20wildlife.pdf)
+- [120 — Job](source-pdfs/120-job.md) — [PDF](120-job.pdf)
+- [Churn Analysis](source-pdfs/churn-analysis.md) — [PDF](churn-analysis.pdf)
+- [Geospatial Coffee Sales](source-pdfs/geospatial-coffee-sales.md) — [PDF](geospatial-coffee-sales.pdf)
+- [Retail Sales](source-pdfs/retail-sales.md) — [PDF](retail-sales.pdf)
 
-- A PDF or screenshot is evidence that a source artifact exists; it is **not by itself evidence of a runnable implementation**.
-- The project descriptions above are deliberately limited to the filenames. No dataset, algorithm, model, KPI, chart, result, or technology has been invented.
-- No code execution, notebook execution, dashboard launch, or data analysis was performed for this directory.
-- The PDF bodies and screenshot contents require a visual/text extraction pass before project-specific technical documentation can be completed.
-- The current repository's canonical project inventory does not list these DA artifacts. The two numeric filename labels are not sufficient by themselves to reconcile the full intended project catalogue.
+## Screenshot asset list
 
-## Next documentation pass
+- `Screenshot 2026-11-03 183035.png` — IPL Analysis 2025
+- `Screenshot 2026-11-03 183112.png` — House Price Analysis
+- `Screenshot 2026-11-03 183120.png` — Restaurant Food Sales
+- `Screenshot 2026-11-03 183130.png` — India Crime Analysis
+- `Screenshot 2026-11-03 183138.png` — COVID-19 Analysis
+- `Screenshot 2026-11-03 183159.png` — Healthcare Patient and Billing
+- `Screenshot 2026-11-03 183211.png` — Financial Portfolio Growth
+- `Screenshot 2026-11-03 183222.png` — Financial Portfolio Analysis post
+- `Screenshot 2026-11-03 183235.png` — retrieval pending
+- `Screenshot 2026-11-03 183253.png` — Reddit Sentiment Distribution
+- `Screenshot 2026-11-03 183324.png` — HR Attrition
+- `Screenshot 2026-11-03 183354.png` — Employee Performance
+- `Screenshot 2026-11-03 183400.png` — Movie Ratings
+- `Screenshot 2026-11-03 183424.png` — Product Sales
+- `Screenshot 2026-11-03 183429.png` — Sales Dashboard
+- `Screenshot 2026-11-03 183459.png` — Online Retail notebook
 
-For each PDF, extract its title, objective, dataset/source, data dictionary, cleaning steps, exploratory analysis, statistical methods, visualizations, findings, limitations, and referenced tools. Then inspect and map the 16 screenshots to the relevant source artifact. Only after that review should project-specific READMEs and canonical inventory entries be created.
+## Quality and interpretation rules
 
-## Related audit
+- Values shown in screenshots are transcribed as visible and remain unverified against raw data.
+- Currency, units, dataset provenance, date coverage and metric definitions are marked unknown whenever not visible.
+- Dashboard tool names are not inferred from appearance alone.
+- The financial portfolio post's reported returns are treated as author claims, not reproduced results.
+- The healthcare and crime dashboards are descriptive artifacts; they do not establish causal or clinical conclusions.
+- No projects are assigned new canonical IDs based only on screenshot filenames.
+- No code, notebook, dashboard or model was executed during this pass.
 
-See [DATA_ANALYTICS_AUDIT.md](../DATA_ANALYTICS_AUDIT.md) for the evidence-based folder audit and reconciliation status.
+## Completion needed
+
+1. Extract and inspect all pages of the five PDFs.
+2. Re-fetch or re-upload screenshot `183235.png`.
+3. Match PDF contents to screenshot projects only when the evidence supports the relationship.
+4. Locate the underlying source notebooks/dashboards and inspect code, transformations and calculations.
+5. Reconcile project names and IDs against the repository's canonical inventory before adding them to the 120-project count.
