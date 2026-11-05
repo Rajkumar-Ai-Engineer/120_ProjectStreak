@@ -8,15 +8,15 @@
 
 ## 1. Executive summary
 
-The repository has two distinct Computer Vision-named directories. The original `computer vision/` directory contains **14 numbered project folders (049–062)**. The separate `computervision/` directory contains **4 code-bearing project folders** and **2 image-only folders**. The image-only folders are not counted as implemented projects.
+The repository has two distinct Computer Vision-named directories. The original `computer vision/` directory contains **14 numbered project folders (049–062)**. The separate `computervision/` directory contains **3 code-bearing project folders** and **3 image-only folders**. The image-only folders are not counted as implemented projects.
 
 | Measure | Finding |
 |---|---:|
 | Numbered project folders in `computer vision/` | 14 |
 | Additional code-bearing folders in `computervision/` | 4 |
 | Image-only folders in `computervision/` | 2 |
-| Code-bearing folders inspected | 18 |
-| Project-specific README files rewritten/created | 18 |
+| Code-bearing folders inspected | 17 |
+| Project-specific README files rewritten/created | 20 |
 | Domain index files created | 2 |
 | Training/inference executed during this audit | 0 |
 
@@ -129,6 +129,7 @@ Each code-bearing project now has a project-specific README describing actual so
 - [Additional — Drowsiness Detection image-only placeholder](<computervision/- 54 — AI-Powered Drowsiness Detection System/README.md>)
 - [Additional — Whisper Video Summarization](<computervision/- 57 — Video Summarization using OpenAI Whisper/README.md>)
 - [Additional — Gemini Social Image Captioning](<computervision/58_—_ai_image_captioning_for_social_media_content_using_gemini/README.md>)
+- [Additional — Virtual Calculator image-only placeholder](<computervision/- 52 — Virtual Calculator/README.md>)
 - [Additional — Detectron2 Instance Segmentation](<computervision/Instance-Segmentation/README.md>)
 
 ## 5. Verification boundaries
