@@ -1,124 +1,29 @@
-# Decisionsim
+# DecisionSim — Multi-Agent Business Decision Support
 
-**Project 014** · **Domain:** GenerativeAI
+**Project ID:** 014 · **Domain:** Generative AI  
+**UI entry point:** `app.py` · **LangGraph workflow:** `test.py` · **Agent orchestration:** `helper.py`
 
-## 1. Project Overview
+## Purpose
+A Streamlit prototype for analysing a user-entered business/market scenario through three roles: Market Analyst, Financial Analyst and CEO/strategic decision-maker. The UI offers CrewAI, LangGraph and AutoGen engine choices.
 
-This project addresses **an experimental generativeai workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Implemented paths
+- **LangGraph:** `test.py` defines a typed state with input, market analysis, financial analysis and decision fields. Three sequential nodes call a Groq `ChatGroq` model: market analysis → financial analysis → decision recommendation.
+- **CrewAI:** `helper.py` defines role-specific agents and tasks for market research, finance analysis and decision-making.
+- **AutoGen:** helper code configures AutoGen agents/group chat for an agent discussion.
+- **Streamlit:** user enters a scenario, selects an engine and views the result. LangGraph output can be downloaded as Markdown.
 
-## 2. Problem Statement
+## Configuration
+The source reads `GROQ_API_KEY` from a .env file. Imports show LangGraph, LangChain Groq, CrewAI, AutoGen, Pydantic and Streamlit. No project requirements file is checked in.
 
-The implementation explores a technical workflow related to an experimental generativeai workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Findings
+- The LangGraph path has a clear sequential three-node structure; it is not evidence of external market-data retrieval. The prompts analyse only the user-provided scenario.
+- The Streamlit AutoGen branch calls `decision_sim.autogen_process()` without passing the scenario entered in the UI; verify how the helper obtains its input.
+- The app creates both the graph and DecisionSim objects at module import time.
+- No data sources, financial calculation engine, fact-checking, uncertainty calibration, or decision outcome evaluation is included.
+- The generated recommendations are LLM outputs, not financial advice or verified business forecasts.
 
-## 3. Objectives
+## Run and verification
+Configure `GROQ_API_KEY`, install compatible versions of the imported frameworks, then run `streamlit run app.py`. Static source inspection only; no agent execution was performed.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[app.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `IPython`, `autogen`, `crewai`, `dotenv`, `helper`, `io`, `langchain`, `langchain_core`, `langchain_groq`, `langgraph`, `os`, `pydantic`, `streamlit`, `sys`, `test`, `time`, `typing` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`app.py`](<app.py>)
-- [`helper.py`](<helper.py>)
-- [`test.py`](<test.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `helper.py` functions: `get_decision_sim`, `__init__`, `agents_config`, `create_agents`, `create_task`, `langgraph_graph`, `create_autogen_agents`, `autogen_process`, `crew_process`, `run`, `market_analysis_node`, `financial_analysis_node`, `decision_node`
-- `helper.py` classes: `DecisionSim`, `GraphState`
-- `test.py` functions: `market_analysis_node`, `financial_analysis_node`, `decision_making_node`, `graph`
-- `test.py` classes: `GraphState`
-
-## 7. Implementation Workflow
-
-1. Start from `app.py`, `test.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `autogen`, `crewai`, `evaluate`, `langchain`, `openai`, `streamlit`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/DecisionSim"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `app.py`, `test.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/DecisionSim"
-python app.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental generativeai workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Pass the scenario consistently to all engines, attach cited and dated evidence, separate calculations from narrative generation, add structured outputs and tests, and label recommendations with evidence quality and uncertainty.
