@@ -1,120 +1,49 @@
-# Handgesture
+# Hand Gesture Recognition with CNN and OpenCV
 
-**Project 032** · **Domain:** Machine_Learning
+**Project 032 · Domain:** Machine Learning · **Path:** `Machine_Learning/HandGesture`
 
-## 1. Project Overview
+## Overview
+A webcam-based hand-gesture recognition experiment. The notebook collects labeled hand-region images, trains a small CNN on grayscale 64×64 inputs, saves the model, and demonstrates real-time prediction. A separate notebook demonstrates MediaPipe hand-landmark drawing.
 
-This project addresses **hand gesture recognition**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Gesture classes
+The data-collection code maps keyboard labels `s`, `f`, and `o` to numeric classes 0, 1 and 2. The inference code maps these to **Stop**, **Fist**, and **Open Hand**.
 
-## 2. Problem Statement
+## Workflow
+1. Capture webcam frames using OpenCV.
+2. Crop a fixed region of interest (ROI), convert to grayscale, resize to 64×64 and normalize pixel values.
+3. Save arrays to `gesture_dataset/gesture_data.npy` and `labels.npy`.
+4. One-hot encode labels and split into train/test sets (80/20, random state 42).
+5. Train a Sequential CNN: Conv2D(32) → MaxPool → Dropout → Conv2D(64) → MaxPool → Dropout → Flatten → Dense(128) → Softmax.
+6. Train for 10 epochs and save `hand_gestures.h5`.
+7. Run webcam inference and smooth recent predictions with a 10-item majority-vote buffer.
 
-The implementation explores a technical workflow related to hand gesture recognition. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[train.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[Webcam] --> B[ROI crop]
+ B --> C[Grayscale / 64x64 / normalize]
+ C --> D[Saved gesture arrays]
+ D --> E[Train/test split]
+ E --> F[CNN classifier]
+ F --> G[hand_gestures.h5]
+ A --> H[Live ROI preprocessing]
+ G --> H
+ H --> I[Prediction smoothing]
+ I --> J[Stop / Fist / Open Hand]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Files and stack
+- `train.ipynb` — collection, CNN training, evaluation and webcam inference cells.
+- `mp.ipynb` — MediaPipe hand landmark visualization using webcam frames.
+- `gesture_dataset/` — collected arrays.
+- `hand_gestures.h5` — trained model artifact.
+- Python, OpenCV, TensorFlow/Keras, NumPy, scikit-learn, MediaPipe, Matplotlib.
 
-## 5. Technologies Used
+## Run
+Open `train.ipynb` in Jupyter and execute the collection cells first (webcam required), then training and inference cells. The model artifact is loaded by the live inference cell. Run `mp.ipynb` separately for landmark visualization.
 
-| Language | Python |
-| Libraries detected from imports | `collections`, `cv2`, `keras.applications.resnet_v2`, `keras.layers`, `keras.models`, `matplotlib.pyplot`, `mediapipe`, `numpy`, `os`, `sklearn.model_selection`, `tensorflow`, `tensorflow.keras.models`, `tensorflow.keras.utils` |
-| Dependency manifests | Not specified in the repository |
+## Observed evidence
+The notebook output shows 335 training samples and 84 test samples. One saved run reports validation accuracy reaching 0.7143 in the first epoch; the full run should be repeated before treating this as a performance result.
 
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`mp.ipynb`](<mp.ipynb>)
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: `gesture_dataset/` (2 files)
-
-Extracted implementation symbols and notebook headings:
-- `train.ipynb` notebook headings: **LIbs**; **Collecting Data**; **Split_data_And_perform_one_hot_encoding_to_ensure_labels_for_integer_encoded**; **model**; **Compiling_model**; **Train**; **Save_model**; **test**
-
-## 7. Implementation Workflow
-
-1. Start from `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `cv2`, `fit`, `keras`, `predict`, `sklearn`, `tensorflow`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "Machine_Learning/HandGesture"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/HandGesture"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for hand gesture recognition. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Limitations
+The capture script uses a fixed ROI and manual key-based labeling; dataset size is small. The MediaPipe notebook is a separate landmark demo and is not wired into the CNN pipeline. Ensure collection and inference apply identical preprocessing (the live cell applies histogram equalization while collection does not). Add class-wise metrics, more varied lighting/backgrounds, a confusion matrix, and a reproducible data-generation script.
