@@ -105,9 +105,14 @@ The repository primarily contains Python source files and Jupyter notebooks. Det
 
 The collection spans classical machine-learning workflows, deep-learning notebooks, computer-vision experiments, and Generative AI prototypes. The exact progression and completion status vary by project; refer to each project README for implementation-specific evidence.
 
+## Additional Domain Sources
+
+- **Data Analytics (DA):** five PDF source artifacts and 16 screenshot assets are present in `da/`. They are indexed in [da/README.md](da/README.md) and reviewed at source-inventory level in [DATA_ANALYTICS_AUDIT.md](DATA_ANALYTICS_AUDIT.md). These files are not counted as verified runnable projects until their contents and implementation evidence are inspected.
+
 ## Documentation and Audit
 
 - [Documentation coverage report](DOCUMENTATION_COVERAGE.md)
+- [Data Analytics folder audit](DATA_ANALYTICS_AUDIT.md)
 - [Computer Vision domain audit](COMPUTER_VISION_AUDIT.md)
 - [Machine-readable project inventory](documentation_inventory.json)
 
