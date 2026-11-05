@@ -1,29 +1,23 @@
-# 120 Project Streak
+# 120 Project Streak — Master Project Catalogue
 
-A repository-wide collection of hands-on projects across Artificial Intelligence, Machine Learning, Deep Learning, Generative AI, and Computer Vision.
+A consolidated navigation hub for all six project domains and their implementation/reference documentation.
 
-## About This Repository
+> **Important inventory status:** the existing canonical register currently verifies **62 numbered project entries (001–062)**. Additional project folders, image references and PDF sources exist beyond those 62. They are included below as candidates or source-only references, not silently counted as verified implementations. The repository's 120-project target is not yet evidence-backed as 120 unique runnable projects.
 
-This repository contains experiments, notebooks, models, and application prototypes organized by technical domain. The documentation links below are generated from the checked-in implementation and intentionally distinguish verified facts from information that is not specified in the repository.
+## Six domain indexes
 
-## Domains Covered
+| Domain | Current evidence | Main README |
+|---|---|---|
+| Deep Learning | 10 canonical projects (001–010), 9 additional source-bearing folders, image references including labels 034 and 040 | [DeepLearning/README.md](DeepLearning/README.md) |
+| Generative AI | 19 canonical projects (011–029), four reference images associated with Project 081 | [GenerativeAI/README.md](GenerativeAI/README.md) |
+| Machine Learning | 19 canonical projects (030–048) | [Machine_Learning/README.md](Machine_Learning/README.md) |
+| Computer Vision | 14 canonical projects (049–062), 3 additional source-bearing folders, 3 image-only folders | [computer vision/README.md](computer%20vision/README.md) |
+| NLP | 15 source-bearing folders (including labelled 067/068), 4 image-only references | [nlp/README.md](nlp/README.md) |
+| Data Analytics | 16 screenshot references and 5 PDF sources; no executable project source found in da/ | [da/README.md](da/README.md) |
 
-| Domain | Verified projects |
-|---|---:|
-| DeepLearning | 10 |
-| GenerativeAI | 19 |
-| Machine_Learning | 19 |
-| computer vision | 14 |
+## Canonical project register — IDs 001–062
 
-## Domain Audit Reports
-
-- [NLP project index](nlp/README.md)
-- [NLP implementation audit](NLP_AUDIT.md)
-
-- [Generative AI project index](GenerativeAI/README.md)
-- [Generative AI implementation audit](GENERATIVE_AI_AUDIT.md)
-
-## Project Directory
+The following table preserves every entry currently in the repository's canonical project index. Each link points to the project-specific README. Implementation completeness and runtime verification are separate; see each project page.
 
 | No. | Project | Domain | Primary language | Detected technologies | Documentation |
 |---:|---|---|---|---|---|
@@ -90,34 +84,44 @@ This repository contains experiments, notebooks, models, and application prototy
 | 061 | [Simclr](computer vision/simclr/README.md) | computer vision | Python | numpy, tensorflow, tensorflow_datasets |
 | 062 | [Speedestimation](computer vision/speedEstimation/README.md) | computer vision | Python | Roboflow, collections, cv2, numpy, os |
 
-## Technology Stack
+## Additional project folders and reference sources
 
-The repository primarily contains Python source files and Jupyter notebooks. Detected libraries vary by project and include the imports listed in the project documentation; dependency manifests are not uniformly present.
+### Deep Learning
+- Nine additional documented source-bearing directories: DC-GAN, DeepFake, GPT-2, ImageCaption, Path-hole, bert_for_emotion, cycle-GAN, tactron and ESRGAN super-resolution. See [DeepLearning index](DeepLearning/README.md).
+- [Project 040 — License Plate Detection using YOLOv9](DeepLearning/40%20%E2%80%94%20License%20Plate%20Detection%20using%20YOLOv9.png) is an image-only reference.
+- The ESRGAN folder label includes 034, which conflicts with canonical ML Project 034 (Recommendation System).
 
-## Repository Statistics
+### Generative AI
+- Four PNGs in [genai/](genai/README.md): three files labelled 81 and one unnumbered LLM Debug Lab image. They are one possible Project 081 reference set, not four separate implementations.
 
-- **Verified independent projects:** 62
-- **Top-level domains:** 4
-- **Language distribution:** Python (60), Not specified (1), html (1)
-- **Project numbering:** numbering is documentation-local and reflects the verified inventory; it does not fabricate entries to reach 120.
+### Computer Vision
+- Additional source-bearing folders: Video Summarization using Whisper, AI Image Captioning for Social Media and Detectron2 Instance Segmentation.
+- Image-only references: 044 YOLOv8 + ByteTrack, 052 Virtual Calculator and 054 AI-Powered Drowsiness Detection.
+- Supplemental labels 057/058 conflict with canonical CV labels 057 Bar Reader and 058 Bird Species. See [supplemental index](computervision/README.md).
 
-## Learning Journey
+### NLP
+- 15 source-bearing folders are indexed in [nlp/README.md](nlp/README.md); labels 067 and 068 are preserved.
+- Image-only references: [063 NER using spaCy](nlp/63%20%E2%80%94%20Named%20Entity%20Recognition%20using%20SpaCy.png), [071 Question Generation using LLaMA-8B](nlp/-%2071%20%E2%80%94%20Question%20Generation%20using%20LLaMA-8B.png), [073 Document Similarity using BERT + FAISS](nlp/-%2073%20%E2%80%94%20Document%20Similarity%20Search%20using%20BERT%20Embeddings%20%2B%20FAISS.png), and Text Generation using Falcon.
 
-The collection spans classical machine-learning workflows, deep-learning notebooks, computer-vision experiments, and Generative AI prototypes. The exact progression and completion status vary by project; refer to each project README for implementation-specific evidence.
+### Data Analytics
+- 16 screenshot-based project references are listed in [da/README.md](da/README.md), including the Project 112 portfolio-analysis reference.
+- Five PDFs are retained as sources: 118 World Wildlife, 120 Job, Churn Analysis, Geospatial Coffee Sales and Retail Sales. Page-level extraction is pending; titles are not inferred beyond filenames.
 
-## Additional Domain Sources
+## Repository audit and machine-readable records
+- [Canonical project inventory](PROJECT_INVENTORY.md)
+- [Documentation coverage](DOCUMENTATION_COVERAGE.md)
+- [Machine-readable documentation inventory](documentation_inventory.json)
+- [Computer Vision audit](COMPUTER_VISION_AUDIT.md)
+- [Data Analytics audit](DATA_ANALYTICS_AUDIT.md)
+- [Generative AI audit](GENERATIVE_AI_AUDIT.md)
+- [NLP audit](NLP_AUDIT.md)
 
-- **Data Analytics (DA):** five PDF source artifacts and 16 screenshot assets are present in `da/`. They are indexed in [da/README.md](da/README.md) and reviewed at source-inventory level in [DATA_ANALYTICS_AUDIT.md](DATA_ANALYTICS_AUDIT.md). These files are not counted as verified runnable projects until their contents and implementation evidence are inspected.
+## Counting and reconciliation rules
+1. Canonical numbered entries remain 001–062 until the original catalogue resolves the additional labels.
+2. Additional source-bearing folders are candidates until duplicates and aliases are checked.
+3. Images and PDFs are project references, not proof of runnable source code.
+4. Screenshot and PDF counts are not summed as unique projects because they may overlap.
+5. Conflicting labels are retained and flagged; no project is silently renumbered.
+6. The README does not claim that all 120 unique projects are implemented or verified.
 
-## Documentation and Audit
-
-- [Documentation coverage report](DOCUMENTATION_COVERAGE.md)
-- [Data Analytics folder audit](DATA_ANALYTICS_AUDIT.md)
-- [Computer Vision domain audit](COMPUTER_VISION_AUDIT.md)
-- [Machine-readable project inventory](documentation_inventory.json)
-
-## Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+**Author:** Rajkumar V. · [GitHub](https://github.com/Rajkumar-Ai-Engineer)
