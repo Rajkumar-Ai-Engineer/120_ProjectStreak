@@ -1,121 +1,26 @@
-# Image Colorization
+# Grayscale Image Colorization
 
-**Project 051** · **Domain:** computer vision
+**Project ID:** 051 · **Primary app candidate:** [app (1).py](<app%20(1).py>) · **Additional script:** [train.py](train.py)
 
-## 1. Project Overview
+## Objective
+Predict chrominance channels for a grayscale image using a pretrained Caffe colourization network, then combine them with the original luminance channel to produce a colour image.
 
-This project addresses **image colorization**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Implementation
+Both Python files convert an image to grayscale, convert it to RGB/Lab, resize the L channel to 224×224, subtract 50, run a Caffe DNN forward pass, resize predicted a/b channels to the source dimensions, concatenate with the original L channel and convert Lab back to RGB. The app wraps this flow in a Streamlit image uploader; `train.py` loads `1.jpg` and displays before/after images with Matplotlib.
 
-## 2. Problem Statement
+## Technologies and assets
+OpenCV DNN, NumPy, Pillow, Matplotlib and Streamlit. The folder contains a network prototxt and `pts_in_hull.npy`.
 
-The implementation explores a technical workflow related to image colorization. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Blocking issue
+The required pretrained Caffe weights file (`colorization_release_v2.caffemodel`) is referenced by the scripts but is not present in the inspected folder. The app and script also contain absolute Windows paths that point to different local machines. The app's expected prototxt filename differs from the checked-in name.
 
-## 3. Objectives
+## Setup and operation
+Install the imports used by the chosen entry point, obtain the correct model weights from a trusted source, verify the model/points files, and replace hard-coded paths with configuration. Run the Streamlit file with `streamlit run "app (1).py"` only after resolving those paths.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Review findings
+- `train.py` is inference/demo code; it does not train the colourization network.
+- The Streamlit app converts a PIL-derived RGB array using a BGR-to-gray conversion constant; validate channel handling to avoid colour-channel errors.
+- No tests, quality metrics, model provenance/license record or reproducible model download instructions are present.
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[train.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `PIL`, `cv2`, `matplotlib`, `numpy`, `streamlit` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`app (1).py`](<app (1).py>)
-- [`train.py`](<train.py>)
-
-Nested assets/directories observed: `models/` (2 files)
-
-Extracted implementation symbols and notebook headings:
-- `app (1).py` functions: `colorizer`
-- `train.py` functions: `colorizer`
-
-## 7. Implementation Workflow
-
-1. Start from `train.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `colorization`, `cv2`, `predict`, `streamlit`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "computer vision/Image_Colorization"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `train.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "computer vision/Image_Colorization"
-python train.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for image colorization. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Verification
+Static inspection only; no inference was run and no output quality claim is made.
