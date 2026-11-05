@@ -1,119 +1,37 @@
-# Human Pose
+# Human Pose Estimation with OpenPose (OpenCV DNN)
 
-**Project 003** · **Domain:** DeepLearning
+**Project 003 · Deep Learning / Computer Vision**  
+**Path:** `DeepLearning/Human_pose`
 
-## 1. Project Overview
+## Objective
+Estimate 2D human body keypoints in an image and draw skeletal connections using a pretrained OpenPose-style TensorFlow graph loaded through OpenCV's DNN module.
 
-This project addresses **human pose analysis**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Implementation
+The notebook clones `quanhua92/human-pose-estimation-opencv`, loads `graph_opt.pb`, and uses OpenCV's `readNetFromTensorflow`. It defines 18 body-part indices (nose, neck, shoulders, elbows, wrists, hips, knees, ankles, eyes and ears) and 17 skeletal pairs.
 
-## 2. Problem Statement
+For an image:
+1. Create a normalized blob using mean (127.5,127.5,127.5), swap RGB channels and forward it through the network.
+2. Keep the 18 heatmaps.
+3. Find each heatmap's maximum-confidence location.
+4. Convert heatmap coordinates to image coordinates and accept points above threshold 0.1.
+5. Draw lines and keypoint circles for detected pairs and annotate inference time.
 
-The implementation explores a technical workflow related to human pose analysis. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[1.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[Input image] --> B[OpenCV blob preprocessing]
+ B --> C[Pretrained OpenPose graph]
+ C --> D[18 keypoint heatmaps]
+ D --> E[Confidence threshold 0.1]
+ E --> F[Keypoint coordinates]
+ F --> G[Draw body skeleton and timing]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Files and setup
+Main artifact: `1.ipynb`. The notebook clones model/code assets into `human-pose-estimation-opencv/`; the repository does not include that dependency as a standalone checked-in submodule. Install OpenCV, NumPy, Matplotlib and Jupyter. Run notebook cells after obtaining the referenced graph and sample image.
 
-## 5. Technologies Used
+## Limitations
+The saved notebook output indicates the clone command failed because the destination directory already existed; verify the graph and sample image paths manually. The notebook processes a single hard-coded image, not a live camera/video stream. It uses a fixed confidence threshold and does not perform temporal tracking or multi-person identity association. The timing measurement is OpenCV DNN forward-pass profiling, not full application latency.
 
-| Language | Python |
-| Libraries detected from imports | `cv2`, `matplotlib.pyplot`, `numpy` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`1.ipynb`](<1.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `1.ipynb` notebook headings: **Body parts and its pairs**; **Weights for openpose model**
-
-## 7. Implementation Workflow
-
-1. Start from `1.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `cv2`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "DeepLearning/Human_pose"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `1.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "DeepLearning/Human_pose"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for human pose analysis. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Add path checks and download instructions for model weights, support webcam/video input, handle multiple people and confidence calibration, expose input size and threshold as configuration, and document the model/license provenance. Pose keypoints can be sensitive; avoid retaining identifiable imagery without consent.
