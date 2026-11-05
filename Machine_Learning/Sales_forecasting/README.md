@@ -1,119 +1,37 @@
-# Sales Forecasting
+# E-commerce Sales Forecasting and Regression
 
-**Project 035** · **Domain:** Machine_Learning
+**Project 035 · Machine Learning · `Machine_Learning/Sales_forecasting`**
 
-## 1. Project Overview
+## Purpose
+Explore e-commerce sales data, visualize temporal and category patterns, and train an XGBoost regressor to estimate `Units_Sold`.
 
-This project addresses **forecasting**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Data and workflow
+- Reads `Ecommerce.csv`; observed columns include date, product category, customer segment, discount and units sold.
+- Encodes categorical columns with `LabelEncoder`, derives calendar features in notebook cells, and writes `modified.csv`.
+- Performs category/segment summaries, plots, and additive seasonal decomposition with period 12.
+- Scales predictors with `StandardScaler`; separates `Units_Sold` as target; uses an 80/20 random split (42).
+- Fits `XGBRegressor`; reports R² and mean squared error.
 
-## 2. Problem Statement
-
-The implementation explores a technical workflow related to forecasting. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[train.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[Ecommerce.csv] --> B[EDA and category analysis]
+ B --> C[Encode categories / date features]
+ C --> D[Seasonality exploration]
+ C --> E[Feature scaling and split]
+ E --> F[XGBoost Regressor]
+ F --> G[Units Sold prediction]
+ F --> H[R² and MSE]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Files and stack
+`train.ipynb`, `Ecommerce.csv`, generated `modified.csv`; Python, Pandas, NumPy, Matplotlib, Seaborn, Plotly, scikit-learn, statsmodels, XGBoost.
 
-## 5. Technologies Used
+## Run
+Create an environment with pandas, numpy, matplotlib, seaborn, plotly, scikit-learn, statsmodels, xgboost and jupyter; open `train.ipynb` and run in order from this directory.
 
-| Language | Python |
-| Libraries detected from imports | `matplotlib.pyplot`, `numpy`, `pandas`, `plotly.graph_objects`, `seaborn`, `sklearn.metrics`, `sklearn.model_selection`, `sklearn.preprocessing`, `statsmodels.tsa.seasonal`, `xgboost` |
-| Dependency manifests | Not specified in the repository |
+## Saved notebook evidence and caveats
+The stored output reports R² of approximately **-12.82** (printed as a percentage) and MSE approximately **61.02**. A negative R² means this fitted model performed worse than predicting the test-set mean on that split. The notebook has a feature engineering order issue: it drops `Date`, `Product_Category` and `Customer_Segment` before later cells reference them. The stored output may therefore reflect a partially executed or inconsistent run. Re-run from a clean kernel and correct the order before using results. No reliable model quality claim is made.
 
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `fit`, `pandas`, `predict`, `sklearn`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "Machine_Learning/Sales_forecasting"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/Sales_forecasting"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for forecasting. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Use a chronological split for forecasting, avoid random leakage across time, fit encoders/scalers only on training data using a Pipeline, compare naive/seasonal baselines, inspect residuals, and report MAE/RMSE/R² with dates and target units.
