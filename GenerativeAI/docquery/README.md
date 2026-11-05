@@ -1,119 +1,34 @@
-# Docquery
+# DocQuery — PDF and URL Retrieval-Augmented Question Answering
 
-**Project 027** · **Domain:** GenerativeAI
+**Project ID:** 027 · **Domain:** Generative AI  
+**FastAPI backend:** `backend/app.py` · **RAG pipeline:** `backend/ragchain.py` · **Gradio UI:** `frontend/frontend.py`
 
-## 1. Project Overview
+## Purpose
+Upload a PDF or submit a web URL, index its text with embeddings and answer questions through a LangChain RetrievalQA chain.
 
-This project addresses **document question answering**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Architecture
+- FastAPI exposes `POST /upload_pdf/` and `POST /index_url/`.
+- PDF files are written under `./uploads`; LlamaIndex `SimpleDirectoryReader` loads the directory.
+- URL ingestion uses LlamaIndex's BeautifulSoup web reader.
+- Loaded text is converted to LangChain documents and embedded with OpenAI embeddings.
+- FAISS stores vectors and exposes a similarity retriever configured with `k=1`.
+- RetrievalQA uses Groq `ChatGroq` (DeepSeek R1 Distill Llama 70B model ID in source) and a context-grounded prompt.
+- LangServe registers the QA chain under `/qA`; the Gradio client calls its `/invoke` route.
 
-## 2. Problem Statement
+## Configuration and run
+Configure `OPENAI_API_KEY` for embeddings and `GROQ_API_KEY` for generation. Install `requirements.txt`. Start the backend with Uvicorn via `python backend/app.py` from the backend directory, then run the Gradio frontend separately.
 
-The implementation explores a technical workflow related to document question answering. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Findings
+- The upload endpoint uses the supplied filename directly in a filesystem path; sanitize names and prevent path traversal.
+- The URL endpoint fetches user-provided URLs; add SSRF protections, redirect checks, size limits and domain policy.
+- Uploaded files have no explicit size/type/content validation, retention policy or cleanup.
+- `qa_chain` is a module-global variable; multiple users can overwrite one another's active index/chain.
+- Retriever `k=1` may provide too little context for broad questions.
+- The code assigns `os.environ["GROQ_API_KEY"] = os.environ.get("GROQ_API_KEY")`; a missing key causes TypeError.
+- LangServe route registration occurs dynamically after ingestion; no auth, tenant isolation or persistent index registry is implemented.
 
-## 3. Objectives
+## Verification
+Static inspection only; no PDF, URL, embedding, API or model execution was performed.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[Source or notebook]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Not specified |
-| Libraries detected from imports | Not specified in the repository |
-| Dependency manifests | `requirements.txt` |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- No directly documented source files found.
-
-Nested assets/directories observed: `backend/` (2 files); `frontend/` (1 files)
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from the available source/notebook files.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: None extracted statically. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-Install the dependencies listed in `requirements.txt`. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/docquery"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: none identified. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/docquery"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for document question answering. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Use safe temporary storage, validate uploads and URLs, isolate indexes by user/session, persist ingestion metadata, return source citations, increase/evaluate retrieval depth and add API authentication.
