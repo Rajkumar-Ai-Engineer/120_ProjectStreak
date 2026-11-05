@@ -1,119 +1,40 @@
-# Sentiment Analysis
+# Movie Review Sentiment Analysis with LSTM
 
-**Project 045** · **Domain:** Machine_Learning
+**Project 045 · Machine Learning / NLP · `Machine_Learning/sentiment_Analysis`**
 
-## 1. Project Overview
+## Purpose
+A binary sentiment classifier trained on the IMDB movie-review dataset using an embedding layer and LSTM recurrent network.
 
-This project addresses **sentiment analysis**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Workflow
+- Load IMDB train/test splits from Keras.
+- Configure vocabulary limit 100,000 and sequence length 100.
+- Pre-pad sequences to a common length.
+- Build Sequential model: Embedding(100, 128) → LSTM(128, ReLU) → Dense(128, ReLU) → Dense(1, sigmoid).
+- Compile with Adam, binary cross-entropy and accuracy.
+- Train for up to 10 epochs, batch size 64, 20% validation split, EarlyStopping and ModelCheckpoint.
+- Evaluate on the test set, plot loss/accuracy curves and run a sample review prediction.
+- Save best checkpoint to `model.h5`.
 
-## 2. Problem Statement
-
-The implementation explores a technical workflow related to sentiment analysis. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[train.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[IMDB reviews] --> B[Integer token sequences]
+ B --> C[Pre-padding to 100 tokens]
+ C --> D[Embedding: 100000 x 128]
+ D --> E[LSTM 128]
+ E --> F[Dense 128]
+ F --> G[Sigmoid sentiment score]
+ G --> H[Positive / Negative]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Files and stack
+`train.ipynb`, `model.h5`; Python, TensorFlow/Keras, IMDB dataset, Matplotlib.
 
-## 5. Technologies Used
+## Run
+Install compatible tensorflow/keras, matplotlib and jupyter; run the notebook from this directory. Keras downloads the IMDB dataset if it is not cached.
 
-| Language | Python |
-| Libraries detected from imports | `keras.callbacks`, `keras.datasets`, `keras.layers`, `keras.models`, `keras.preprocessing.sequence`, `keras.preprocessing.text`, `matplotlib.pyplot`, `tensorflow` |
-| Dependency manifests | Not specified in the repository |
+## Captured output and critical issue
+The saved output reports test accuracy around **69.22%**, but the printed test loss is extremely large (approximately 4,136,658.75). The training output also shows an unusually large first-epoch loss. This suggests numerical instability or an implementation problem; accuracy alone should not be treated as evidence of a reliable model. The notebook uses an LSTM with ReLU, which is atypical for recurrent gating, and its prediction example creates a new Tokenizer rather than reusing a tokenizer fitted on training data. This makes the sample inference path invalid/inconsistent.
 
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `train.ipynb` notebook headings: **important params**; **train and test data**; **preprocessing**; **LSTM with embedding layer**; **optimiser,loss,metrics**; **Call Backs**; **Train**; **Evaluate**; **Visualize**; **predict**
-
-## 7. Implementation Workflow
-
-1. Start from `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `evaluate`, `fit`, `keras`, `predict`, `sentiment`, `tensorflow`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "Machine_Learning/sentiment_Analysis"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/sentiment_Analysis"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for sentiment analysis. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Use the original IMDB word-index mapping or persist a fitted tokenizer, prefer the standard LSTM activation defaults, verify label/sequence preprocessing, inspect loss curves, add PR/F1 and confusion matrix, compare a simple baseline, and save model plus tokenizer/preprocessing metadata together. Do not claim production-ready sentiment quality from the stored run.
