@@ -1,130 +1,89 @@
-# Data Analytics Folder Audit
+# Data Analytics Folder — Visual and PDF Source Audit
 
-**Repository:** [Rajkumar-Ai-Engineer/120_ProjectStreak](https://github.com/Rajkumar-Ai-Engineer/120_ProjectStreak)  
-**Branch inspected:** `master`  
-**Audited path:** `da/`  
-**Audit date:** 2026-11-05  
-**Audit type:** Static repository inventory and source-artifact review
+**Repository:** `Rajkumar-Ai-Engineer/120_ProjectStreak`  
+**Branch:** `master`  
+**Path:** `da/`  
+**Date:** 2026-11-05  
+**Method:** GitHub tree inspection, PNG retrieval and visual review, PDF artifact inventory
 
-## 1. Executive summary
+## 1. Executive result
 
-The `da/` directory contains **21 files**:
+The folder contains 21 files: five PDFs and 16 PNG screenshots. The screenshot review yielded 15 identifiable dashboard/notebook artifacts and one image that the connector could not retrieve. The PDF files were inventoried, but their page content could not be rendered or extracted using the available GitHub connector in this pass. Consequently, the PDF-specific documents record evidence and gaps rather than fabricate report content.
 
-- **5 PDF artifacts**
-- **16 PNG screenshots**
-- **0 visible source-code files**
-- **0 notebooks**
-- **0 project-specific README files before this documentation pass**
-- **0 dependency manifests or dashboard/application source files**
+## 2. Visual evidence findings
 
-The filenames indicate five Data Analytics project/source topics: World Wildlife, Job, Churn Analysis, Geospatial Coffee Sales, and Retail Sales. The labels 118 and 120 are preserved from the corresponding filenames. The remaining three artifacts have no project IDs visible in their filenames.
+The inspected screenshots show these topics:
 
-**Important:** The repository evidence currently establishes the presence of these source files, not the technical contents or implementation status of the projects. The PDFs and screenshots were not content-inspected in this pass. Therefore, no algorithm, dataset, visualization, metric, finding, or tool is attributed to any project.
-
-## 2. Repository evidence
-
-| Artifact | Type | Path | Evidence |
-|---|---|---|---|
-| World Wildlife | PDF | `da/118-world wildlife.pdf` | File exists in the audited directory; filename includes label 118 |
-| Job | PDF | `da/120-job.pdf` | File exists in the audited directory; filename includes label 120 |
-| Churn Analysis | PDF | `da/churn-analysis.pdf` | File exists in the audited directory |
-| Geospatial Coffee Sales | PDF | `da/geospatial-coffee-sales.pdf` | File exists in the audited directory |
-| Retail Sales | PDF | `da/retail-sales.pdf` | File exists in the audited directory |
-| Screenshot evidence | PNG | 16 files listed in [da/README.md](da/README.md) | Visual assets exist; content-to-project mapping not established |
-
-The directory listing was checked recursively. It returned 21 entries and was not truncated.
-
-## 3. Project-level findings
-
-### 3.1 Project/source 118 — World Wildlife
-
-- **Source:** `da/118-world wildlife.pdf`
-- **Domain:** Data Analytics (directory-level classification)
-- **Project ID:** 118 (filename-derived; preserved, not independently verified against a master catalogue)
-- **Known:** A PDF with a World Wildlife-themed filename exists.
-- **Unknown:** Research question, data source, data schema, data cleaning, analytical approach, charts, results, conclusions, and tools.
-- **Implementation status:** Not verifiable. No code or notebook is present in `da/` for this entry.
-- **Required next step:** Extract and review the PDF before writing a technical project README.
-
-### 3.2 Project/source 120 — Job
-
-- **Source:** `da/120-job.pdf`
-- **Domain:** Data Analytics (directory-level classification)
-- **Project ID:** 120 (filename-derived; preserved, not independently verified against a master catalogue)
-- **Known:** A PDF with a Job-themed filename exists.
-- **Unknown:** Exact job-market use case, data source, fields, analysis, visualizations, findings, and tools.
-- **Implementation status:** Not verifiable. No code or notebook is present in `da/` for this entry.
-- **Required next step:** Extract and review the PDF before writing a technical project README.
-
-### 3.3 Churn Analysis
-
-- **Source:** `da/churn-analysis.pdf`
-- **Project ID:** Unassigned.
-- **Known:** The filename identifies a churn-analysis topic.
-- **Unknown:** Industry, churn definition, target variable, dataset, cohort/time window, segmentation, statistical or predictive methods, evaluation metrics, and recommendations.
-- **Implementation status:** Not verifiable from the directory contents.
-- **Required next step:** Review the PDF and any mapped screenshots; do not assume that a predictive model was implemented merely because the filename contains “analysis”.
-
-### 3.4 Geospatial Coffee Sales
-
-- **Source:** `da/geospatial-coffee-sales.pdf`
-- **Project ID:** Unassigned.
-- **Known:** The filename identifies a geospatial coffee-sales topic.
-- **Unknown:** Geographic unit, source data, coordinate/geocoding process, sales measures, spatial operations, map type, dashboard/tooling, and conclusions.
-- **Implementation status:** Not verifiable from the directory contents.
-- **Required next step:** Review the PDF and screenshots to determine whether the work is exploratory analysis, GIS analysis, dashboarding, or a combination.
-
-### 3.5 Retail Sales
-
-- **Source:** `da/retail-sales.pdf`
-- **Project ID:** Unassigned.
-- **Known:** The filename identifies a retail-sales topic.
-- **Unknown:** Dataset, business questions, data preparation, metrics, time-series or customer analysis, visualizations, results, and tools.
-- **Implementation status:** Not verifiable from the directory contents.
-- **Required next step:** Review the PDF and any mapped screenshots before documenting analytical workflow or conclusions.
-
-## 4. Screenshot inventory
-
-There are 16 PNG assets dated 2026-11-03. Their exact filenames are listed in [da/README.md](da/README.md).
-
-The screenshots are not assigned to any one of the five PDFs because their visual contents have not been inspected. They may be project outputs, intermediate evidence, or unrelated captures; the current evidence does not distinguish these possibilities.
-
-## 5. Matching and inventory reconciliation
-
-The current root `PROJECT_INVENTORY.md` and `documentation_inventory.json` do not identify the five DA PDF artifacts as canonical project entries. The existing root README also does not include a Data Analytics domain count.
-
-| Source artifact | Canonical inventory match | Current classification |
+| Screenshot | Identified topic | Visible evidence |
 |---|---|---|
-| 118-world wildlife.pdf | Not established | Source artifact; reconciliation pending |
-| 120-job.pdf | Not established | Source artifact; reconciliation pending |
-| churn-analysis.pdf | Not established | Source artifact; reconciliation pending |
-| geospatial-coffee-sales.pdf | Not established | Source artifact; reconciliation pending |
-| retail-sales.pdf | Not established | Source artifact; reconciliation pending |
+| 183035 | IPL Analysis 2025 | Match summary KPIs, winner/toss comparisons, toss decision split |
+| 183112 | House Price Analysis | Sale price by locality/year, room count, carpet area, property tax rate |
+| 183120 | Restaurant Food Sales | Sales/profit KPIs, item type, item profit, month/year and time of sale |
+| 183130 | India Crime Analysis | Victim gender, case closure, crime year, weapon, age and police deployment |
+| 183138 | COVID-19 Analysis | Total cases/deaths, yearly charts, country maps |
+| 183159 | Healthcare Patient and Billing | Patient count, average billing, admissions, insurance and medical-condition billing |
+| 183211 | Financial Portfolio Growth | Normalized stock growth lines for AAPL, AMZN, GOOGL and MSFT |
+| 183222 | Project 112/120 Financial Portfolio Analysis | Social post gives period, ticker set, weights and claimed annual returns |
+| 183235 | Unknown | GitHub connector returned an empty image payload; visual content not reviewed |
+| 183253 | Reddit Sentiment Distribution | 46 positive, 20 negative, 134 neutral posts; Python visualization context |
+| 183324 | HR Attrition | Employee counts, attrition split, gender, satisfaction and education views |
+| 183354 | Employee Performance | Employee count, gender, hire year, job title, department and performance score |
+| 183400 | Movie Ratings | 504 films, average rating 3.376, votes and film ranking |
+| 183424 | Product Sales 2010–2024 | Sales/revenue KPIs, yearly comparisons and year filters |
+| 183429 | Sales Dashboard | Profit/sales KPIs, Madrid top-profit city, country/product-line/deal-size views |
+| 183459 | Online Retail Customer Segmentation | `Online Retail.xlsx`, notebook, duplicate removal and numeric feature selection |
 
-These are **not classified as confirmed missing projects**. A project may be represented elsewhere in the repository or in another reference source under a different name. The current evidence is insufficient to establish either a match or a missing status.
+Project-level documentation is in `da/projects/`. The full index is [da/README.md](README.md).
 
-## 6. Risks and documentation gaps
+## 3. PDF evidence findings
 
-1. **PDF content gap:** Project objectives, methodology, datasets, results, and tool choices cannot be safely documented from filenames.
-2. **Screenshot mapping gap:** The 16 images have not been visually reviewed or linked to source PDFs.
-3. **Implementation gap:** No source code or notebook is visible in `da/`; the PDF files may be reports or project evidence rather than executable projects.
-4. **ID gap:** Only 118 and 120 appear in filenames. IDs for the other three topics must not be invented.
-5. **Canonical inventory gap:** The current project inventory does not include these artifacts; reconciliation against the full reference catalogue remains open.
+| PDF | What the filename supports | Review status |
+|---|---|---|
+| `118-world wildlife.pdf` | World Wildlife-themed source; filename label 118 | Page content pending |
+| `120-job.pdf` | Job-themed source; filename label 120 | Page content pending |
+| `churn-analysis.pdf` | Churn-analysis-themed source | Page content pending |
+| `geospatial-coffee-sales.pdf` | Geospatial coffee-sales-themed source | Page content pending |
+| `retail-sales.pdf` | Retail-sales-themed source | Page content pending |
 
-## 7. Recommended completion checklist
+The connector returned base64 for several PDF files, but the page streams are compressed and the available file-inspection path did not provide page rendering or text extraction. The large churn PDF also exceeded the connector's ordinary content retrieval. The PDF documents under `da/source-pdfs/` preserve these limitations and specify what must be extracted next.
 
-- [ ] Extract text and inspect every page of all five PDFs.
-- [ ] Visually inspect all 16 screenshots.
-- [ ] Map screenshots to source projects using explicit evidence.
-- [ ] Record each project's objective, dataset, columns, cleaning, analysis, visualizations, results, tools, and limitations.
-- [ ] Determine whether source code/notebooks exist elsewhere in the repository.
-- [ ] Search the full repository and reference catalogue for aliases and duplicate entries.
-- [ ] Assign project IDs only when supported by the original catalogue.
-- [ ] Create one project-specific README per verified project.
-- [ ] Update `PROJECT_INVENTORY.md`, `documentation_inventory.json`, and the root README only after reconciliation.
+**No claim is made that these PDFs correspond to the screenshot projects.** That relationship must be established from their contents.
 
-## 8. Verification boundary
+## 4. Data and interpretation risks visible from the screenshots
 
-This audit confirms directory structure, filenames, file types, and the absence of visible code/notebook files in the audited `da/` directory. It does **not** verify PDF contents, screenshot contents, analytical correctness, reproducibility, dashboard behavior, or implementation completeness. No project result or metric is certified.
+- **IPL:** the player-level values are not labelled clearly; match and toss counts need reconciliation.
+- **House prices:** currency and the PriceRealityCheck definition are absent; outliers and locality imbalance require review.
+- **Restaurant sales:** currency, time range, profit formula and time-of-day boundaries are absent.
+- **Crime:** source/jurisdiction and definitions for police deployment, case closure and age bins are absent; do not represent as official national statistics without provenance.
+- **COVID-19:** source timestamp, cumulative/daily definitions and reporting revisions are absent.
+- **Healthcare:** patient privacy, billing period/currency and billed-versus-paid definitions need clarification; billing is not a clinical outcome.
+- **Portfolio:** the accompanying post reports 35.4% and 20.24% annual returns, but the optimization method and calculation are not reproduced.
+- **Reddit sentiment:** classifier/annotation provenance and validation are absent; counts alone do not establish model quality.
+- **HR attrition:** attrition denominator, observation period and salary period are absent; descriptive splits are not causal evidence.
+- **Employee performance:** performance rubric and whether records are real or synthetic are unknown.
+- **Movie ratings:** rating provider/scale and vote aggregation need documentation; popularity is not equivalent to quality.
+- **Product sales:** KPI units and currency are absent; title and visible year filter ranges should be reconciled.
+- **Sales dashboard:** total-sales number formatting is ambiguous and should be validated against the underlying data.
+- **Online retail:** customer-level feature engineering, returns/cancellations, missing CustomerID handling, scaling and cluster validation are not visible.
 
-The audit intentionally leaves unresolved questions visible rather than filling them with assumptions.
+## 5. Implementation evidence
+
+The folder tree contains no visible source code, SQL, notebook, dashboard project file, or dependency manifest. Two screenshots expose partial Python notebook/editor context: Reddit sentiment visualization and Online Retail preprocessing. A social post explicitly names Python and Matplotlib for the portfolio analysis. These are limited clues, not a complete source-code audit.
+
+Dashboard appearance alone is not sufficient to identify Power BI, Tableau, Excel or another BI authoring platform. Tool names remain unconfirmed unless shown explicitly.
+
+## 6. Canonical inventory handling
+
+No new canonical project IDs were assigned. The filename labels 118 and 120 are preserved, but they are not independently reconciled with the master project catalogue. Screenshot topics are documented as evidence-based project candidates, not automatically counted as separate implementations. Some screenshots may be outputs or evidence for projects already indexed elsewhere.
+
+## 7. Verification boundary
+
+This pass confirms repository file presence and visually documents 15 screenshots. It does not validate raw datasets, reproduce any KPI, execute notebooks, test dashboards, or verify model quality. PDF page contents and one screenshot remain unreviewed. Any future technical report must be grounded in the actual PDF pages and underlying source artifacts.
+
+## 8. Required next steps
+
+1. Upload the five PDF files directly or provide page-rendered copies so their contents can be reviewed.
+2. Re-upload `Screenshot 2026-11-03 183235.png` or provide a smaller copy.
+3. Inspect original notebooks/dashboard files and trace the calculations behind each visual.
+4. Map the PDF reports to screenshot evidence only after matching titles/content.
+5. Reconcile project candidates with the 120-project catalogue before changing the canonical inventory.
