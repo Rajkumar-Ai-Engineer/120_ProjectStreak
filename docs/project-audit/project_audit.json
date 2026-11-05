@@ -1,0 +1,2019 @@
+{
+  "repository": "Rajkumar-Ai-Engineer/120_ProjectStreak",
+  "audit_date": "2026-11-05",
+  "default_branch": "master",
+  "audit_status": "incomplete_pending_authoritative_reference_catalogue",
+  "summary": {
+    "canonical_indexed_projects": 62,
+    "supplemental_source_bearing_candidates": 27,
+    "source_bearing_folder_candidates_total": 89,
+    "image_only_reference_assets": 12,
+    "data_analytics_screenshot_topics": 15,
+    "data_analytics_unidentified_screenshot": 1,
+    "data_analytics_pdfs_pending_extraction": 5,
+    "external_reference_entries_supplied": 0,
+    "complete_matches": null,
+    "partial_matches": null,
+    "documentation_only_matches": null,
+    "possible_matches": 27,
+    "confirmed_missing_projects": null,
+    "confirmed_unlisted_projects": null,
+    "duplicate_references": null
+  },
+  "reference_sources": [
+    {
+      "source": "User-provided audit task specification",
+      "type": "instructions",
+      "contains_authoritative_project_catalogue": false,
+      "note": "Defines required audit method and outputs but does not enumerate the intended 120 projects."
+    }
+  ],
+  "reference_projects": [],
+  "repository_projects": [
+    {
+      "project_id": "001",
+      "name": "Ai Cyber",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/AI_cyber",
+      "files": [
+        "test.py",
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "test.py",
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "joblib",
+        "keras",
+        "keras.callbacks",
+        "keras.layers",
+        "keras.models",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pandas",
+        "pickle",
+        "sklearn.feature_selection",
+        "sklearn.model_selection",
+        "sklearn.preprocessing",
+        "tensorflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "002",
+      "name": "Brain Tumour",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/Brain_tumour",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "keras.applications.vgg19",
+        "keras.callbacks",
+        "keras.layers",
+        "keras.models",
+        "keras.preprocessing.image",
+        "matplotlib.pyplot",
+        "numpy",
+        "pathlib",
+        "tensorflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "003",
+      "name": "Human Pose",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/Human_pose",
+      "files": [
+        "1.ipynb"
+      ],
+      "entrypoints": [
+        "1.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "matplotlib.pyplot",
+        "numpy"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "004",
+      "name": "Seq Seq",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/SEQ_SEQ",
+      "files": [
+        "transformer.ipynb"
+      ],
+      "entrypoints": [
+        "transformer.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "datasets",
+        "transformers"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "005",
+      "name": "Yolo",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/Yolo",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "imutils",
+        "numpy",
+        "os"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "006",
+      "name": "25 Face Mask Detector",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/maskdetector/25- Face Mask detector",
+      "files": [
+        "test.py",
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "test.py",
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "imutils",
+        "keras",
+        "keras.applications.mobilenet",
+        "keras.callbacks",
+        "keras.layers",
+        "keras.models",
+        "keras.preprocessing.image",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pathlib",
+        "tensorflow",
+        "time"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "007",
+      "name": "Preditive",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/preditive",
+      "files": [
+        "gru1.ipynb",
+        "lstm1.ipynb",
+        "rnn1.ipynb"
+      ],
+      "entrypoints": [
+        "gru1.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "keras.callbacks",
+        "keras.layers",
+        "keras.models",
+        "keras.preprocessing.sequence",
+        "matplotlib.pyplot",
+        "tensorflow",
+        "tensorflow.keras.optimizers",
+        "tensorflow.keras.utils",
+        "tensorflow_datasets"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "008",
+      "name": "Speech",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/speech",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "IPython.display",
+        "keras",
+        "keras.callbacks",
+        "keras.layers",
+        "keras.models",
+        "keras.utils",
+        "librosa",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "random",
+        "scipy.io",
+        "sklearn.model_selection",
+        "sklearn.preprocessing"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "009",
+      "name": "Style Transfer",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/style_transfer",
+      "files": [
+        "cycle_gan.ipynb"
+      ],
+      "entrypoints": [
+        "cycle_gan.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "IPython.display",
+        "matplotlib.pyplot",
+        "os",
+        "tensorflow",
+        "tensorflow_datasets",
+        "tensorflow_examples.models.pix2pix",
+        "time"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "010",
+      "name": "Unet Image Segmentation",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/unet_image_segmentation",
+      "files": [
+        "unet_is.ipynb"
+      ],
+      "entrypoints": [
+        "unet_is.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "keras",
+        "keras.layers",
+        "tensorflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "011",
+      "name": "Agentaudit",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/AgentAuditAI/AgentAudit",
+      "files": [
+        "__init__.py",
+        "logs.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "autogen",
+        "dotenv",
+        "langsmith",
+        "logging",
+        "logs",
+        "os",
+        "threading",
+        "traceback"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "012",
+      "name": "Autofixer",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/Autofixer",
+      "files": [
+        "helper.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "google",
+        "langchain",
+        "langchain_groq",
+        "os",
+        "re",
+        "streamlit",
+        "superagi_client"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "013",
+      "name": "Contextartitext",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/ContextArchitect/ContextArtitext",
+      "files": [
+        "__init__.py",
+        "app.py",
+        "helper.py",
+        "logs.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "app.py",
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "dotenv",
+        "helper",
+        "llama_index",
+        "logging",
+        "logs",
+        "os",
+        "streamlit",
+        "traceback"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "014",
+      "name": "Decisionsim",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/DecisionSim",
+      "files": [
+        "app.py",
+        "helper.py",
+        "test.py"
+      ],
+      "entrypoints": [
+        "app.py",
+        "test.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "IPython",
+        "autogen",
+        "crewai",
+        "dotenv",
+        "helper",
+        "io",
+        "langchain",
+        "langchain_core",
+        "langchain_groq",
+        "langgraph",
+        "os",
+        "pydantic",
+        "streamlit",
+        "sys",
+        "test",
+        "time",
+        "typing"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "015",
+      "name": "Finsightai",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/FinSightAI",
+      "files": [
+        "app.py",
+        "helper.py",
+        "logger_mode.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "app.py",
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "autogen",
+        "chromadb",
+        "dotenv",
+        "gradio",
+        "helper",
+        "langchain",
+        "langchain_community",
+        "llama_index",
+        "logger_mode",
+        "logging",
+        "os",
+        "requests",
+        "threading",
+        "traceback"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "016",
+      "name": "Insightserve",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/InsightServe",
+      "files": [
+        "client.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "requests",
+        "streamlit"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "017",
+      "name": "Llmstudiopro",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/LLMStudioPro",
+      "files": [
+        "app.py",
+        "helper.py",
+        "llm_output_cleaner.py"
+      ],
+      "entrypoints": [
+        "app.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "dotenv",
+        "helper",
+        "json",
+        "langchain",
+        "langchain_community",
+        "langchain_groq",
+        "langchain_tavily",
+        "langgraph",
+        "os",
+        "pinecone",
+        "re",
+        "streamlit"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "018",
+      "name": "Langaudit",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/LangAudit",
+      "files": [
+        "helper.py"
+      ],
+      "entrypoints": [
+        "helper.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "csv",
+        "datetime",
+        "dotenv",
+        "hashlib",
+        "json",
+        "langchain",
+        "langchain_groq",
+        "langsmith",
+        "os"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "019",
+      "name": "Mcq Generator",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/MCQ_GENERATOR",
+      "files": [
+        "MCQ.py",
+        "app.py",
+        "helper.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "app.py",
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "MCQ",
+        "dotenv",
+        "flask",
+        "json",
+        "langchain",
+        "langchain_groq",
+        "os",
+        "re",
+        "threading",
+        "uuid"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "020",
+      "name": "Medicalsage",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/MedicalSage",
+      "files": [
+        "app.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "app.py",
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "dotenv",
+        "llama_index",
+        "main",
+        "os",
+        "pinecone",
+        "streamlit"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "021",
+      "name": "Projectpilot",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/ProjectPilot/ProjectPilot",
+      "files": [
+        "__init__.py",
+        "logging_File.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "crewai",
+        "crewai_tools",
+        "dotenv",
+        "langgraph",
+        "logging",
+        "logging_File",
+        "os",
+        "traceback",
+        "typing"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "022",
+      "name": "Reportgenx",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/ReportGenx",
+      "files": [
+        "helper.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "dotenv",
+        "langchain",
+        "langchain_groq",
+        "matplotlib",
+        "numpy",
+        "os",
+        "pandas",
+        "streamlit"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "023",
+      "name": "Schedulebot",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/ScheduleBOT/ScheduleBot",
+      "files": [
+        "GoogleClient.py",
+        "__init__.py",
+        "app.py",
+        "main.py",
+        "tools.py"
+      ],
+      "entrypoints": [
+        "app.py",
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "GoogleClient",
+        "datetime",
+        "dotenv",
+        "flask",
+        "google",
+        "google_auth_oauthlib",
+        "googleapiclient",
+        "main",
+        "os",
+        "phi",
+        "pickle",
+        "rich",
+        "tools",
+        "zoneinfo"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "024",
+      "name": "Statechatai",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/StateChatAI",
+      "files": [
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "IPython",
+        "autogen",
+        "dotenv",
+        "langgraph",
+        "os",
+        "typing"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "025",
+      "name": "Taskmanager",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/TaskManager",
+      "files": [
+        "agents_config.py",
+        "autogenagents.py",
+        "crewaiagents.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "agents_config",
+        "autogen",
+        "autogenagents",
+        "crewai",
+        "crewaiagents",
+        "dotenv",
+        "os"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "026",
+      "name": "Src",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/WebAutoGPT/src",
+      "files": [
+        "__init__.py",
+        "app.py",
+        "helper.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "app.py",
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "bs4",
+        "dotenv",
+        "flask",
+        "helper",
+        "llama_index",
+        "os",
+        "requests",
+        "urllib"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "027",
+      "name": "Docquery",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/docquery",
+      "files": [],
+      "entrypoints": [],
+      "language": "Not specified",
+      "detected_imports": [],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "028",
+      "name": "Backend",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/genai_1/backend",
+      "files": [
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "fastapi",
+        "json",
+        "langchain"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "029",
+      "name": "Temp",
+      "domain": "GenerativeAI",
+      "path": "GenerativeAI/genai_1/temp",
+      "files": [
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "fastapi",
+        "langflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "030",
+      "name": "Disease",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/Disease",
+      "files": [
+        "CNN_Test.py",
+        "CNN_Train.py"
+      ],
+      "entrypoints": [
+        "CNN_Test.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "keras",
+        "numpy",
+        "tkinter"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "031",
+      "name": "Email Spam",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/Email_spam",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "matplotlib.pyplot",
+        "nltk.corpus",
+        "numpy",
+        "pandas",
+        "pickle",
+        "regex",
+        "sklearn.feature_extraction.text",
+        "sklearn.metrics",
+        "sklearn.model_selection",
+        "sklearn.naive_bayes"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "032",
+      "name": "Handgesture",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/HandGesture",
+      "files": [
+        "mp.ipynb",
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "collections",
+        "cv2",
+        "keras.applications.resnet_v2",
+        "keras.layers",
+        "keras.models",
+        "matplotlib.pyplot",
+        "mediapipe",
+        "numpy",
+        "os",
+        "sklearn.model_selection",
+        "tensorflow",
+        "tensorflow.keras.models",
+        "tensorflow.keras.utils"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "033",
+      "name": "Handwritten Digit Classification",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/Handwritten_digit_classification",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "keras",
+        "keras.datasets",
+        "keras.models",
+        "matplotlib.pyplot",
+        "numpy",
+        "tensorflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "034",
+      "name": "Recommentation System",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/Recommentation_system",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "numpy",
+        "pandas"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "035",
+      "name": "Sales Forecasting",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/Sales_forecasting",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "plotly.graph_objects",
+        "seaborn",
+        "sklearn.metrics",
+        "sklearn.model_selection",
+        "sklearn.preprocessing",
+        "statsmodels.tsa.seasonal",
+        "xgboost"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "036",
+      "name": "Bert Text",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/bert_text",
+      "files": [
+        "text_classify_bert.ipynb"
+      ],
+      "entrypoints": [
+        "text_classify_bert.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "datasets",
+        "torch",
+        "torch.utils.data",
+        "transformers"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "037",
+      "name": "Customersegmentation",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/customersegmentation",
+      "files": [
+        "k_means.ipynb"
+      ],
+      "entrypoints": [
+        "k_means.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "matplotlib.pyplot",
+        "pandas",
+        "sklearn.cluster",
+        "sklearn.metrics",
+        "sklearn.preprocessing"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "038",
+      "name": "Facial Recognition",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/facial_recognition",
+      "files": [
+        "en.py",
+        "face_pro.py",
+        "real_time.py"
+      ],
+      "entrypoints": [
+        "en.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "face_recognition",
+        "numpy",
+        "os",
+        "pickle"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "039",
+      "name": "Frauddetection",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/frauddetection",
+      "files": [
+        "demo.py",
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "fastapi",
+        "imblearn",
+        "joblib",
+        "matplotlib",
+        "numpy",
+        "pandas",
+        "pickle",
+        "pydantic",
+        "sklearn",
+        "uvicorn"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "040",
+      "name": "Image Classification With Multilabel",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/image_classification_with_multilabel",
+      "files": [
+        "test.py",
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "test.py",
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "PIL",
+        "json",
+        "keras",
+        "keras.layers",
+        "keras.models",
+        "keras.preprocessing.image",
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "tensorflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "041",
+      "name": "Image Classify",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/image_classify",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "keras.callbacks",
+        "keras.layers",
+        "keras.models",
+        "keras.preprocessing.image",
+        "matplotlib.pyplot",
+        "numpy",
+        "tensorflow.keras.utils"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "042",
+      "name": "Loan Prediction",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/loan_prediction",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "matplotlib.pyplot",
+        "numpy",
+        "os",
+        "pandas",
+        "plotly.express",
+        "plotly.graph_objects",
+        "seaborn",
+        "sklearn.discriminant_analysis",
+        "sklearn.ensemble",
+        "sklearn.linear_model",
+        "sklearn.metrics",
+        "sklearn.model_selection",
+        "sklearn.naive_bayes",
+        "sklearn.neighbors",
+        "sklearn.preprocessing",
+        "sklearn.svm",
+        "sklearn.tree",
+        "xgboost"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "043",
+      "name": "Predictive Analysis Health Care",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/predictive_analysis_health_care",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "category_encoders",
+        "imblearn.over_sampling",
+        "kagglehub",
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "seaborn",
+        "sklearn.ensemble",
+        "sklearn.metrics",
+        "sklearn.model_selection",
+        "sklearn.preprocessing"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "044",
+      "name": "Predictive Maintenance System",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/predictive_maintenance_system",
+      "files": [
+        "mlp_structure.html",
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "html",
+      "detected_imports": [
+        "imblearn.over_sampling",
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "sklearn.metrics",
+        "sklearn.model_selection",
+        "sklearn.neural_network",
+        "sklearn.preprocessing",
+        "sklearn.utils"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "045",
+      "name": "Sentiment Analysis",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/sentiment_Analysis",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "keras.callbacks",
+        "keras.datasets",
+        "keras.layers",
+        "keras.models",
+        "keras.preprocessing.sequence",
+        "keras.preprocessing.text",
+        "matplotlib.pyplot",
+        "tensorflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "046",
+      "name": "Stock Price",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/stock_price",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "sklearn.linear_model",
+        "sklearn.metrics",
+        "sklearn.model_selection",
+        "sklearn.preprocessing"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "047",
+      "name": "Timeseries",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/timeseries",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "plotly.express",
+        "seaborn",
+        "statsmodels.tsa.arima.model",
+        "statsmodels.tsa.seasonal"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "048",
+      "name": "Traffic Prediction",
+      "domain": "Machine_Learning",
+      "path": "Machine_Learning/traffic_prediction",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "keras.callbacks",
+        "keras.layers",
+        "keras.models",
+        "matplotlib.pyplot",
+        "numpy",
+        "pandas",
+        "seaborn",
+        "sklearn.model_selection",
+        "sklearn.preprocessing"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "049",
+      "name": "Ar Based Virtual Makeup",
+      "domain": "computer vision",
+      "path": "computer vision/AR_based_virtual_makeup",
+      "files": [
+        "fm.ipynb"
+      ],
+      "entrypoints": [
+        "fm.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "mediapipe",
+        "numpy"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "050",
+      "name": "Document Classifcation",
+      "domain": "computer vision",
+      "path": "computer vision/Document_Classifcation",
+      "files": [
+        "train.ipynb"
+      ],
+      "entrypoints": [
+        "train.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "datasets",
+        "keras.layers",
+        "keras.preprocessing.sequence",
+        "keras.preprocessing.text",
+        "nltk",
+        "numpy",
+        "tensorflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "051",
+      "name": "Image Colorization",
+      "domain": "computer vision",
+      "path": "computer vision/Image_Colorization",
+      "files": [
+        "app (1).py",
+        "train.py"
+      ],
+      "entrypoints": [
+        "train.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "PIL",
+        "cv2",
+        "matplotlib",
+        "numpy",
+        "streamlit"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "052",
+      "name": "Movingobjectdetection",
+      "domain": "computer vision",
+      "path": "computer vision/MovingObjectDetection",
+      "files": [
+        "mod1.py"
+      ],
+      "entrypoints": [
+        "mod1.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "imutils",
+        "numpy"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "053",
+      "name": "Ocr",
+      "domain": "computer vision",
+      "path": "computer vision/OCR",
+      "files": [
+        "test.py"
+      ],
+      "entrypoints": [
+        "test.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "pytesseract"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "054",
+      "name": "Pencilsketchconversion",
+      "domain": "computer vision",
+      "path": "computer vision/PencilSketchConversion",
+      "files": [
+        "pencil.py",
+        "trail.py"
+      ],
+      "entrypoints": [
+        "pencil.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "PIL",
+        "cv2",
+        "numpy",
+        "tkinter"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "055",
+      "name": "Aerial Img",
+      "domain": "computer vision",
+      "path": "computer vision/aerial_img",
+      "files": [
+        "test.py"
+      ],
+      "entrypoints": [
+        "test.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "keras",
+        "numpy",
+        "tensorflow"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "056",
+      "name": "Ai Graffiti Removal",
+      "domain": "computer vision",
+      "path": "computer vision/ai_graffiti_removal",
+      "files": [
+        "test.py"
+      ],
+      "entrypoints": [
+        "test.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "matplotlib",
+        "numpy",
+        "os",
+        "random"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "057",
+      "name": "Bar Reader",
+      "domain": "computer vision",
+      "path": "computer vision/bar_reader",
+      "files": [
+        "bartest.py"
+      ],
+      "entrypoints": [
+        "bartest.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "pyzbar"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "058",
+      "name": "Birds Species",
+      "domain": "computer vision",
+      "path": "computer vision/birds_species",
+      "files": [
+        "test.ipynb"
+      ],
+      "entrypoints": [
+        "test.ipynb"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "torch",
+        "ultralytics"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "059",
+      "name": "Face Recognition",
+      "domain": "computer vision",
+      "path": "computer vision/face_recognition",
+      "files": [
+        "collect_data.py",
+        "face_reco.py"
+      ],
+      "entrypoints": [
+        "collect_data.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "matplotlib",
+        "numpy",
+        "os"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "060",
+      "name": "Object Tracker",
+      "domain": "computer vision",
+      "path": "computer vision/object_tracker",
+      "files": [
+        "opencvtrackers_test.py"
+      ],
+      "entrypoints": [
+        "opencvtrackers_test.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "cv2",
+        "sys"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "061",
+      "name": "Simclr",
+      "domain": "computer vision",
+      "path": "computer vision/simclr",
+      "files": [
+        "main.py"
+      ],
+      "entrypoints": [
+        "main.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "numpy",
+        "tensorflow",
+        "tensorflow_datasets"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "062",
+      "name": "Speedestimation",
+      "domain": "computer vision",
+      "path": "computer vision/speedEstimation",
+      "files": [
+        "traffic.py"
+      ],
+      "entrypoints": [
+        "traffic.py"
+      ],
+      "language": "Python",
+      "detected_imports": [
+        "Roboflow",
+        "collections",
+        "cv2",
+        "numpy",
+        "os",
+        "supervision",
+        "tqdm",
+        "ultralytics"
+      ],
+      "readme_exists": true,
+      "inventory_status": "canonical_indexed"
+    },
+    {
+      "project_id": "DL-C01",
+      "name": "Super-Resolution for Image Reconstruction using GANs",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/- 34 — Super-Resolution for Image Reconstruction using GANs",
+      "evidence_summary": "Image/model inference notebook; candidate ID collision with existing ID 034",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "DL-C02",
+      "name": "DC-GAN",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/DC-GAN",
+      "evidence_summary": "CIFAR-10 DCGAN notebook and script; discriminator output/loss mismatch noted",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "DL-C03",
+      "name": "DeepFake Detection",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/DeepFake",
+      "evidence_summary": "Deepfake image/video detection notebook; full pipeline not verified",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "DL-C04",
+      "name": "GPT-2 and Transformer QA Demo",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/GPT-2",
+      "evidence_summary": "GPT-2 loading plus separate DistilBERT QA demo",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "DL-C05",
+      "name": "Image Caption Generation",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/ImageCaption",
+      "evidence_summary": "VGG16 plus LSTM Flickr8k captioning notebook",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "DL-C06",
+      "name": "Pothole Detection with YOLOv11 Nano",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/Path-hole",
+      "evidence_summary": "YOLOv11/Roboflow notebook; training not reproduced",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "DL-C07",
+      "name": "BERT Emotion Classification",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/bert_for_emotion",
+      "evidence_summary": "Six-label BERT emotion notebook; test split used for evaluation during training",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "DL-C08",
+      "name": "CycleGAN Experiment",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/cycle-GAN",
+      "evidence_summary": "Separate CycleGAN notebook; possible duplicate/alternate to ID 009",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "DL-C09",
+      "name": "Tacotron2 and HiFi-GAN TTS",
+      "domain": "DeepLearning",
+      "path": "DeepLearning/tactron",
+      "evidence_summary": "Pretrained speech synthesis inference notebook",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-01",
+      "name": "COVID19Researcher",
+      "domain": "NLP",
+      "path": "nlp/COVID19Researcher",
+      "evidence_summary": "Groq/Phidata research agent",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-02",
+      "name": "QuestionAnswering",
+      "domain": "NLP",
+      "path": "nlp/QuestionAnswering",
+      "evidence_summary": "BERT SQuAD extractive QA with Gradio",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-03",
+      "name": "IMDB LSTM",
+      "domain": "NLP",
+      "path": "nlp/Sequence Classification on IMDB using LSTM",
+      "evidence_summary": "TensorFlow/Keras review classifier",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-04",
+      "name": "TextClassifyusingnb",
+      "domain": "NLP",
+      "path": "nlp/TextClassifyusingnb",
+      "evidence_summary": "Large notebook; algorithm not fully verified",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-05",
+      "name": "TopicModelling",
+      "domain": "NLP",
+      "path": "nlp/TopicModelling",
+      "evidence_summary": "Gensim LDA topic modelling",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-06",
+      "name": "Emotion XLM-R",
+      "domain": "NLP",
+      "path": "nlp/finetuning_emotion_xberta",
+      "evidence_summary": "XLM-RoBERTa/GoEmotions fine-tuning",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-07",
+      "name": "Resume Parser",
+      "domain": "NLP",
+      "path": "nlp/resume_parser",
+      "evidence_summary": "Tesseract OCR, Gemini extraction, Gradio",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-08",
+      "name": "sentiment_analysis_bert",
+      "domain": "NLP",
+      "path": "nlp/sentiment_analysis_bert",
+      "evidence_summary": "Actual inspected code is spaCy transformer processing, not BERT sentiment",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-09",
+      "name": "Speech-to-Text",
+      "domain": "NLP",
+      "path": "nlp/speechtotext",
+      "evidence_summary": "Whisper/TensorFlow speech experiment",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-10",
+      "name": "Science Paper Summarizer",
+      "domain": "NLP",
+      "path": "nlp/summarizersciencepaper",
+      "evidence_summary": "Phidata/Groq search-assisted summarizer",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-11",
+      "name": "Text Clustering",
+      "domain": "NLP",
+      "path": "nlp/textClustering",
+      "evidence_summary": "Large notebook; algorithm not fully verified",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-12",
+      "name": "Text Summarization",
+      "domain": "NLP",
+      "path": "nlp/textsummarization",
+      "evidence_summary": "T5-base inference prototype",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "NLP-13",
+      "name": "Voice Assistant",
+      "domain": "NLP",
+      "path": "nlp/voice_assistant",
+      "evidence_summary": "Microphone, Whisper, Gemini, pyttsx3",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "067",
+      "name": "Multilingual Sentiment Analysis with Gradio",
+      "domain": "NLP",
+      "path": "nlp/67 — Multilingual Sentiment Analysis with Gradio App",
+      "evidence_summary": "Hugging Face multilingual 1–5 star model",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "068",
+      "name": "Text Generation using GPT-Neo 7B",
+      "domain": "NLP",
+      "path": "nlp/- 68 — Text Generation using GPT-Neo 7B",
+      "evidence_summary": "Notebook actually references GPT-Neo 2.7B checkpoint",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "CV-C01",
+      "name": "Video Summarization using OpenAI Whisper",
+      "domain": "Computer Vision",
+      "path": "computervision/- 57 — Video Summarization using OpenAI Whisper",
+      "evidence_summary": "Whisper transcription plus Transformers summarization",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "CV-C02",
+      "name": "AI Image Captioning for Social Media",
+      "domain": "Computer Vision",
+      "path": "computervision/58_—_ai_image_captioning_for_social_media_content_using_gemini",
+      "evidence_summary": "GIT image captioning plus Gemini copy generation",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    },
+    {
+      "project_id": "CV-C03",
+      "name": "Instance Segmentation",
+      "domain": "Computer Vision",
+      "path": "computervision/Instance-Segmentation",
+      "evidence_summary": "Detectron2 Mask R-CNN custom COCO training tutorial",
+      "inventory_status": "supplemental_candidate_unreconciled"
+    }
+  ],
+  "matched_projects": [],
+  "partial_projects": [],
+  "possible_matches": [
+    {
+      "candidate_id": "DL-C01",
+      "name": "Super-Resolution for Image Reconstruction using GANs",
+      "repository_path": "DeepLearning/- 34 — Super-Resolution for Image Reconstruction using GANs",
+      "reason": "Image/model inference notebook; candidate ID collision with existing ID 034",
+      "confidence": null
+    },
+    {
+      "candidate_id": "DL-C02",
+      "name": "DC-GAN",
+      "repository_path": "DeepLearning/DC-GAN",
+      "reason": "CIFAR-10 DCGAN notebook and script; discriminator output/loss mismatch noted",
+      "confidence": null
+    },
+    {
+      "candidate_id": "DL-C03",
+      "name": "DeepFake Detection",
+      "repository_path": "DeepLearning/DeepFake",
+      "reason": "Deepfake image/video detection notebook; full pipeline not verified",
+      "confidence": null
+    },
+    {
+      "candidate_id": "DL-C04",
+      "name": "GPT-2 and Transformer QA Demo",
+      "repository_path": "DeepLearning/GPT-2",
+      "reason": "GPT-2 loading plus separate DistilBERT QA demo",
+      "confidence": null
+    },
+    {
+      "candidate_id": "DL-C05",
+      "name": "Image Caption Generation",
+      "repository_path": "DeepLearning/ImageCaption",
+      "reason": "VGG16 plus LSTM Flickr8k captioning notebook",
+      "confidence": null
+    },
+    {
+      "candidate_id": "DL-C06",
+      "name": "Pothole Detection with YOLOv11 Nano",
+      "repository_path": "DeepLearning/Path-hole",
+      "reason": "YOLOv11/Roboflow notebook; training not reproduced",
+      "confidence": null
+    },
+    {
+      "candidate_id": "DL-C07",
+      "name": "BERT Emotion Classification",
+      "repository_path": "DeepLearning/bert_for_emotion",
+      "reason": "Six-label BERT emotion notebook; test split used for evaluation during training",
+      "confidence": null
+    },
+    {
+      "candidate_id": "DL-C08",
+      "name": "CycleGAN Experiment",
+      "repository_path": "DeepLearning/cycle-GAN",
+      "reason": "Separate CycleGAN notebook; possible duplicate/alternate to ID 009",
+      "confidence": null
+    },
+    {
+      "candidate_id": "DL-C09",
+      "name": "Tacotron2 and HiFi-GAN TTS",
+      "repository_path": "DeepLearning/tactron",
+      "reason": "Pretrained speech synthesis inference notebook",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-01",
+      "name": "COVID19Researcher",
+      "repository_path": "nlp/COVID19Researcher",
+      "reason": "Groq/Phidata research agent",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-02",
+      "name": "QuestionAnswering",
+      "repository_path": "nlp/QuestionAnswering",
+      "reason": "BERT SQuAD extractive QA with Gradio",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-03",
+      "name": "IMDB LSTM",
+      "repository_path": "nlp/Sequence Classification on IMDB using LSTM",
+      "reason": "TensorFlow/Keras review classifier",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-04",
+      "name": "TextClassifyusingnb",
+      "repository_path": "nlp/TextClassifyusingnb",
+      "reason": "Large notebook; algorithm not fully verified",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-05",
+      "name": "TopicModelling",
+      "repository_path": "nlp/TopicModelling",
+      "reason": "Gensim LDA topic modelling",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-06",
+      "name": "Emotion XLM-R",
+      "repository_path": "nlp/finetuning_emotion_xberta",
+      "reason": "XLM-RoBERTa/GoEmotions fine-tuning",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-07",
+      "name": "Resume Parser",
+      "repository_path": "nlp/resume_parser",
+      "reason": "Tesseract OCR, Gemini extraction, Gradio",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-08",
+      "name": "sentiment_analysis_bert",
+      "repository_path": "nlp/sentiment_analysis_bert",
+      "reason": "Actual inspected code is spaCy transformer processing, not BERT sentiment",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-09",
+      "name": "Speech-to-Text",
+      "repository_path": "nlp/speechtotext",
+      "reason": "Whisper/TensorFlow speech experiment",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-10",
+      "name": "Science Paper Summarizer",
+      "repository_path": "nlp/summarizersciencepaper",
+      "reason": "Phidata/Groq search-assisted summarizer",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-11",
+      "name": "Text Clustering",
+      "repository_path": "nlp/textClustering",
+      "reason": "Large notebook; algorithm not fully verified",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-12",
+      "name": "Text Summarization",
+      "repository_path": "nlp/textsummarization",
+      "reason": "T5-base inference prototype",
+      "confidence": null
+    },
+    {
+      "candidate_id": "NLP-13",
+      "name": "Voice Assistant",
+      "repository_path": "nlp/voice_assistant",
+      "reason": "Microphone, Whisper, Gemini, pyttsx3",
+      "confidence": null
+    },
+    {
+      "candidate_id": "067",
+      "name": "Multilingual Sentiment Analysis with Gradio",
+      "repository_path": "nlp/67 — Multilingual Sentiment Analysis with Gradio App",
+      "reason": "Hugging Face multilingual 1–5 star model",
+      "confidence": null
+    },
+    {
+      "candidate_id": "068",
+      "name": "Text Generation using GPT-Neo 7B",
+      "repository_path": "nlp/- 68 — Text Generation using GPT-Neo 7B",
+      "reason": "Notebook actually references GPT-Neo 2.7B checkpoint",
+      "confidence": null
+    },
+    {
+      "candidate_id": "CV-C01",
+      "name": "Video Summarization using OpenAI Whisper",
+      "repository_path": "computervision/- 57 — Video Summarization using OpenAI Whisper",
+      "reason": "Whisper transcription plus Transformers summarization",
+      "confidence": null
+    },
+    {
+      "candidate_id": "CV-C02",
+      "name": "AI Image Captioning for Social Media",
+      "repository_path": "computervision/58_—_ai_image_captioning_for_social_media_content_using_gemini",
+      "reason": "GIT image captioning plus Gemini copy generation",
+      "confidence": null
+    },
+    {
+      "candidate_id": "CV-C03",
+      "name": "Instance Segmentation",
+      "repository_path": "computervision/Instance-Segmentation",
+      "reason": "Detectron2 Mask R-CNN custom COCO training tutorial",
+      "confidence": null
+    }
+  ],
+  "missing_projects": [],
+  "unlisted_projects": [],
+  "duplicate_references": [],
+  "non_code_evidence": {
+    "data_analytics_screenshots": 16,
+    "substantive_screenshot_notes": 15,
+    "unidentified_screenshot": "Screenshot 2026-11-03 183235.png",
+    "pdfs": [
+      "118-world wildlife.pdf",
+      "120-job.pdf",
+      "churn-analysis.pdf",
+      "geospatial-coffee-sales.pdf",
+      "retail-sales.pdf"
+    ],
+    "image_only_placeholders": [
+      "Computer Vision: 3 image-only folders labelled 044, 052, 054",
+      "NLP: 4 PNG assets, including labels 063, 071, 073 and Falcon text generation",
+      "DeepLearning: 40 — License Plate Detection using YOLOv9.png",
+      "genai/: 4 PNG reference assets"
+    ]
+  },
+  "verification": {
+    "method": "Recursive Git tree inspection, repository metadata, existing indexes, domain README files and existing audit reports",
+    "runtime_execution": false,
+    "model_training": false,
+    "inference": false,
+    "pdf_page_extraction_complete": false,
+    "external_catalogue_reconciliation": false,
+    "known_retrieval_limitations": [
+      "Two large NLP notebooks could not be fully retrieved in the existing audit",
+      "DA PDF page contents remain pending",
+      "One DA screenshot remains retrieval-pending"
+    ]
+  }
+}
