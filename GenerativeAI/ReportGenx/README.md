@@ -1,120 +1,32 @@
-# Reportgenx
+# ReportGenX — Weekly Sales Summary and Chart Generator
 
-**Project 022** · **Domain:** GenerativeAI
+**Project ID:** 022 · **Domain:** Generative AI  
+**Entry point:** `main.py`
 
-## 1. Project Overview
+## Purpose
+A Streamlit application that accepts a CSV containing Date and Sales columns, filters one calendar week, plots daily sales and asks a Groq-hosted LLM to summarize the selected data.
 
-This project addresses **report generation**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Workflow
+1. Upload a CSV and enter a date in day-first format (example: `13-07-2025`).
+2. Parse the Date column with pandas and discard rows with invalid Date or missing Sales.
+3. Calculate the Monday-to-Sunday range containing the selected date.
+4. Plot Sales over Date using Matplotlib.
+5. Convert the filtered DataFrame to text and send it through a LangChain prompt to `ChatGroq`.
+6. Display and offer the generated summary as a Markdown download.
 
-## 2. Problem Statement
+## Dependencies and configuration
+Imports show Streamlit, pandas, Matplotlib, NumPy, LangChain, LangChain Groq and python-dotenv. Configure `GROQ_API_KEY` and the `model_id` environment variable. No requirements file is present in this project folder.
 
-The implementation explores a technical workflow related to report generation. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Findings
+- The app assumes the CSV contains exact column names `Date` and `Sales`; schema and numeric validation are limited.
+- The selected week is a calendar week (Monday through Sunday), not a rolling seven-day period.
+- The LLM receives the raw filtered table text; there is no deterministic KPI calculation, reconciliation or source citation.
+- The model name is read from `model_id`; if it is absent, the configured model may be invalid.
+- No report template, PDF/XLSX export, tests, sample dataset or measured summary-quality evaluation is included.
+- `helper.py` contains only a pandas import and is not used by the app.
 
-## 3. Objectives
+## Run and verification
+Install the required packages, configure environment variables and run `streamlit run main.py`. Static inspection only; no report or model response was generated.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[main.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `dotenv`, `langchain`, `langchain_groq`, `matplotlib`, `numpy`, `os`, `pandas`, `streamlit` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`helper.py`](<helper.py>)
-- [`main.py`](<main.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `main.py` functions: `summary`, `chart`
-
-## 7. Implementation Workflow
-
-1. Start from `main.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `langchain`, `pandas`, `streamlit`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/ReportGenx"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `main.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/ReportGenx"
-python main.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for report generation. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Validate and normalize input columns, calculate totals/averages/growth in pandas, pass only verified KPIs to the LLM, add source-period metadata, and test week-boundary and missing-data cases.
