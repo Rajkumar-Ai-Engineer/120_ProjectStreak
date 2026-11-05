@@ -1,14 +1,22 @@
-# Generative AI Reference Images
+# Generative AI — Project 081 Reference Assets
 
-This directory is separate from the canonical `GenerativeAI/` project collection.
+This folder contains four PNG project-reference assets. Three filenames explicitly include the number 81; the fourth is unnumbered. They are reference images, not an executable project.
 
-## Files observed
-- `81-details-visual flow.png`
-- `81-ref.png`
-- `81.png`
-- `llmdebulab.png`
+## Project 081 reference set
 
-## Audit status
-The inspected directory contains four PNG images and no Python source, notebook, dependency manifest or executable application. The filenames alone do not establish a complete project, its implementation, or its canonical project number.
+![Project 081 visual flow](81.png)
 
-These files are therefore treated as **reference assets only**, not additional verified Generative AI projects. Confirm their relationship to the original 120-project source catalogue before adding or renumbering any inventory entry.
+![Project 081 reference](81-ref.png)
+
+![Project 081 visual flow details](81-details-visual%20flow.png)
+
+## Related unnumbered reference
+
+![LLM Debug Lab reference](llmdebulab.png)
+
+## Verification status
+- Four PNG files are present.
+- No Python source, notebook, dependency manifest or executable application is present in this directory.
+- Match the visual concept to source elsewhere before marking Project 081 implemented.
+- Do not count the four images as four separate projects.
+- See [GenerativeAI/README.md](../GenerativeAI/README.md) and the [master catalogue](../README.md).
