@@ -1,119 +1,34 @@
-# Langaudit
+# LangAudit — Prompt Version Comparison and Lightweight Output Audit
 
-**Project 018** · **Domain:** GenerativeAI
+**Project ID:** 018 · **Domain:** Generative AI  
+**Entry point:** `helper.py`
 
-## 1. Project Overview
+## Purpose
+A command-line experiment that compares answers generated from multiple prompt versions and appends the outputs and a simple score to a CSV audit log.
 
-This project addresses **an experimental generativeai workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Workflow
+1. Load prompt variants from `prompts.json`; if the file is absent, use two built-in prompt templates.
+2. Read `GROQ_API_KEY`, `LANGSMITH_API_KEY_1` and `project` from the environment.
+3. Initialize a Groq `ChatGroq` model using `llama3-8b-8192` at temperature 0.1.
+4. Ask the user for a question.
+5. Invoke each prompt/model chain, hash each prompt with MD5 and print its output.
+6. Append timestamp, prompt version, prompt hash, generated output and score to `prompt_audit_log.csv`.
 
-## 2. Problem Statement
+## Important evaluation caveat
+The current `grading_function` returns 1 if the generated answer contains the word “paris”, otherwise 0. This is a hard-coded keyword check, not a general hallucination detector or factuality evaluator. The `StringEvaluator` object and LangSmith client are initialized but are not used to run a LangSmith evaluation in the active loop.
 
-The implementation explores a technical workflow related to an experimental generativeai workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Dependencies and setup
+Install `requirements.txt`, configure the three environment variables, optionally provide `prompts.json`, then run `python helper.py`.
 
-## 3. Objectives
+## Findings
+- The metric name `hallucination_score` overstates what the Paris keyword rule measures.
+- Prompt hashes use MD5 for identification; do not use this hash for security or integrity guarantees.
+- No reference-answer dataset, semantic judge, source grounding check, repeatability analysis or aggregate comparison report exists.
+- CSV output is appended without data-retention controls or escaping policy for downstream consumers.
+- The project name suggests a general language audit, but the current implementation is a narrow prompt-variant experiment.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Verification
+Static inspection only; no LLM calls or score validation were performed.
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[helper.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `csv`, `datetime`, `dotenv`, `hashlib`, `json`, `langchain`, `langchain_groq`, `langsmith`, `os` |
-| Dependency manifests | `requirements.txt` |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`helper.py`](<helper.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `helper.py` functions: `load_prompts`, `compute_prompt_hash`, `get_user_question`, `grading_function`, `main`
-
-## 7. Implementation Workflow
-
-1. Start from `helper.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `evaluate`, `langchain`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-Install the dependencies listed in `requirements.txt`. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/LangAudit"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `helper.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/LangAudit"
-python helper.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental generativeai workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Use a labelled golden dataset, multiple fit-for-purpose metrics, calibrated human-reviewed evaluators, LangSmith experiment tracking and clear separation of prompt identity from evaluation score.
