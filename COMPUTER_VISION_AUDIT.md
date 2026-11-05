@@ -13,8 +13,8 @@ The repository has two distinct Computer Vision-named directories. The original 
 | Measure | Finding |
 |---|---:|
 | Numbered project folders in `computer vision/` | 14 |
-| Additional code-bearing folders in `computervision/` | 4 |
-| Image-only folders in `computervision/` | 2 |
+| Additional code-bearing folders in `computervision/` | 3 |
+| Image-only folders in `computervision/` | 3 |
 | Code-bearing folders inspected | 17 |
 | Project-specific README files rewritten/created | 20 |
 | Domain index files created | 2 |
