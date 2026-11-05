@@ -1,5 +1,7 @@
 # Natural Language Processing — Project Index
 
+**Master catalogue:** [MASTER_PROJECT_CATALOGUE.md](../MASTER_PROJECT_CATALOGUE.md) · [Repository home](../README.md)
+
 **Source-bearing project folders:** 15 · **Explicitly numbered folders:** 067 and 068  
 **Audit:** [NLP_AUDIT.md](../NLP_AUDIT.md) · **Master catalogue:** [Repository README](../README.md)
 
