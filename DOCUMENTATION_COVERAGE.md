@@ -84,3 +84,17 @@ This was a static GitHub source/notebook/artifact review. No Python scripts, not
 - High-priority findings: client-supplied API key and wildcard CORS in Visual Flow Backend; missing route decorator in Langflow JSON Loader API; URL/filename safety issues in WebAutoGPT and DocQuery; insecure placeholder Flask secret and heuristic quiz scoring in MCQ Generator; environment-variable assignment defects in multiple projects; weak keyword-only evaluation in LangAudit.
 - Verification: static source/configuration inspection only. No model calls, APIs, servers, agent workflows, OAuth, retrieval or inference were executed.
 - Documentation update date: 2026-11-05.
+
+
+## NLP domain — source review and documentation
+
+- Directory: `nlp/`.
+- 15 source-bearing project folders documented with project-specific READMEs.
+- 2 explicitly numbered project labels preserved: 067 multilingual sentiment and 068 GPT-Neo text generation. Remaining source-bearing folders are marked unassigned pending reconciliation; no IDs were invented.
+- 4 image-only reference assets identified separately (including labels 063, 071 and 073); not counted as executable projects.
+- Domain index: [nlp/README.md](nlp/README.md).
+- Detailed audit: [NLP_AUDIT.md](NLP_AUDIT.md).
+- Major findings: IMDB LSTM output-shape mismatch; XLM-RoBERTa multi-label/evaluation issues; T5 inference API/input defects; Whisper preprocessing/checkpoint problems; voice assistant recording/transcription disconnect; resume PII and public-sharing risks; source/folder naming mismatch in sentiment_analysis_bert.
+- Two large notebooks (TextClassifyusingnb and textClustering) could not be fully retrieved by the GitHub content endpoint; their algorithm details remain unverified.
+- Verification: static source review only; no scripts, notebooks, models, APIs, OCR, audio, training or inference executed.
+- Documentation update date: 2026-11-05.
