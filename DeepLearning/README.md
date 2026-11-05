@@ -31,7 +31,7 @@ These directories were present in GitHub but absent from the current formal proj
 | `bert_for_emotion` | [README](bert_for_emotion/README.md) |
 | `cycle-GAN` | [README](cycle-GAN/README.md) |
 | `tactron` | [README](tactron/README.md) |
-| `- 34 — Super-Resolution for Image Reconstruction using GANs` | [README](< - 34 — Super-Resolution for Image Reconstruction using GANs/README.md>) |
+| `- 34 — Super-Resolution for Image Reconstruction using GANs` | [README](<- 34 — Super-Resolution for Image Reconstruction using GANs/README.md>) |
 
 ## Audit notes
 
