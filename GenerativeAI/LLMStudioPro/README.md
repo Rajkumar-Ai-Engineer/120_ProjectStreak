@@ -1,124 +1,34 @@
-# Llmstudiopro
+# LLMStudioPro — Multi-Model Chat, Agent and RAG Workbench
 
-**Project 017** · **Domain:** GenerativeAI
+**Project ID:** 017 · **Domain:** Generative AI  
+**Entry point:** `app.py` · **Core services:** `helper.py`
 
-## 1. Project Overview
+## Purpose
+A Streamlit workbench with three modes: direct LLM chat, tool-using agent chat, and document/question-answering RAG. Users can select a Groq model and configure document loaders, embedding model and vector store.
 
-This project addresses **an experimental generativeai workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Implemented capabilities
+- **Chat:** creates a LangChain `ChatGroq` model and invokes it with a text prompt.
+- **Agent:** builds a LangGraph ReAct agent with Tavily search and an in-memory checkpointer.
+- **RAG ingestion:** supports PDF, TXT, Wikipedia page, web URL and CSV loaders.
+- **Chunking:** recursive or character text splitting with 1,000-character chunks and 200 overlap.
+- **Embeddings:** Hugging Face BGE or OpenAI embeddings.
+- **Vector stores:** FAISS and Chroma are exposed in the UI; helper code also contains a Pinecone branch.
+- **Retrieval:** LangChain RetrievalQA with a context/question prompt.
+- **Output cleanup:** removes `<think>` blocks and normalizes whitespace.
 
-## 2. Problem Statement
+## Configuration
+The helper reads `GROQ_API_KEY` and `Tavily_API_KEY`; OpenAI embeddings require `OPENAI_API_KEY`. Install the packages listed in `requirements.txt` with mutually compatible LangChain versions.
 
-The implementation explores a technical workflow related to an experimental generativeai workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Findings and limitations
+- Agent checkpoint configuration uses a fixed thread ID (`abc123`), so conversations may share state rather than being isolated per user/session.
+- Uploaded files are written to temporary paths but are not removed after processing.
+- The UI's vector-store choices are FAISS and Chroma; the Pinecone code path is not exposed by the UI.
+- The selected LLM and retrieval pipeline are assembled at request time; no persisted index lifecycle, source citation UI, document deletion or user-level isolation is present.
+- The app relies on legacy LangChain modules/APIs; compatibility must be verified against pinned versions.
+- No prompt-injection defenses, retrieval evaluation or model-output validation are implemented.
 
-## 3. Objectives
+## Run
+Set the relevant API keys, install requirements and run `streamlit run app.py` from this directory.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[app.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `dotenv`, `helper`, `json`, `langchain`, `langchain_community`, `langchain_groq`, `langchain_tavily`, `langgraph`, `os`, `pinecone`, `re`, `streamlit` |
-| Dependency manifests | `requirements.txt` |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`app.py`](<app.py>)
-- [`helper.py`](<helper.py>)
-- [`llm_output_cleaner.py`](<llm_output_cleaner.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `app.py` functions: `slideBar`
-- `helper.py` functions: `__init__`, `agent`, `models_list`, `llm_cleaned_output`, `run`, `__init__`, `dataloaders`, `spliters`, `embeddings`, `llm_selection`, `template`, `vector_store`, `retriever`, `run`
-- `helper.py` classes: `LLMStudio`, `LLMStudioRAG`
-- `llm_output_cleaner.py` functions: `clean_llm_output`
-
-## 7. Implementation Workflow
-
-1. Start from `app.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `langchain`, `openai`, `rag`, `streamlit`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-Install the dependencies listed in `requirements.txt`. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/LLMStudioPro"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `app.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/LLMStudioPro"
-python app.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental generativeai workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Use per-session checkpointer IDs, secure uploaded-file handling, persist/manage indexes explicitly, display source references, add prompt-injection boundaries and test retrieval quality across a golden dataset.
