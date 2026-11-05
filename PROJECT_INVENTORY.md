@@ -70,3 +70,28 @@ This inventory records the independently identifiable project boundaries found b
 ## Scope note
 
 The repository name references a 120-project streak, but static discovery verified fewer independent project directories. This inventory reports the observed count and does not fabricate entries to reach 120.
+
+
+## NLP directory — supplementary source-bearing projects
+
+The separate `nlp/` directory was not represented in the original numbered inventory. Its source-bearing folders are documented in [nlp/README.md](nlp/README.md) and audited in [NLP_AUDIT.md](NLP_AUDIT.md). Existing numbered inventory entries are not renumbered or overwritten.
+
+| Catalogue label | Project folder | Source evidence | Documentation | Status |
+|---|---|---|---|---|
+| 067 | `nlp/67 — Multilingual Sentiment Analysis with Gradio App` | Python script | [README](<nlp/67 — Multilingual Sentiment Analysis with Gradio App/README.md>) | Source-audited; not executed |
+| 068 | `nlp/- 68 — Text Generation using GPT-Neo 7B` | Python script | [README](<nlp/- 68 — Text Generation using GPT-Neo 7B/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/COVID19Researcher` | Python source + requirements | [README](<nlp/COVID19Researcher/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/QuestionAnswering` | Python source | [README](<nlp/QuestionAnswering/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/Sequence Classification on IMDB using LSTM` | Notebook | [README](<nlp/Sequence Classification on IMDB using LSTM/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/TextClassifyusingnb` | Large notebook | [README](<nlp/TextClassifyusingnb/README.md>) | Notebook internals not fully retrieved |
+| Unassigned | `nlp/TopicModelling` | Python source | [README](<nlp/TopicModelling/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/finetuning_emotion_xberta` | Notebook | [README](<nlp/finetuning_emotion_xberta/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/resume_parser` | Python source | [README](<nlp/resume_parser/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/sentiment_analysis_bert` | Python source | [README](<nlp/sentiment_analysis_bert/README.md>) | Source-audited; folder/source mismatch |
+| Unassigned | `nlp/speechtotext` | Notebook | [README](<nlp/speechtotext/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/summarizersciencepaper` | Python source | [README](<nlp/summarizersciencepaper/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/textClustering` | Large notebook | [README](<nlp/textClustering/README.md>) | Notebook internals not fully retrieved |
+| Unassigned | `nlp/textsummarization` | Python source | [README](<nlp/textsummarization/README.md>) | Source-audited; not executed |
+| Unassigned | `nlp/voice_assistant` | Notebook | [README](<nlp/voice_assistant/README.md>) | Source-audited; not executed |
+
+Image-only references also exist for labels 063, 071 and 073; they are not included as runnable project entries. See the NLP audit for the exact asset list and verification limits.
