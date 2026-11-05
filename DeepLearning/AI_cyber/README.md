@@ -1,120 +1,41 @@
-# Ai Cyber
+# Network Intrusion / DDoS Classification with LSTM
 
-**Project 001** · **Domain:** DeepLearning
+**Project 001 · Deep Learning**  
+**Path:** `DeepLearning/AI_cyber`
 
-## 1. Project Overview
+## Objective
+Classify network-flow records from the CIC-IDS2017 Friday afternoon DDoS capture as benign or DDoS using a stacked LSTM classifier. This is a research/learning experiment, not a validated network security control.
 
-This project addresses **an experimental deeplearning workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Data
+The notebook reads `data.csv/Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv`. Captured notebook output reports 225,745 rows and 79 columns before feature selection. It replaces infinite values, fills missing numeric values with column means, standardizes features and selects 30 features using `SelectKBest(f_classif)`. The selected data is exported to `scaled.csv`.
 
-## 2. Problem Statement
+## Model and training
+- Labels are encoded with `LabelEncoder`.
+- Features are reshaped to one timestep with 30 features per record.
+- Stacked LSTM: 128 units (sequence output) → 64 units → Dense(32, ReLU) → softmax over encoded classes.
+- Adam optimizer, sparse categorical cross-entropy, batch size 32, up to 10 epochs.
+- The notebook defines EarlyStopping and ModelCheckpoint objects but does not pass them into `model.fit`.
+- Saves `model.h5` and `scaler.pkl`; `test.py` loads the model and predicts one hard-coded row from `scaled.csv`.
 
-The implementation explores a technical workflow related to an experimental deeplearning workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[test.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[CIC-IDS2017 CSV] --> B[Clean inf / missing values]
+ B --> C[StandardScaler]
+ C --> D[SelectKBest: 30 features]
+ D --> E[Label encode + reshape to 1 timestep]
+ E --> F[Stacked LSTM 128 / 64]
+ F --> G[Dense 32 + Softmax]
+ G --> H[Benign or DDoS class]
+ F --> I[model.h5]
+ C --> J[scaler.pkl]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
+## Run
+Use a Python environment with TensorFlow/Keras, Pandas, NumPy, scikit-learn, joblib and Jupyter. Ensure the CSV is available at the exact relative path, then run `train.ipynb`. Run `python test.py` only after the expected artifacts and `scaled.csv` exist.
 
-## 5. Technologies Used
+## Captured evidence and limitations
+The notebook's saved output shows validation accuracy near 99.3% in early epochs; this is a historical notebook output, not a reproduced benchmark. The current test script hard-codes prediction of row 4 and maps class index 0 to benign and every other class to DDoS, rather than using the saved encoder. The split is not seeded or stratified. Feature selection and scaling occur before train/test split, causing data leakage. The validation set is used for fitting without the defined callbacks.
 
-| Language | Python |
-| Libraries detected from imports | `joblib`, `keras`, `keras.callbacks`, `keras.layers`, `keras.models`, `matplotlib.pyplot`, `numpy`, `os`, `pandas`, `pickle`, `sklearn.feature_selection`, `sklearn.model_selection`, `sklearn.preprocessing`, `tensorflow` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`test.py`](<test.py>)
-- [`train.ipynb`](<train.ipynb>)
-
-Nested assets/directories observed: `data.csv/` (1 files)
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from `test.py`, `train.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `evaluate`, `fit`, `keras`, `pandas`, `predict`, `sklearn`, `tensorflow`, `train`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "DeepLearning/AI_cyber"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `test.py`, `train.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "DeepLearning/AI_cyber"
-python test.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental deeplearning workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Fit imputation, scaling and feature selection on training data only; use stratified/time-aware evaluation; persist the label encoder and exact selected feature names; pass callbacks; report per-class precision/recall, confusion matrix and PR-AUC; validate the inference input schema and class mapping. Treat the model as an offline experiment until independently tested on temporally separate network traffic.
