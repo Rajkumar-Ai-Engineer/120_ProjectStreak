@@ -1,125 +1,31 @@
-# Mcq Generator
+# MCQ Generator — LLM-Based Quiz Creation and Evaluation
 
-**Project 019** · **Domain:** GenerativeAI
+**Project ID:** 019 · **Domain:** Generative AI  
+**Flask API:** `app.py` · **Generator:** `MCQ.py`
 
-## 1. Project Overview
+## Purpose
+Generate multiple-choice questions from a topic and difficulty level, expose a quiz workflow through Flask endpoints, and ask the LLM to evaluate submitted answers.
 
-This project addresses **multiple-choice question generation**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Architecture
+- `MCQGenerator` configures a Groq `ChatGroq` model (default model ID `openai/gpt-oss-120b`), a prompt loaded from `template.json` and LangChain `ConversationBufferMemory`.
+- `run_quiz` sends topic, question count, difficulty, delivery mode and quiz mode to the chain.
+- `app.py` exposes routes for quiz generation, question retrieval and answer submission.
+- Each generated question is parsed from model text into question text and four options.
+- Per-quiz state is held in a process-local `quiz_sessions` dictionary.
 
-## 2. Problem Statement
+## Setup
+Install the listed Flask, LangChain, Groq and python-dotenv dependencies. Configure `GROQ_API_KEY`. The app expects a Flask template named `index.html`, but no templates or static UI files are present in the inspected folder. Run `python app.py` only after supplying the missing template.
 
-The implementation explores a technical workflow related to multiple-choice question generation. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Critical findings
+- Flask uses the literal placeholder `your-secret-key-here`; replace it with a strong secret from environment configuration.
+- The answer parser extracts options from model-generated text; malformed or differently formatted responses can produce placeholder options.
+- Scoring increments when the evaluation text contains “correct” or “right”. This is not reliable answer-key comparison and can award incorrect scores.
+- Sessions and generator objects live only in process memory; they are lost on restart and are not suitable for multi-worker deployment.
+- No authentication, rate limiting, session expiry, CSRF protection or request schema validation is evident.
+- The requirements file repeats packages with conflicting version declarations and does not establish a reproducible environment.
 
-## 3. Objectives
+## Verification
+Static inspection only; no Flask server or quiz generation was run.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[app.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `MCQ`, `dotenv`, `flask`, `json`, `langchain`, `langchain_groq`, `os`, `re`, `threading`, `uuid` |
-| Dependency manifests | `requirements.txt` |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`MCQ.py`](<MCQ.py>)
-- [`app.py`](<app.py>)
-- [`helper.py`](<helper.py>)
-- [`main.py`](<main.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `app.py` functions: `index`, `generate_quiz`, `get_question`, `submit_answer`, `get_results`, `generate_single_question`, `parse_single_question`
-- `helper.py` functions: `run_quiz`, `answer_quiz`
-- `MCQ.py` functions: `main`, `__init__`, `run_quiz`, `answer_quiz`, `initial_process`, `quiz_mode`
-- `MCQ.py` classes: `MCQGenerator`
-
-## 7. Implementation Workflow
-
-1. Start from `app.py`, `main.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `flask`, `langchain`, `openai`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-Install the dependencies listed in `requirements.txt`. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/MCQ_GENERATOR"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `app.py`, `main.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/MCQ_GENERATOR"
-python app.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for multiple-choice question generation. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Use structured JSON output with schema validation, store an explicit answer key, score deterministically, add tests for parser edge cases, secure sessions, and provide the missing templates.
