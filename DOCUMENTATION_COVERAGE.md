@@ -100,14 +100,16 @@ This was a static GitHub source/notebook/artifact review. No Python scripts, not
 - Documentation update date: 2026-11-05.
 
 
-## Data Analytics (DA) folder — source inventory documented
+## Data Analytics (DA) folder — visual audit and source documentation
 
 - Directory: `da/`.
 - Files inventoried: **21** (5 PDFs and 16 PNG screenshots).
-- PDF source labels preserved: **118 — World Wildlife** and **120 — Job**; three additional unnumbered topics are Churn Analysis, Geospatial Coffee Sales, and Retail Sales.
+- Screenshot review: **15 visually inspected**; `Screenshot 2026-11-03 183235.png` could not be retrieved by the GitHub connector.
+- Created **16 screenshot-based project notes** under `da/projects/` (15 substantive visual reviews and one retrieval-pending record).
+- Created **5 PDF source audit notes** under `da/source-pdfs/`; the PDF page contents remain pending extraction and have not been fabricated.
 - Domain index: [da/README.md](da/README.md).
-- Detailed folder audit: [DATA_ANALYTICS_AUDIT.md](DATA_ANALYTICS_AUDIT.md).
-- No source code, notebooks, SQL files, dashboard/application source, or dependency manifests were found in this directory listing.
-- PDF bodies and screenshot contents were not reviewed in this pass; no datasets, methods, results, technologies, or implementation status are inferred from filenames. These artifacts are not yet added to the canonical 62-project inventory.
-- Verification: recursive Git tree inspection of `da/`; no code execution or analytical result verification.
+- Detailed audit: [DATA_ANALYTICS_AUDIT.md](DATA_ANALYTICS_AUDIT.md).
+- No source code, notebooks, SQL files, or dashboard project files were found in the `da/` directory tree.
+- No new canonical project IDs were assigned; screenshot topics may overlap with projects elsewhere in the repository.
+- Verification: recursive Git tree inspection and visual review of 15 PNG assets. No dashboard, notebook, model, or KPI was executed or independently reproduced.
 - Documentation update date: 2026-11-05.
