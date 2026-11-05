@@ -6,7 +6,7 @@ This directory is separate from the numbered `computer vision/` directory. The f
 
 | Folder label | Documentation | Evidence |
 |---|---|---|
-| 57 — Video Summarization using OpenAI Whisper | [README]( -%2057%20%E2%80%94%20Video%20Summarization%20using%20OpenAI%20Whisper/README.md) | Colab-exported Whisper transcription + Transformers summarization |
+| 57 — Video Summarization using OpenAI Whisper | [README](-%2057%20%E2%80%94%20Video%20Summarization%20using%20OpenAI%20Whisper/README.md) | Colab-exported Whisper transcription + Transformers summarization |
 | 58 — AI Image Captioning for Social Media | [README](58_—_ai_image_captioning_for_social_media_content_using_gemini/README.md) | GIT image captioning + Gemini social-copy generation |
 | Instance Segmentation | [README](Instance-Segmentation/README.md) | Detectron2 Mask R-CNN custom COCO training tutorial |
 
