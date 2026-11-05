@@ -1,5 +1,7 @@
 # Generative AI — Project Index
 
+**Master catalogue:** [MASTER_PROJECT_CATALOGUE.md](../MASTER_PROJECT_CATALOGUE.md) · [Repository home](../README.md)
+
 **Canonical inventory:** Projects 011–029 · **Total:** 19 source-bearing project folders  
 **Audit:** [GENERATIVE_AI_AUDIT.md](../GENERATIVE_AI_AUDIT.md) · [Canonical register](../PROJECT_INVENTORY.md) · [Master catalogue](../README.md)
 
