@@ -100,6 +100,7 @@ The collection spans classical machine-learning workflows, deep-learning noteboo
 ## Documentation and Audit
 
 - [Documentation coverage report](DOCUMENTATION_COVERAGE.md)
+- [Computer Vision domain audit](COMPUTER_VISION_AUDIT.md)
 - [Machine-readable project inventory](documentation_inventory.json)
 
 ## Author
