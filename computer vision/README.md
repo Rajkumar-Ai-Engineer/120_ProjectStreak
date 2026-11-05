@@ -1,5 +1,7 @@
 # Computer Vision — Consolidated Project Index
 
+**Master catalogue:** [MASTER_PROJECT_CATALOGUE.md](../MASTER_PROJECT_CATALOGUE.md) · [Repository home](../README.md)
+
 **Canonical inventory:** Projects 049–062 · **Total:** 14 numbered folders  
 **Supplemental directory:** [computervision/](../computervision/README.md) · **Audit:** [COMPUTER_VISION_AUDIT.md](../COMPUTER_VISION_AUDIT.md) · [Master catalogue](../README.md)
 
