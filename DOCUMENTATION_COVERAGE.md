@@ -54,3 +54,21 @@ This was a static review of GitHub directory listings, source files and notebook
 ## Repository-wide scope
 
 The repository's existing `PROJECT_INVENTORY.md` and `documentation_inventory.json` currently identify 62 canonical project boundaries across four domains, including 10 DeepLearning projects. This pass has documented 19 DeepLearning directories but has not yet reconciled the nine additional candidates against the full source catalogue or overall 120-project target.
+
+
+## Computer Vision domain — reviewed and documented
+
+- Scope: both `computer vision/` and `computervision/` (two separate repository directories).
+- Numbered folders in `computer vision/`: **14** (IDs 049–062).
+- Additional code-bearing folders in `computervision/`: **3** (Whisper video summarization, GIT+Gemini image captioning, Detectron2 instance segmentation).
+- Additional image-only folders in `computervision/`: **3** (YOLOv8+ByteTrack reference image, Virtual Calculator reference image, Drowsiness Detection reference image).
+- Total code-bearing folders statically inspected: **17**; image-only placeholders are not counted as implementations.
+- Project-specific README files rewritten/created: **20** (14 numbered projects + 6 additional folders).
+- Domain indexes: [computer vision/README.md](<computer vision/README.md>) and [computervision/README.md](computervision/README.md).
+- Detailed findings: [COMPUTER_VISION_AUDIT.md](COMPUTER_VISION_AUDIT.md).
+- High-priority findings: exposed Roboflow API credential in Detectron2 source (rotate immediately); broken speed-estimation video generator and uncalibrated km/h; blocking SimCLR shape/tape/loss defects; missing Image Colorization Caffe weights; AG News text classification incorrectly filed in Computer Vision; Barcode Reader is import-only.
+- Documentation date: 2026-11-05.
+
+### Verification boundary
+
+This was a static GitHub source/notebook/artifact review. No Python scripts, notebooks, training jobs, webcams, videos, model inference, or external APIs were executed. Committed training CSVs and outputs are identified as historical repository evidence, not reproduced results. The full 120-project reference catalogue was not reconciled during this domain-specific pass.
