@@ -1,125 +1,33 @@
-# Contextartitext
+# ContextArchitect — Local Document Index and Query App
 
-**Project 013** · **Domain:** GenerativeAI
+**Project ID:** 013 · **Domain:** Generative AI  
+**Streamlit entry point:** `app.py` · **Core implementation:** `helper.py`
 
-## 1. Project Overview
+## Purpose
+Index documents placed in a local data directory and answer user questions through a LlamaIndex query engine. The app uses a Groq LLM and Hugging Face embeddings.
 
-This project addresses **context architecture**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Architecture
+- UI: Streamlit text input and Search button.
+- Document loading: `SimpleDirectoryReader` reads files from `data/`.
+- Embeddings: `BAAI/bge-small-en-v1.5` through `HuggingFaceEmbedding`.
+- LLM: LlamaIndex Groq integration configured for `llama3-8b-8192`.
+- Index: `VectorStoreIndex`, persisted to local `storage/`.
+- Query: load the persisted index; if unavailable, read data, build an index and query it.
 
-## 2. Problem Statement
+The repository also contains a separate root-level `ContextArchitect/helper.py` implementation using FAISS. The Streamlit app imports the nested `ContextArtitext/helper.py`, not that alternate helper.
 
-The implementation explores a technical workflow related to context architecture. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Setup
+Install dependencies from the parent `ContextArchitect/requirements.txt`, configure `GROQ_API_KEY`, place supported source documents in `data/`, then run `streamlit run app.py` from the nested app directory. Paths are relative to the current working directory.
 
-## 3. Objectives
+## Review findings
+- `os.environ["GROQ_API_KEY"] = os.environ.get("GROQ_API_KEY")` raises a TypeError when the variable is absent because environment values must be strings.
+- The nested helper persists to a relative `storage` directory and reads a relative `data` directory; launching from another working directory changes their meaning.
+- The nested package's `main.py` is empty. The parent helper is a separate FAISS implementation and is not wired into the Streamlit app.
+- No source-document upload, delete/update workflow, citation display, access control, retrieval evaluation or automated tests are included.
+- Persisted vector-store JSON files are checked into the repository; confirm whether they contain user documents or derived data before sharing.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Verification
+Static inspection only. No index creation, embedding generation, model call or retrieval evaluation was run.
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[app.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `dotenv`, `helper`, `llama_index`, `logging`, `logs`, `os`, `streamlit`, `traceback` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`__init__.py`](<__init__.py>)
-- [`app.py`](<app.py>)
-- [`helper.py`](<helper.py>)
-- [`logs.py`](<logs.py>)
-- [`main.py`](<main.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `app.py` functions: `load_model`
-- `helper.py` functions: `__init__`, `read_data`, `create_index`, `load_index`, `QueryEngine`, `run`
-- `helper.py` classes: `ContextArchitect`
-
-## 7. Implementation Workflow
-
-1. Start from `app.py`, `main.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `streamlit`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/ContextArchitect/ContextArtitext"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `app.py`, `main.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/ContextArchitect/ContextArtitext"
-python app.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for context architecture. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Make paths configurable, validate the API key, add upload and index-refresh controls, show source citations, keep private indexes out of Git, and evaluate retrieval relevance and answer faithfulness.
