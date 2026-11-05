@@ -1,119 +1,33 @@
-# Ar Based Virtual Makeup
+# AR-Based Virtual Makeup
 
-**Project 049** · **Domain:** computer vision
+**Project ID:** 049 · **Entry point:** [fm.ipynb](fm.ipynb)
 
-## 1. Project Overview
+## Objective
+Apply makeup-like visual effects to a face in a webcam stream or a still image using facial landmarks.
 
-This project addresses **face recognition**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Implementation
+The notebook initializes MediaPipe Face Mesh and OpenCV. It defines image-space landmark operations for lipstick, blush, eyeliner, contouring and Gaussian-blur skin smoothing. The webcam loop converts BGR frames to RGB for MediaPipe, obtains face landmarks, applies the effects and displays the result. A later cell repeats the effect pipeline on `1.jpg`. Additional cells visualize all or selected landmark coordinates.
 
-## 2. Problem Statement
+## Technologies
+Python, MediaPipe Face Mesh, OpenCV and NumPy.
 
-The implementation explores a technical workflow related to face recognition. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Key functions
+- `apply_lipstick`: fills a polygon formed from upper/lower lip landmark indices.
+- `apply_blush`: creates a cheek mask and blends its colour.
+- `apply_eyeliner`: draws connected lines around eye landmarks.
+- `apply_contouring`: blends a polygon mask based on face landmarks.
+- `apply_skin_smooth`: Gaussian blur blended with the original frame.
+- `change_hair_color`: defined, but not called in the main makeup pipeline.
 
-## 3. Objectives
+## Run assumptions
+Requires a working webcam for the live cells, MediaPipe and OpenCV GUI support. The still-image cell expects `1.jpg` in the notebook working directory. No dependency lock or setup file is included.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Review findings
+- Effects use fixed BGR colour constants and fixed landmark polygons; they are not user-configurable.
+- Blush/contour masks are broad polygons and may colour unintended facial regions.
+- The notebook has repeated webcam capture sections; run only the intended cell sequence and release the camera between sessions.
+- No face tracking stability, frame-rate, visual-quality or demographic robustness evaluation is included.
+- Webcam loop exit keys differ between cells (`r` and `q`).
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[fm.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `cv2`, `mediapipe`, `numpy` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`fm.ipynb`](<fm.ipynb>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from `fm.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `cv2`, `face`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "computer vision/AR_based_virtual_makeup"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `fm.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "computer vision/AR_based_virtual_makeup"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for face recognition. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Verification
+Static notebook inspection only; no webcam session or notebook execution was performed. No performance or quality score is claimed.
