@@ -72,3 +72,15 @@ The repository's existing `PROJECT_INVENTORY.md` and `documentation_inventory.js
 ### Verification boundary
 
 This was a static GitHub source/notebook/artifact review. No Python scripts, notebooks, training jobs, webcams, videos, model inference, or external APIs were executed. Committed training CSVs and outputs are identified as historical repository evidence, not reproduced results. The full 120-project reference catalogue was not reconciled during this domain-specific pass.
+
+
+## Generative AI domain — reviewed and documented
+
+- Canonical inventory scope: **19 projects (IDs 011–029)**, preserved without renumbering.
+- All 19 canonical project README files rewritten with implementation-specific workflows, technologies, configuration, defects, limitations and next steps.
+- Domain index: [GenerativeAI/README.md](GenerativeAI/README.md).
+- Detailed audit: [GENERATIVE_AI_AUDIT.md](GENERATIVE_AI_AUDIT.md).
+- Separate root-level `genai/` directory: four PNG reference assets only; [genai/README.md](genai/README.md) documents why these are not counted as executable projects.
+- High-priority findings: client-supplied API key and wildcard CORS in Visual Flow Backend; missing route decorator in Langflow JSON Loader API; URL/filename safety issues in WebAutoGPT and DocQuery; insecure placeholder Flask secret and heuristic quiz scoring in MCQ Generator; environment-variable assignment defects in multiple projects; weak keyword-only evaluation in LangAudit.
+- Verification: static source/configuration inspection only. No model calls, APIs, servers, agent workflows, OAuth, retrieval or inference were executed.
+- Documentation update date: 2026-11-05.
