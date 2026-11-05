@@ -1,121 +1,39 @@
-# Facial Recognition
+# Face Recognition: Image Encoding and Webcam Matching
 
-**Project 038** · **Domain:** Machine_Learning
+**Project 038 · Machine Learning / Computer Vision · `Machine_Learning/facial_recognition`**
 
-## 1. Project Overview
+## Purpose
+A local face-identification prototype that encodes faces from an `images/` gallery, serializes embeddings and labels, and compares still-image or webcam face encodings against that gallery.
 
-This project addresses **face recognition**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Components
+- `en.py`: reads image files from `images/`, converts BGR to RGB, extracts a face encoding per image and pickles `[encodings, labels]` to `data.p`.
+- `face_pro.py`: loads the pickle, reads a configured sample image, detects faces and compares encodings.
+- `real_time.py`: opens webcam index 0, detects faces per frame, compares encodings and overlays a matching label.
 
-## 2. Problem Statement
-
-The implementation explores a technical workflow related to face recognition. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
-
-## 3. Objectives
-
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
+## Architecture
 ```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[en.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
+flowchart TD
+ A[Gallery images] --> B[OpenCV load and BGR to RGB]
+ B --> C[face_recognition face embeddings]
+ C --> D[data.p: embeddings and labels]
+ E[Still image or webcam frame] --> F[Face detection and encoding]
+ D --> G[Compare faces / face distance]
+ F --> G
+ G --> H[Display candidate label]
 ```
 
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `cv2`, `face_recognition`, `numpy`, `os`, `pickle` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`en.py`](<en.py>)
-- [`face_pro.py`](<face_pro.py>)
-- [`real_time.py`](<real_time.py>)
-
-Nested assets/directories observed: `images/` (6 files)
-
-Extracted implementation symbols and notebook headings:
-- `en.py` functions: `find_encodings`
-
-## 7. Implementation Workflow
-
-1. Start from `en.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `cv2`, `face`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
+## Stack and run
+Python, OpenCV, `face_recognition` (dlib-based), NumPy, pickle. Install compatible OpenCV, face_recognition/dlib, NumPy and run from this directory:
 ```bash
-cd "Machine_Learning/facial_recognition"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `en.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "Machine_Learning/facial_recognition"
 python en.py
-```
+python real_time.py
+``
+The still-image example is `face_pro.py`. Webcam access is required for real-time mode.
 
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
+## Limitations and safety
+The gallery-building script assumes every file loads and contains a detectable face; it indexes the first encoding without handling zero/multiple faces. The still-image script uses a hard-coded image path and checks the truthiness of the matches list rather than whether any match is true. The real-time script selects the minimum-distance candidate but should apply an explicit distance threshold before assigning an identity; otherwise an unknown person may be labeled as the nearest known person. Pickle files must only be loaded from trusted sources.
 
-## 13. Input and Output
+Face embeddings and labels are biometric personal data. Obtain informed consent, restrict access, define retention/deletion rules, and do not use this prototype for consequential decisions or surveillance. No recognition accuracy or false-match rate is established.
 
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for face recognition. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Improvements
+Add face-count/error handling, distance threshold calibration on a consented validation set, unknown-person handling, secure embedding storage, documented gallery enrollment/deletion, tests and pinned system dependencies.
