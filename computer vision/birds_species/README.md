@@ -1,119 +1,32 @@
-# Birds Species
+# Bird Species Detection with Ultralytics YOLO
 
-**Project 058** · **Domain:** computer vision
+**Project ID:** 058 · **Notebook:** [test.ipynb](test.ipynb)
 
-## 1. Project Overview
+## Objective
+The folder contains a YOLO-based object-detection training run and a notebook that loads its saved best checkpoint. The project is labelled Bird Species Detection; the exact class names and dataset definition are not committed in the inspected directory.
 
-This project addresses **object detection**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Training evidence
+The saved `runs/detect/train/args.yaml` records:
+- Ultralytics task: detection
+- Model: `yolo11n.pt`
+- 20 epochs, batch size 16, image size 640
+- CUDA device, pretrained weights, deterministic mode enabled
+- Validation enabled
 
-## 2. Problem Statement
+The run directory includes `best.pt`, `last.pt`, plots, confusion matrices, batch visualizations and `results.csv`.
 
-The implementation explores a technical workflow related to object detection. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Recorded final-epoch metrics
+The final row of the committed training CSV (epoch 20) records precision 0.96081, recall 0.96842, mAP50 0.98361 and mAP50–95 0.83109. These are historical run artefacts, not independently reproduced results. They are meaningful only with the original dataset split, class mapping and evaluation configuration.
 
-## 3. Objectives
+## Notebook behaviour
+The notebook imports Ultralytics YOLO and loads `runs/detect/train/weights/best.pt` using `torch.load(..., weights_only=False)`, then wraps it in `YOLO`. It contains no further inference cells in the inspected notebook.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Limitations and risks
+- Dataset YAML and original dataset are absent; training configuration points to a Colab path `/content/ALL-6/data.yaml`.
+- Class names, dataset source/version and split integrity cannot be verified here.
+- `weights_only=False` uses pickle-based loading; only load trusted checkpoints.
+- No reproducible prediction script or sample input is included.
+- Model weights and run artefacts are large; document provenance and consider Git LFS or external artifact storage.
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[test.ipynb]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `cv2`, `torch`, `ultralytics` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`test.ipynb`](<test.ipynb>)
-
-Nested assets/directories observed: `runs/` (26 files)
-
-Extracted implementation symbols and notebook headings:
-- No function/class or notebook-heading summary was extractable statically.
-
-## 7. Implementation Workflow
-
-1. Start from `test.ipynb`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `cv2`, `torch`, `train`, `yolo`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "computer vision/birds_species"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `test.ipynb`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "computer vision/birds_species"
-python your_entry_point.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for object detection. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Verification
+Static inspection of notebook, YAML, CSV and saved artifacts only; model loading and inference were not run.
