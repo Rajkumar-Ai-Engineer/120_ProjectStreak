@@ -1,122 +1,33 @@
-# Projectpilot
+# ProjectPilot — Five-Stage Research and Writing Agent Workflow
 
-**Project 021** · **Domain:** GenerativeAI
+**Project ID:** 021 · **Domain:** Generative AI  
+**Entry point:** `main.py`
 
-## 1. Project Overview
+## Purpose
+A multi-agent workflow that turns a user task into a reviewed draft. CrewAI agents perform individual stages while LangGraph connects the stages in a fixed sequence.
 
-This project addresses **an experimental generativeai workflow implemented in the repository**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Agent stages
+1. **Intake:** interpret the user's goal and identify requirements.
+2. **Retriever:** gather supporting information using `SerperDevTool`.
+3. **Planner:** organize the requirements and fetched material into a structured plan.
+4. **Writer:** create a first draft from the plan and collected context.
+5. **Reviewer:** revise and polish the draft.
 
-## 2. Problem Statement
+The LangGraph state stores the original input, extracted requirements, fetched data, planned structure, writer draft and final reviewed version. The graph is compiled and invoked from the terminal. A Mermaid graph image is written to `graph.png` if it does not already exist.
 
-The implementation explores a technical workflow related to an experimental generativeai workflow implemented in the repository. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Technologies and configuration
+Python, LangGraph, CrewAI, CrewAI Tools, Serper search and a Groq-compatible OpenAI endpoint. Configure `GROQ_API_KEY` and `SERPER_API_KEY` in the environment. The project has no dedicated requirements file in its canonical folder.
 
-## 3. Objectives
+## Findings
+- The graph is a fixed sequential pipeline; there is no conditional routing, retry policy, checkpointing or human approval stage.
+- Several agents are constructed inside node execution, so repeated invocations recreate agent objects.
+- Error handling returns generic fallback strings such as “Planning failed”; downstream stages may continue with these strings.
+- Search results and generated drafts are not accompanied by source citations or a claim-verification pass.
+- The graph output is printed to the terminal; no persistent final-document export or web UI is included in the inspected package.
+- The code uses a third-party search tool; its results and licensing/usage constraints need review.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
+## Run
+Create an environment with compatible CrewAI/LangGraph versions, set the two API keys and run `python main.py` from this directory.
 
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[main.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `crewai`, `crewai_tools`, `dotenv`, `langgraph`, `logging`, `logging_File`, `os`, `traceback`, `typing` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`__init__.py`](<__init__.py>)
-- [`logging_File.py`](<logging_File.py>)
-- [`main.py`](<main.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `main.py` functions: `intake_agent_node`, `retriever_agent_node`, `planner_agent_node`, `writer_agent_node`, `reviewer_agent_node`, `IntakeAgent`, `RetrieverAgent`, `PlannerAgent`, `WriterAgent`, `Reviewer`
-- `main.py` classes: `MultiAI_Agent_System`, `State`
-
-## 7. Implementation Workflow
-
-1. Start from `main.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `crewai`, `openai`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "GenerativeAI/ProjectPilot/ProjectPilot"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `main.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "GenerativeAI/ProjectPilot/ProjectPilot"
-python main.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for an experimental generativeai workflow implemented in the repository. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Next steps
+Persist source URLs and evidence, add human approval and structured state validation, implement retry/stop conditions, save final artifacts, and test each agent stage independently.
