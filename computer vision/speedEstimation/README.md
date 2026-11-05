@@ -1,120 +1,32 @@
-# Speedestimation
+# Vehicle Speed Estimation from Video
 
-**Project 062** · **Domain:** computer vision
+**Project ID:** 062 · **Source:** [traffic.py](traffic.py)
 
-## 1. Project Overview
+## Objective
+Estimate the speed of detected objects in a video using YOLO object detection, ByteTrack IDs, polygon-zone filtering and a perspective transform.
 
-This project addresses **object detection**. This description is derived from the checked-in filenames, imports, symbols, and notebook/source signals; behavior not evidenced by those files is not claimed.
+## Observed architecture
+- Load a YOLO model (default argument `yolov8x.pt`).
+- Read video metadata with Supervision.
+- Initialize ByteTrack at the source video's frame rate.
+- Detect objects at image size 1280 and confidence threshold 0.3.
+- Filter detections by class and polygon zone; apply NMS at IoU 0.5.
+- Track objects, transform bottom-centre anchor points into a top-down target plane, keep recent y-coordinates per tracker ID and calculate a rate of change.
+- Annotate frames with boxes, traces and labels; write to `result.mp4`.
 
-## 2. Problem Statement
+## Technologies
+Ultralytics YOLO, Supervision, OpenCV, NumPy, collections and tqdm.
 
-The implementation explores a technical workflow related to object detection. The repository does not specify a formal business problem statement beyond the available implementation artifacts.
+## Important correctness issues
+- `sv.get_video_frames_generator(self.Source)` is passed the polygon coordinates rather than `self.video_path`; this is a blocking input error.
+- Speed is computed from transformed pixel displacement and converted to km/h by multiplying by 3.6, but the target plane is defined in arbitrary pixel units (25×250). No real-world distance calibration is present, so the km/h label is not physically justified.
+- The source polygon coordinates and perspective transform are hard-coded for one camera view and resolution.
+- `detections.class_id != 0` removes class 0 (commonly person in COCO); document the intended vehicle classes and filter explicitly.
+- The `Roboflow` import is capitalized and unused; the required package/dependency list is not defined.
+- No CLI/main invocation is shown in the inspected source, and no source video or model weights are included.
 
-## 3. Objectives
+## Status
+**Prototype with at least one blocking video-generator argument defect and uncalibrated speed units.** Treat output speed values as unvalidated until corrected and calibrated against measured distances.
 
-- Implement or demonstrate the workflow represented by the source files in this directory.
-- Use the checked-in data, model artifacts, or configuration where referenced by the code.
-- Provide an executable experiment or application entry point where one is present.
-
-## 4. Technical Architecture
-
-```mermaid
-flowchart LR
-    I[Inputs / project assets] --> E[traffic.py]
-    E --> P[Project processing / model logic]
-    P --> O[Outputs or application result]
-```
-
-This is a static architecture view. Exact runtime wiring, external services, and deployment topology are **not verifiable from the available implementation** unless listed in the source files.
-
-## 5. Technologies Used
-
-| Language | Python |
-| Libraries detected from imports | `Roboflow`, `collections`, `cv2`, `numpy`, `os`, `supervision`, `tqdm`, `ultralytics` |
-| Dependency manifests | Not specified in the repository |
-
-## 6. Project Structure
-
-Important directly contained files:
-
-- [`traffic.py`](<traffic.py>)
-
-Nested assets/directories observed: No nested project assets detected.
-
-Extracted implementation symbols and notebook headings:
-- `traffic.py` functions: `__init__`, `transform_points_views`, `video_save`
-- `traffic.py` classes: `SpeedEstimator`
-
-## 7. Implementation Workflow
-
-1. Start from `traffic.py`.
-2. Load or receive the inputs referenced by the implementation and project assets.
-3. Apply the preprocessing, model, or application logic present in the source.
-4. Produce the outputs described by the code.
-
-The repository does not provide a separately verified end-to-end run command or reproducible evaluation trace for this project unless noted below.
-
-## 8. Core Features
-
-Only the following evidence-backed features are documented: source/notebook execution represented by the entry points above; use of the detected libraries; and any processing implied by the checked-in code. A user-facing feature list, API contract, and production readiness are not specified in the repository.
-
-## 9. Algorithms and Models
-
-Detected technical signals: `cv2`, `yolo`. Model architectures, hyperparameters, and algorithm details should be read from the linked source/notebook files; no unverified accuracy claim is made here.
-
-## 10. Installation and Setup
-
-No dependency manifest is present for this project. Install only the dependencies explicitly imported by the source after reviewing the files. For Python-based files, create an isolated environment. Do not install from untrusted sources without reviewing the files first.
-
-```bash
-cd "computer vision/speedEstimation"
-python -m venv .venv
-# Activate .venv, then install dependencies from a checked-in manifest if present.
-```
-
-## 11. Configuration
-
-Configuration files and environment variables are not separately specified by the repository for this project. Review source references to API keys, paths, model files, and datasets before running. Never commit secrets.
-
-## 12. Execution Instructions
-
-The checked-in entry point candidates are: `traffic.py`. Use the command appropriate to the actual file, for example:
-
-```bash
-cd "computer vision/speedEstimation"
-python traffic.py
-```
-
-Notebook execution is not run as part of documentation generation. Use Jupyter locally after reviewing paths and dependencies.
-
-## 13. Input and Output
-
-Inputs and outputs are determined by the code and checked-in assets. Directly observed nested assets are summarized above. A stable command-line/API schema is **not specified in the repository** unless implemented by the entry point.
-
-## 14. Results and Evaluation
-
-No independently reproduced metrics are reported here. Any metrics or outputs shown in a notebook remain repository-provided artifacts and should be validated by rerunning the relevant cells in a controlled environment.
-
-## 15. Use Cases
-
-Potential applications include experimentation, learning, prototyping, and evaluation of the documented workflow for object detection. Production use would require validation, tests, data governance, security review, and operational packaging.
-
-## 16. Limitations
-
-- Reproducibility may depend on local paths, large datasets, binary model files, or unavailable services.
-- Automated documentation did not execute application code or notebooks.
-- The repository does not consistently provide dependency locks, tests, deployment instructions, or measured evaluation results.
-- Claims beyond the checked-in implementation are not verifiable.
-
-## 17. Future Improvements
-
-- Add a minimal reproducible setup with pinned dependencies and documented data acquisition.
-- Add tests, deterministic evaluation, and explicit input/output contracts.
-- Separate generated artifacts and datasets from source code where appropriate.
-- Document security, privacy, deployment, and monitoring requirements for any production deployment.
-
-## 18. Author
-
-Rajkumar V.
-
-GitHub: https://github.com/Rajkumar-Ai-Engineer
+## Verification
+Static inspection only; no video processing or speed measurement was run.
